@@ -1,0 +1,27 @@
+/*there is only single theme followed throughout the project so no need to create map*/
+
+@use '../abstract/color' as *;
+@use 'sass:color';
+
+//brand colors
+$brand-primary: $pink-100;
+$brand-secondary: $orange-100;
+$brand-tertiary: $yellow-200;
+
+/*Background tokens*/
+$bg-primary: $white-100;
+$bg-secondary: $purple-200;
+
+/*Text Token*/
+$text-primary: $black-900;
+$text-secondary: $pink-100;
+$text-tertiary: $orange-100;
+$text-inverse: $white-200;
+$text-subtitle: color.change($black-800, $alpha: 0.5);
+
+//border token
+$border-light: $white-200;
+$border-dark: color.change($black-800, $alpha: 0.1);
+
+//shadow
+$shadow-sm: color.change($black-900, $alpha: 0.02);

@@ -1,0 +1,104 @@
+@use '../abstract/color' as *;
+@use 'sass:color';
+//need to import fonts
+
+//font family
+$font-family-primary: 'Circular Std';
+$font-family-secondary: Inter;
+
+//font size
+$font-size-xs: 0.875rem;
+$font-size-small: 1rem;
+$font-size-normal: 1.5rem;
+$font-size-large: 2rem;
+$font-size-xl: 2.5rem;
+
+//font weight
+$font-medium: 400;
+$font-semibold: 700;
+$font-bold: 900;
+
+//line height
+$line-height-open: 120%;
+$line-height-full: 160%;
+$line-height-relax: 2.5rem; //166.667%
+
+//text transform
+$text-uppercase: uppercase;
+$text-capital: capitalize;
+
+//Main Headings
+$main-heading-1: (
+    color: $black-900,
+    text-align: center,
+    font-family: $font-family-primary,
+    font-size: $font-size-xl,
+    font-weight: $font-semibold,
+    line-height: $line-height-open,
+);
+
+$main-heading-2: (
+    color: $black-800,
+    text-align: center,
+    font-family: $font-family-primary,
+    font-size: $font-size-large,
+    font-weight: $font-semibold,
+    line-height: $line-height-open,
+);
+
+//Sub Headings
+$sub-heading-1: (
+    color: $pink-100,
+    text-align: center,
+    font-family: $font-family-primary,
+    font-size: $font-size-small,
+    font-weight: $font-semibold,
+    line-height: $line-height-open,
+    text-transform: $text-uppercase,
+);
+
+$sub-heading-2: (
+    color: $pink-100,
+    text-align: center,
+    font-family: $font-family-primary,
+    font-size: $font-size-xs,
+    font-weight: $font-semibold,
+    line-height: $line-height-open,
+    text-transform: $text-uppercase,
+);
+
+//helper text
+$subtitle-1: (
+    color: color.change($black-800, $alpha: 0.5),
+    text-align: center,
+    font-family: $font-family-secondary,
+    font-size: $font-size-small,
+    font-weight: $font-medium,
+    line-height: $line-height-full,
+);
+
+$subtitle-2: (
+    color: color.change($black-800, $alpha: 0.75),
+    text-align: center,
+    font-family: $font-family-primary,
+    font-size: $font-size-small,
+    font-weight: $font-medium,
+    line-height: $line-height-full,
+);
+
+//navigation links
+$nav-link-1: (
+    color: $black-800,
+    font-family: $font-family-primary,
+    font-size: $font-size-normal,
+    font-weight: $font-semibold,
+    line-height: $line-height-open,
+);
+
+$nav-link-2: (
+    color: color.change($black-800, $alpha: 0.5),
+    font-family: $font-family-primary,
+    font-size: $font-size-xs,
+    font-weight: $font-semibold,
+    line-height: $line-height-open,
+);

@@ -1,0 +1,35 @@
+{
+    "header": {
+        "nav": ["home", "discover", "special deals", "contact"],
+        "buttons": ["log in", "sign up"]
+    },
+    "section-1": {
+        "float": "Explore the world!",
+        "heading": "Travel top destination of the world",
+        "sub-text": "We always make our customer happy by providing as many choices as possible "
+    },
+    "btn": ["get started", "watch demo"],
+    "section-2": {
+        "float": "travel point",
+        "heading": "We helping you find your dream location",
+        "sub-text": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC."
+    },
+    "card": {
+        "card_1": {
+            "number": "500+",
+            "heading": "holiday package"
+        },
+        "card_2": {
+            "number": "100",
+            "heading": "Luxury Hotel"
+        },
+        "card_3": {
+            "number": "7",
+            "heading": "Premium Airlines"
+        },
+        "card_4": {
+            "number": "2k+",
+            "heading": "Happy Customer"
+        }
+    }
+}

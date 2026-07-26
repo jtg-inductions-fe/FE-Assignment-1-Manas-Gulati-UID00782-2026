@@ -1,0 +1,57 @@
+@use './breakpoint' as bp;
+@use './color' as cl;
+@use 'sass:map';
+@use 'sass:color';
+
+//create flex with default values which are commonly used throughout project
+@mixin flex(
+    $direction: row,
+    $space: space-between,
+    $gap: 1rem,
+    $align-item: center
+) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $space;
+    gap: $gap;
+    align-items: $align-item;
+}
+
+//responding to different screen sizes as defined in breakpoint.scss
+@mixin responsive-up($screen) {
+    @media (min-width: map.get(bp.$breakpoints,$screen)) {
+        @content;
+    }
+}
+
+//adding shadow
+@mixin shadow(
+    $x: 0,
+    $y: 62px,
+    $blur: 17px,
+    $color: color.change(cl.$black-800, $alpha: 0.1),
+    $rad: 0
+) {
+    box-shadow: $x $y $blur $rad $color;
+}
+
+//changing font properties
+@mixin font($size, $color, $weight) {
+    color: $color;
+    font-size: $size;
+    font-weight: $weight;
+}
+
+//creating grid layout
+@mixin grid($col, $gap: 1rem) {
+    display: grid;
+    grid-template-columns: repeat($col, 1fr);
+    gap: $gap;
+}
+
+//to apply typography properties associated to semantic names
+@mixin use-typo($typography-type) {
+    @each $key, $value in $typography-type {
+        #{$key}: $value;
+    }
+}

@@ -1,0 +1,13 @@
+@use '../abstract/color' as *;
+@use 'sass:color';
+
+.card {
+    display: flex;
+    padding: 2rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    align-self: stretch;
+    border-radius: 2rem;
+    border: 1px solid color.change($black-800, $alpha: 0.1);
+}
