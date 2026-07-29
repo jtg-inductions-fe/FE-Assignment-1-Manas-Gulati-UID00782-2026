@@ -1,0 +1,290 @@
+//import all necessary files with appropriate namespace
+@use '../abstract/function' as f;
+@use '../themes/light' as th;
+@use '../abstract/mixin' as mix;
+@use '../abstract/color' as c;
+@use 'sass:color';
+@use '../base/typography' as typo;
+
+//defining styling for parent header container
+
+.hero {
+    width: 95vw;
+    position: relative;
+    margin: 1em auto;
+    @include mix.flex($direction: column);
+    //image section
+    &__img {
+        position: relative;
+        width: 95%;
+    }
+    &__globe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+    //container containing 3 images
+    &__collection {
+        width: 80%;
+        margin: 2.5em auto;
+        position: relative;
+        @include mix.flex;
+        justify-content: center;
+    }
+    &__city {
+        width: 41%;
+        border-radius: f.px-to-rem(17);
+    }
+    //container handling vertical alignment of 2 images
+    &__vertical {
+        @include mix.flex($direction: column);
+        position: relative;
+        width: 41%;
+        &__mountain {
+            width: 100%;
+            aspect-ratio: 1/1.1;
+            border-radius: f.px-to-rem(17);
+        }
+        &__ocean {
+            width: 100%;
+            aspect-ratio: 1/1.1;
+            border-radius: f.px-to-rem(17);
+        }
+    }
+    //setting plane icon alignment
+    &__plane {
+        width: 21%;
+        background-color: th.$brand-primary;
+        position: absolute;
+        top: 45%;
+        left: 0;
+        transform: translate(-50%, -50%);
+        @include mix.shadow(
+            0,
+            12px,
+            14px,
+            color.change(c.$black-800, $alpha: 0.25)
+        );
+    }
+    //setting contact icon alignment
+    &__contact {
+        position: absolute;
+        background-color: th.$brand-secondary;
+        color: c.$white-100;
+        @include mix.shadow(
+            0,
+            12px,
+            14px,
+            color.change(c.$black-800, $alpha: 0.25)
+        );
+        bottom: 0;
+        right: 20%;
+    }
+    //setting floater alignment
+    &__loc {
+        position: absolute;
+        right: -5%;
+        top: 60%;
+        background-color: th.$bg-primary;
+        border-radius: f.px-to-rem(51);
+        padding: 0.5rem 1rem;
+        gap: f.px-to-rem(4);
+        justify-content: center;
+        align-items: center;
+        @include mix.font(7px, c.$black-800, 700);
+        @include mix.shadow(
+            0,
+            12px,
+            14px,
+            color.change(c.$black-800, $alpha: 0.25)
+        );
+        & > i {
+            color: th.$brand-tertiary;
+        }
+    }
+
+    //text section
+    &__content {
+        width: 95%;
+        @include mix.flex($direction: column, $gap: 2rem);
+        &__sub-heading {
+            width: f.px-to-rem(240);
+            border-radius: f.px-to-rem(100);
+            padding: 1rem 2rem;
+            @include mix.flex($gap: 1rem, $space: center);
+            @include mix.useTypo(typo.$sub-heading-2);
+            font-size: f.px-to-rem(12);
+            border: 1px solid color.change(c.$black-800, $alpha: 0.05);
+            @include mix.shadow(
+                0,
+                5px,
+                17px,
+                color.change(c.$black-800, $alpha: 0.15)
+            );
+        }
+        &__heading {
+            width: 80%;
+            @include mix.useTypo(typo.$main-heading-1);
+        }
+        &__subtitle {
+            width: 85%;
+            @include mix.useTypo(typo.$subtitle-1);
+        }
+    }
+
+    //button section
+    &__btn {
+        width: 95%;
+        @include mix.flex($direction: column, $gap: 2rem);
+        &__primary {
+            width: 100%;
+            max-width: none;
+            padding: 1.3rem 0;
+            @include mix.shadow(
+                0,
+                20px,
+                17px,
+                color.change(c.$black-800, $alpha: 0.25)
+            );
+        }
+        &__secondary {
+            width: 100%;
+            max-width: none;
+            padding: 1.3rem 0;
+            align-items: baseline;
+            border: 1px solid color.change(c.$black-800, $alpha: 0.09);
+            @include mix.shadow(
+                0,
+                5px,
+                17px,
+                color.change(c.$black-800, $alpha: 0.15)
+            );
+        }
+        &__play {
+            background-color: th.$bg-secondary;
+            height: f.px-to-rem(20);
+            width: f.px-to-rem(20);
+            align-items: center;
+            justify-content: center;
+            & > i {
+                color: c.$white-100;
+                font-size: f.px-to-rem(12);
+            }
+        }
+    }
+
+    //image
+    &__triangles {
+        display: none;
+    }
+}
+
+//Tablet view
+@include mix.responsiveUp(md) {
+    .hero {
+        padding: f.px-to-rem(24) 0;
+        &__img {
+            width: 75%;
+        }
+        &__contact {
+            font-size: 1.5rem;
+        }
+        &__loc {
+            font-size: f.px-to-rem(12);
+            padding: 1rem 1.5rem;
+        }
+        &__content {
+            padding: 0 6rem;
+            &__heading {
+                width: 85%;
+                font-size: f.px-to-rem(56);
+            }
+        }
+        &__subtitle {
+            width: 70%;
+        }
+        &__btn {
+            width: 85%;
+            gap: 1rem;
+            @include mix.flex;
+            justify-content: center;
+            &__primary {
+                width: 25%;
+                padding: 0.8rem 0;
+            }
+            &__secondary {
+                font-size: 0.85rem;
+                width: 28%;
+                padding: 0.8rem;
+                gap: 0.3rem;
+            }
+        }
+        &__triangles {
+            display: inline-block;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+    }
+}
+
+//Desktop view
+@include mix.responsiveUp(lg) {
+    .hero {
+        @include mix.flex($direction: row-reverse);
+        padding: 2rem;
+        width: 90vw;
+
+        &__content {
+            padding: 0;
+            align-items: flex-start;
+            padding-left: 1rem;
+            width: 45%;
+            &__sub-heading {
+                width: f.px-to-rem(200);
+                padding: 0.5rem 1rem;
+                gap: 0.5rem;
+            }
+            &__heading {
+                text-align: left;
+            }
+            &__subtitle {
+                text-align: left;
+            }
+        }
+        &__loc {
+            padding: 1rem 2rem;
+            font-size: f.px-to-rem(14);
+            gap: 0.5rem;
+        }
+        &__btn {
+            justify-content: flex-start;
+            &__primary {
+                width: 45%;
+                padding: 0.7rem 1rem;
+                @include mix.shadow(
+                    0,
+                    14px,
+                    19px,
+                    color.change(c.$black-800, $alpha: 0.2)
+                );
+            }
+            &__secondary {
+                font-size: 0.85rem;
+                width: 60%;
+                padding: 0.7rem 1rem;
+                gap: 0.3rem;
+            }
+        }
+        &__triangles {
+            bottom: -10%;
+            left: -2%;
+        }
+    }
+}
+
+//to highlight text
+.highlight {
+    color: th.$brand-primary;
+}

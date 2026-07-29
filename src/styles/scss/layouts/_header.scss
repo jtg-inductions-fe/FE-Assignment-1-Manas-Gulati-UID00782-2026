@@ -122,6 +122,7 @@
 //Desktop view
 @include mix.responsive-up(lg) {
     .container {
+        @include mix.flex;
         width: 95vw;
         //navigation links
         &__nav-link {
