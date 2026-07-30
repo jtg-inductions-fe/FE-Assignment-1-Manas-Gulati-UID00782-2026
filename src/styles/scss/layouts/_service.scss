@@ -75,6 +75,9 @@
                 text-align: left;
             }
         }
+        &__card-block {
+            flex-basis: 40%;
+        }
         &__card-block > h4 {
             font-size: f.px-to-rem(30);
         }

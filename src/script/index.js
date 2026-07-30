@@ -90,3 +90,31 @@ addText('p', '.hero__content-heading', details);
 addText('p', '.hero__content-subtitle', heroSubtitle);
 
 //Hero Section ends
+
+//Service Section starts
+
+//accessing required data
+const serviceSubHeading = data.service.subHeading;
+const serviceHeading = data.service.heading;
+const serviceSubtitle = data.service.subtitle;
+
+//Adding sub Heading
+addText('p', '.service__content__sub-heading', serviceSubHeading);
+
+//Adding Heading
+addText('p', '.service__content__heading', serviceHeading);
+
+//adding subtitle
+addText('p', '.service__content__subtitle', serviceSubtitle);
+
+//setting card data
+const cardData = data.card;
+Object.values(cardData).forEach((card) => {
+    let cardContainer = document.createElement('div');
+    cardContainer.classList.add('card');
+    cardContainer.classList.add('service__card-block');
+    cardContainer.innerHTML = `<h4> ${card.number} </h4><p class="service__card-desc">${card.heading}</p>`;
+    document.querySelector('.service__card-layout').appendChild(cardContainer);
+});
+
+//Service Section ends
