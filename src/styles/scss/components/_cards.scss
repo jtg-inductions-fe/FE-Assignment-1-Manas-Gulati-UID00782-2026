@@ -1,5 +1,6 @@
-@use '../themes/light' as *;
+@use '../abstract/color' as *;
 @use '../abstract/mixin' as mix;
+@use 'sass:color';
 
 .card {
     @include mix.flex($direction: column);

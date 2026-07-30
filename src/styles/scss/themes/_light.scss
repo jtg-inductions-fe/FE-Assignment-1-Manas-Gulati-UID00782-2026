@@ -1,4 +1,4 @@
-/*there is only single theme followed throughout the project so no need to create map*/
+//there is only single theme followed throughout the project so no need to create map
 
 @use '../abstract/color' as *;
 @use 'sass:color';
@@ -17,11 +17,3 @@ $text-primary: $black-900;
 $text-secondary: $pink-100;
 $text-tertiary: $orange-100;
 $text-inverse: $white-200;
-$text-subtitle: color.change($black-800, $alpha: 0.5);
-
-//border token
-$border-light: $white-200;
-$border-dark: color.change($black-800, $alpha: 0.1);
-
-//shadow
-$shadow-sm: color.change($black-900, $alpha: 0.02);

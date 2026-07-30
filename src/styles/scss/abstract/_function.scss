@@ -13,5 +13,5 @@
         $pixel,
         $pixel * 0 + 1
     ); //this cuts out px in division, giving only numeric value
-    @return math.div($pixel, $base) * 1rem;
+    @return math.div($strippedValue, $base) * 1rem;
 }

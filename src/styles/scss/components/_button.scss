@@ -2,10 +2,7 @@
 @use '../abstract/mixin' as mix;
 
 .button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
+    @include mix.flex($gap: 0.5rem, $space: center);
     border-radius: 6.25rem;
     @include mix.use-typo(typo.$nav-link-2);
 }

@@ -29,9 +29,11 @@
 /// @param {size} $screen [null] - decide properties for increasing screen size
 ///
 /// @output change layout and styling of elements for increasing screen sizes
-@mixin responsiveUp($screen) {
-    @media (min-width: map.get(bp.$breakpoints,$screen)) {
-        @content;
+@mixin responsive-up($screen) {
+    @if map.has-key(bp.$breakpoints, $screen) {
+        @media (min-width: map.get(bp.$breakpoints,$screen)) {
+            @content;
+        }
     }
 }
 
@@ -59,7 +61,7 @@
 /// @param {typography-name} $typography-type [null] - apply font properties defined in _typography.scss to element's text
 ///
 /// @output apply font properties defined in _typography.scss
-@mixin useTypo($typography-type) {
+@mixin use-typo($typography-type) {
     @each $key, $value in $typography-type {
         #{$key}: $value;
     }

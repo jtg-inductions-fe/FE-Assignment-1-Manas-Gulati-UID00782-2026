@@ -1,6 +1,5 @@
 @use '../abstract/color' as *;
 @use 'sass:color';
-//need to import fonts
 
 //font family
 $font-family-primary: 'Circular Std';
@@ -31,7 +30,6 @@ $main-heading-1: (
     font-weight: $font-semibold,
     line-height: $line-height-open,
 );
-
 $main-heading-2: (
     text-align: center,
     font-family: $font-family-primary,
@@ -49,7 +47,6 @@ $sub-heading-1: (
     line-height: $line-height-open,
     text-transform: uppercase,
 );
-
 $sub-heading-2: (
     text-align: center,
     font-family: $font-family-primary,
@@ -75,7 +72,6 @@ $nav-link-1: (
     font-weight: $font-semibold,
     line-height: $line-height-open,
 );
-
 $nav-link-2: (
     font-family: $font-family-primary,
     font-size: $font-size-xs,
