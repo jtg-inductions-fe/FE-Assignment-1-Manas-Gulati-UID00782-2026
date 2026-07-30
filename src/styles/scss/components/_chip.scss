@@ -1,6 +1,6 @@
 @use '../abstract/mixin' as mix;
 
-.floater {
-    @include mix.flex();
+.chip {
+    @include mix.flex;
     border-radius: 70%;
 }

@@ -3,7 +3,14 @@
 @use 'sass:map';
 @use 'sass:color';
 
-//create flex with default values which are commonly used throughout project
+/// create flex with default values which are commonly used throughout project
+///
+/// @param {direction} $direction [row] - decide flex direction
+/// @param {space} $space [space-between] - decide alignment of flex item across main axis
+/// @param {Length} $gap [1rem] - Space between flex items.
+/// @param {space} $align-item [center] - decide alignment of flex item across cross axis
+///
+/// @output Applies flex properties and sets gaps.
 @mixin flex(
     $direction: row,
     $space: space-between,
@@ -17,14 +24,26 @@
     align-items: $align-item;
 }
 
-//responding to different screen sizes as defined in breakpoint.scss
-@mixin responsive-up($screen) {
+/// responding to different screen sizes as defined in breakpoint.scss
+///
+/// @param {size} $screen [null] - decide properties for increasing screen size
+///
+/// @output change layout and styling of elements for increasing screen sizes
+@mixin responsiveUp($screen) {
     @media (min-width: map.get(bp.$breakpoints,$screen)) {
         @content;
     }
 }
 
-//adding shadow
+/// add box shadow to element
+///
+/// @param {x-coordinate} $x [0] - decide x-offset
+/// @param {y-coordinate} $y[ 62px] - decide y-offset
+/// @param {blur} $blur [17px] - decide blur percentage
+/// @param {color} $color[ black] - decide color of shadow
+/// @param {radius} $rad [0] - decide spread radius of shadow
+///
+/// @output apply box shadow to element
 @mixin shadow(
     $x: 0,
     $y: 62px,
@@ -35,23 +54,25 @@
     box-shadow: $x $y $blur $rad $color;
 }
 
-//changing font properties
-@mixin font($size, $color, $weight) {
-    color: $color;
-    font-size: $size;
-    font-weight: $weight;
+/// apply typography properties associated to semantic names
+///
+/// @param {typography-name} $typography-type [null] - apply font properties defined in _typography.scss to element's text
+///
+/// @output apply font properties defined in _typography.scss
+@mixin useTypo($typography-type) {
+    @each $key, $value in $typography-type {
+        #{$key}: $value;
+    }
 }
 
-//creating grid layout
+/// creating grid layout
+///
+/// @param {number} $col [null] - decide number of columns in grid
+/// @param {length} $gap [1rem] - decide gap between items
+///
+/// @output sets grid layout
 @mixin grid($col, $gap: 1rem) {
     display: grid;
     grid-template-columns: repeat($col, 1fr);
     gap: $gap;
-}
-
-//to apply typography properties associated to semantic names
-@mixin use-typo($typography-type) {
-    @each $key, $value in $typography-type {
-        #{$key}: $value;
-    }
 }

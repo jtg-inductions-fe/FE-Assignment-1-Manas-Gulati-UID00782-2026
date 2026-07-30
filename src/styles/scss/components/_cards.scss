@@ -1,12 +1,9 @@
-@use '../abstract/color' as *;
-@use 'sass:color';
+@use '../themes/light' as *;
+@use '../abstract/mixin' as mix;
 
 .card {
-    display: flex;
+    @include mix.flex($direction: column);
     padding: 2rem;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
     align-self: stretch;
     border-radius: 2rem;
     border: 1px solid color.change($black-800, $alpha: 0.1);
