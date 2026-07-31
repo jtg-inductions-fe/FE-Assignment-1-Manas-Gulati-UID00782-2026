@@ -12,40 +12,46 @@
     @include mix.flex($direction: column);
     padding: 4rem 0;
     gap: 2rem;
+    position: relative;
     &__content {
         @include mix.flex($direction: column);
         gap: 1.5rem;
         padding: 0 f.px-to-rem(32);
-
-        &__sub-heading {
-            @include mix.useTypo(typo.$sub-heading-1);
-            color: c.$pink-100;
-        }
-        &__heading {
-            @include mix.useTypo(typo.$main-heading-2);
-            color: c.$black-800;
-        }
-        &__subtitle {
-            @include mix.useTypo(typo.$subtitle-1);
-            color: color.change(c.$black-800, $alpha: 0.5);
-        }
+    }
+    &__content-sub-heading {
+        @include mix.use-typo(typo.$sub-heading-1);
+        color: c.$pink-100;
+    }
+    &__content-heading {
+        @include mix.use-typo(typo.$main-heading-2);
+        color: c.$black-800;
+    }
+    &__content-subtitle {
+        @include mix.use-typo(typo.$subtitle-1);
+        color: color.change(c.$black-800, $alpha: 0.5);
     }
     &__card-layout {
         @include mix.flex($direction: column);
         width: 90%;
     }
     &__card-block > h4 {
-        @include mix.useTypo(typo.$main-heading-1);
+        @include mix.use-typo(typo.$main-heading-1);
         color: c.$orange-100;
     }
     &__card-desc {
-        @include mix.useTypo(typo.$subtitle-1);
+        @include mix.use-typo(typo.$subtitle-1);
         font-size: f.px-to-rem(18);
+    }
+    &__ticket {
+        display: none;
+    }
+    &__yellow-hue {
+        display: none;
     }
 }
 
 //Tablet view
-@include mix.responsiveUp(md) {
+@include mix.responsive-up(md) {
     .service {
         &__card-layout {
             @include mix.flex;
@@ -56,24 +62,31 @@
         &__card-block {
             padding: 1rem;
             flex-grow: 1;
+            flex-basis: 40%;
+        }
+        &__yellow-hue {
+            display: inline-block;
+            position: absolute;
+            top: -70%;
+            right: 0;
         }
     }
 }
 
 //Desktop view
-@include mix.responsiveUp(lg) {
+@include mix.responsive-up(lg) {
     .service {
         @include mix.flex;
         width: 95vw;
         &__content {
             width: 60%;
             align-items: flex-start;
-            &__heading {
-                text-align: left;
-            }
-            &__subtitle {
-                text-align: left;
-            }
+        }
+        &__content-heading {
+            text-align: left;
+        }
+        &__content-subtitle {
+            text-align: left;
         }
         &__card-block {
             flex-basis: 40%;
@@ -83,6 +96,17 @@
         }
         &__card-desc {
             font-size: f.px-to-rem(15);
+        }
+        &__ticket {
+            width: f.px-to-rem(90);
+            display: inline-block;
+            position: absolute;
+            top: 43%;
+            right: -1%;
+        }
+        &__yellow-hue {
+            top: -100%;
+            right: -4%;
         }
     }
 }

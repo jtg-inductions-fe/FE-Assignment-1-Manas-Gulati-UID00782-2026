@@ -99,13 +99,13 @@ const serviceHeading = data.service.heading;
 const serviceSubtitle = data.service.subtitle;
 
 //Adding sub Heading
-addText('p', '.service__content__sub-heading', serviceSubHeading);
+addText('p', '.service__content-sub-heading', serviceSubHeading);
 
 //Adding Heading
-addText('p', '.service__content__heading', serviceHeading);
+addText('p', '.service__content-heading', serviceHeading);
 
 //adding subtitle
-addText('p', '.service__content__subtitle', serviceSubtitle);
+addText('p', '.service__content-subtitle', serviceSubtitle);
 
 //setting card data
 const cardData = data.card;
