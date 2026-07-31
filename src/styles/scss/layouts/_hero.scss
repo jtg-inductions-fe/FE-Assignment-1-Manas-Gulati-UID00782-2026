@@ -6,8 +6,7 @@
 @use 'sass:color';
 @use '../base/typography' as typo;
 
-//defining styling for parent header container
-
+//defining styling for parent hero container
 .hero {
     width: 95vw;
     position: relative;
@@ -71,6 +70,8 @@
     &__contact {
         position: absolute;
         background-color: th.$brand-secondary;
+        justify-content: center;
+        align-items: center;
         color: c.$white-100;
         @include mix.shadow(
             0,
@@ -81,7 +82,7 @@
         bottom: 0;
         right: 20%;
     }
-    //setting floater alignment
+    //setting chip alignment
     &__loc {
         position: absolute;
         right: -5%;
@@ -92,7 +93,9 @@
         gap: f.px-to-rem(4);
         justify-content: center;
         align-items: center;
-        @include mix.font(7px, c.$black-800, 700);
+        font-size: f.px-to-rem(7);
+        color: c.$black-800;
+        font-weight: 700;
         @include mix.shadow(
             0,
             12px,
@@ -108,36 +111,42 @@
     &__content {
         width: 95%;
         @include mix.flex($direction: column, $gap: 2rem);
-        &__sub-heading {
-            width: f.px-to-rem(240);
-            border-radius: f.px-to-rem(100);
-            padding: 1rem 2rem;
-            @include mix.flex($gap: 1rem, $space: center);
-            @include mix.useTypo(typo.$sub-heading-2);
-            font-size: f.px-to-rem(12);
-            border: 1px solid color.change(c.$black-800, $alpha: 0.05);
-            @include mix.shadow(
-                0,
-                5px,
-                17px,
-                color.change(c.$black-800, $alpha: 0.15)
-            );
-        }
-        &__heading {
-            width: 80%;
-            @include mix.useTypo(typo.$main-heading-1);
-        }
-        &__subtitle {
-            width: 85%;
-            @include mix.useTypo(typo.$subtitle-1);
-        }
+    }
+    //subHeading Floater
+    &__content-sub-heading {
+        width: f.px-to-rem(240);
+        border-radius: f.px-to-rem(100);
+        padding: 1rem 2rem;
+        @include mix.flex($gap: 1rem, $space: center);
+        @include mix.use-typo(typo.$sub-heading-2);
+        font-size: f.px-to-rem(12);
+        color: c.$pink-100;
+        border: 1px solid color.change(c.$black-800, $alpha: 0.05);
+        @include mix.shadow(
+            0,
+            5px,
+            17px,
+            color.change(c.$black-800, $alpha: 0.15)
+        );
+    }
+    //Setting Heading Styles
+    &__content-heading {
+        width: 80%;
+        @include mix.use-typo(typo.$main-heading-1);
+        color: c.$black-900;
+    }
+    //Setting subtitles style
+    &__content-subtitle {
+        width: 85%;
+        @include mix.use-typo(typo.$subtitle-1);
+        color: color.change(c.$black-800, $alpha: 0.5);
     }
 
     //button section
     &__btn {
         width: 95%;
         @include mix.flex($direction: column, $gap: 2rem);
-        &__primary {
+        &--primary {
             width: 100%;
             max-width: none;
             padding: 1.3rem 0;
@@ -148,7 +157,7 @@
                 color.change(c.$black-800, $alpha: 0.25)
             );
         }
-        &__secondary {
+        &--secondary {
             width: 100%;
             max-width: none;
             padding: 1.3rem 0;
@@ -161,6 +170,7 @@
                 color.change(c.$black-800, $alpha: 0.15)
             );
         }
+        //Icon inside secondary button
         &__play {
             background-color: th.$bg-secondary;
             height: f.px-to-rem(20);
@@ -177,49 +187,69 @@
     //image
     &__triangles {
         display: none;
+        z-index: -1;
+    }
+}
+
+//defining logo design
+.sponsors {
+    width: 95vw;
+    @include mix.flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    row-gap: 2rem;
+    justify-content: center;
+    margin: 4rem auto;
+    & > div {
+        max-width: f.px-to-rem(130);
     }
 }
 
 //Tablet view
-@include mix.responsiveUp(md) {
+@include mix.responsive-up(md) {
     .hero {
         padding: f.px-to-rem(24) 0;
+        //changing img container width
         &__img {
             width: 75%;
         }
+        //changing icon styling on higher screen size
         &__contact {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
         }
         &__loc {
             font-size: f.px-to-rem(12);
             padding: 1rem 1.5rem;
         }
+        //changing text styling
         &__content {
             padding: 0 6rem;
-            &__heading {
-                width: 85%;
-                font-size: f.px-to-rem(56);
-            }
         }
-        &__subtitle {
+        &__content-heading {
+            width: 85%;
+            font-size: f.px-to-rem(56);
+        }
+        &__content-subtitle {
             width: 70%;
         }
+        //changing button layout oh higher screen size
         &__btn {
             width: 85%;
             gap: 1rem;
             @include mix.flex;
             justify-content: center;
-            &__primary {
-                width: 25%;
+            &--primary {
+                width: 35%;
                 padding: 0.8rem 0;
             }
-            &__secondary {
+            &--secondary {
                 font-size: 0.85rem;
-                width: 28%;
+                width: 40%;
                 padding: 0.8rem;
                 gap: 0.3rem;
             }
         }
+        //making img visible
         &__triangles {
             display: inline-block;
             position: absolute;
@@ -227,40 +257,49 @@
             left: 0;
         }
     }
+    //changing logo width on higher screen
+    .sponsors {
+        & > div {
+            max-width: f.px-to-rem(210);
+        }
+    }
 }
 
 //Desktop view
-@include mix.responsiveUp(lg) {
+@include mix.responsive-up(lg) {
     .hero {
+        //changing hero section layout on desktop view
         @include mix.flex($direction: row-reverse);
         padding: 2rem;
         width: 90vw;
-
+        //changing content styling for desktop view
         &__content {
             padding: 0;
             align-items: flex-start;
             padding-left: 1rem;
             width: 45%;
-            &__sub-heading {
-                width: f.px-to-rem(200);
-                padding: 0.5rem 1rem;
-                gap: 0.5rem;
-            }
-            &__heading {
-                text-align: left;
-            }
-            &__subtitle {
-                text-align: left;
-            }
         }
+        &__content-sub-heading {
+            width: f.px-to-rem(200);
+            padding: 0.5rem 1rem;
+            gap: 0.5rem;
+        }
+        &__content-heading {
+            text-align: left;
+        }
+        &__content-subtitle {
+            text-align: left;
+        }
+        //changing icon styling to suit higher screen size
         &__loc {
             padding: 1rem 2rem;
             font-size: f.px-to-rem(14);
             gap: 0.5rem;
         }
+        //changing button styling for desktop view
         &__btn {
             justify-content: flex-start;
-            &__primary {
+            &--primary {
                 width: 45%;
                 padding: 0.7rem 1rem;
                 @include mix.shadow(
@@ -270,17 +309,22 @@
                     color.change(c.$black-800, $alpha: 0.2)
                 );
             }
-            &__secondary {
+            &--secondary {
                 font-size: 0.85rem;
                 width: 60%;
                 padding: 0.7rem 1rem;
                 gap: 0.3rem;
             }
         }
+        //changing img alignment
         &__triangles {
             bottom: -10%;
             left: -2%;
         }
+    }
+    //managing gapping between logos on desktop view
+    .sponsors {
+        justify-content: space-evenly;
     }
 }
 

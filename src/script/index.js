@@ -14,8 +14,8 @@ const navBox = document.querySelector('.container__nav-box');
 const navLink = document.querySelector('.container__nav-link');
 const buttonLinksPrimary = data.header.buttons[0];
 const buttonLinksSecondary = data.header.buttons[1];
-const btnPrimary = document.querySelectorAll('.container__btn__primary');
-const btnSecondary = document.querySelectorAll('.container__btn__secondary');
+const btnPrimary = document.querySelectorAll('.container__btn-primary');
+const btnSecondary = document.querySelectorAll('.container__btn-secondary');
 
 /** fetch required data and append it to necessary container
  *
@@ -80,13 +80,13 @@ function addText(element, container, text) {
     para.innerHTML = text;
 }
 //Adding sub Heading
-addText('p', '.hero__content__sub-heading', heroSubHeading);
+addText('p', '.hero__content-sub-heading', heroSubHeading);
 
 //Adding Heading
 let details = `${heroHeading.slice(0, data.hero.heading[1])} <span class="highlight">${heroHeading.slice(data.hero.heading[1], data.hero.heading[2])}</span> ${heroHeading.slice(data.hero.heading[2])}`;
-addText('p', '.hero__content__heading', details);
+addText('p', '.hero__content-heading', details);
 
 //adding subtitle
-addText('p', '.hero__content__subtitle', heroSubtitle);
+addText('p', '.hero__content-subtitle', heroSubtitle);
 
 //Hero Section ends
