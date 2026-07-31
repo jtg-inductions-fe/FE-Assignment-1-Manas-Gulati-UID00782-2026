@@ -1,6 +1,6 @@
 {
     "header": {
-        "nav": ["home", "discover", "special deals", "contact"],
+        "nav": ["contact", "special deals", "discover", "home"],
         "buttons": ["log in", "sign up"]
     },
     "section-1": {

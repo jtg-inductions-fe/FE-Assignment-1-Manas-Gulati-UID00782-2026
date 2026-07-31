@@ -1,8 +1,21 @@
 @use '../base/typography' as typo;
 @use '../abstract/mixin' as mix;
+@use '../abstract/color' as c;
+@use '../themes/light' as th;
+@use '../abstract/function' as f;
 
 .button {
     @include mix.flex($gap: 0.5rem, $space: center);
-    border-radius: 6.25rem;
+    border-radius: f.px-to-rem(100);
+    padding: 0.5rem 1rem;
+    max-width: f.px-to-rem(115);
     @include mix.use-typo(typo.$nav-link-2);
+    &--primary {
+        background-color: th.$bg-primary;
+        color: c.$black-900;
+    }
+    &--secondary {
+        background-color: th.$bg-secondary;
+        color: c.$white-200;
+    }
 }
