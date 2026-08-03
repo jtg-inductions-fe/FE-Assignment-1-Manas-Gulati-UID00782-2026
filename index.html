@@ -4,9 +4,54 @@
         <title>Title</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="./public/styles/main.css" />
+        <link
+            href="https://cdn.jsdelivr.net/npm/@vetixy/circular-std@1.0.0/dist/index.min.css"
+            rel="stylesheet"
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+            rel="stylesheet"
+        />
     </head>
     <body>
+        <header class="container">
+            <button
+                class="container__hamburger"
+                aria-label="Menu Closed"
+                type="button"
+                aria-expanded="false"
+            >
+                <i class="icon-menu"></i>
+            </button>
+            <div class="container__logo">
+                <img src="/assets/images/logo.webp" alt="Brand Logo" />
+            </div>
+            <div class="container__nav-link"></div>
+            <!--data fetched from context.json-->
+            <div class="container__nav-box">
+                <!--data fetched from context.json-->
+                <div class="container__nav-box-btn">
+                    <button
+                        class="button button--primary"
+                        type="button"
+                    ></button>
+                    <button
+                        class="button button--secondary"
+                        type="button"
+                    ></button>
+                </div>
+            </div>
+            <div class="container__btn">
+                <!--data fetched from context.json-->
+                <button class="button button--primary" type="button"></button>
+                <button class="button button--secondary" type="button"></button>
+            </div>
+            <div class="orangeHue">
+                <img src="/assets/images/Ellipse 23.webp" alt="Coloured hue" />
+            </div>
+        </header>
         <script type="module" src="./src/script/index.js"></script>
     </body>
 </html>

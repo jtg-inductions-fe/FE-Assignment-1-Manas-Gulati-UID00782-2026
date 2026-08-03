@@ -1,0 +1,149 @@
+//import all necessary files with appropriate namespace
+@use '../abstract/function' as f;
+@use '../themes/light' as th;
+@use '../abstract/mixin' as mix;
+@use '../abstract/color' as c;
+@use 'sass:color';
+@use '../base/typography' as typo;
+
+//defining styling for parent header container
+.container {
+    width: 90vw;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    @include mix.flex($direction: row-reverse);
+    //dimension of logo remain same throughout screen
+    &__logo {
+        width: f.px-to-rem(40);
+        height: f.px-to-rem(40);
+    }
+    //remain hidden until screen size switches to desktop view
+    &__nav-link {
+        display: none;
+        @include mix.use-typo(typo.$nav-link-2);
+        color: color.change(c.$black-800, $alpha: 0.5);
+    }
+    //remain visible until screen size switches to desktop view
+    &__hamburger {
+        width: f.px-to-rem(40);
+        height: f.px-to-rem(40);
+        font-size: 1.9rem;
+        border-radius: 30%;
+        color: c.$white-100;
+        background-color: th.$bg-secondary;
+        transition: all 150ms ease;
+        &:hover {
+            background-color: color.adjust(th.$bg-secondary, $lightness: -6%);
+            @include mix.shadow(
+                0px,
+                6px,
+                16px,
+                color.change(c.$purple-200, $alpha: 0.25)
+            );
+        }
+    }
+    //hamburger pop-up menu
+    &__nav-box {
+        position: absolute;
+        @include mix.flex(column, space-between, 1rem, stretch);
+        flex-wrap: wrap;
+        @include mix.use-typo(typo.$nav-link-2);
+        width: 7rem;
+        right: 4rem;
+        top: f.px-to-rem(60);
+        padding: 0.75rem;
+        color: color.change(c.$black-800, $alpha: 0.5);
+        background-color: color.change(c.$white-100, $alpha: 0.98);
+        border: 1px solid color.change(c.$black-800, $alpha: 0.1);
+        border-radius: f.px-to-rem(16);
+        @include mix.shadow(
+            0px,
+            16px,
+            40px,
+            color.change(c.$black-800, $alpha: 0.16)
+        );
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateY(f.px-to-rem(-8)) scale(0.98);
+        transform-origin: top right;
+        transition: all 180ms ease;
+
+        //hamburger menu pop up on click of button
+        &--active {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            transform: translateY(0) scale(1);
+        }
+    }
+    //button inside hamburger pop up menu
+    &__nav-box-btn {
+        display: none;
+        //button remain hidden until hamburger icon is clicked
+        &--active {
+            @include mix.flex($gap: 1rem);
+            flex-wrap: wrap;
+        }
+    }
+    // button inside header container
+    //become visible when view enters tablet or higher view
+    &__btn {
+        display: none;
+    }
+}
+
+//Tablet view
+@include mix.responsive-up(md) {
+    .container {
+        flex-direction: row;
+        //button inside header container
+        &__btn {
+            max-width: f.px-to-rem(220);
+            @include mix.flex($gap: f.px-to-rem(8));
+            flex-wrap: wrap;
+        }
+        //the navigation link box that pop up when hamburger icon is clicked
+        &__nav-box {
+            width: 90%;
+            top: f.px-to-rem(75);
+            left: 7%;
+            padding-right: 0.75rem;
+            @include mix.flex($gap: 1.5rem);
+            flex-wrap: wrap;
+        }
+        //buttons inside navBox remain hidden in tablet or higher view
+        &__nav-box-btn {
+            display: none;
+        }
+    }
+}
+
+//Desktop view
+@include mix.responsive-up(lg) {
+    .container {
+        width: 95vw;
+        //navigation links
+        &__nav-link {
+            max-width: f.px-to-rem(428);
+            @include mix.flex($gap: f.px-to-rem(64));
+        }
+        //hamburger become hidden in desktop view
+        &__hamburger {
+            display: none;
+        }
+        //navBox remain hidden in desktop view
+        &__nav-box {
+            display: none;
+        }
+    }
+}
+
+//adding orange hue
+.orangeHue {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    pointer-events: none;
+}
