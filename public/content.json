@@ -3,16 +3,15 @@
         "nav": ["contact", "special deals", "discover", "home"],
         "buttons": ["log in", "sign up"]
     },
-    "section-1": {
-        "float": "Explore the world!",
-        "heading": "Travel top destination of the world",
-        "sub-text": "We always make our customer happy by providing as many choices as possible "
+    "hero": {
+        "subHeading": "Explore the world!",
+        "heading": ["Travel top destination of the world", 7, 22],
+        "subtitle": "We always make our customer happy by providing as many choices as possible "
     },
-    "btn": ["get started", "watch demo"],
-    "section-2": {
-        "float": "travel point",
+    "service": {
+        "subHeading": "travel point",
         "heading": "We helping you find your dream location",
-        "sub-text": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC."
+        "subtitle": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC."
     },
     "card": {
         "card_1": {

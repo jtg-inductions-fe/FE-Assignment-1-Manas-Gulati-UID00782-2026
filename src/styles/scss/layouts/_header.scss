@@ -75,6 +75,7 @@
             visibility: visible;
             pointer-events: auto;
             transform: translateY(0) scale(1);
+            z-index: 1;
         }
     }
     //button inside hamburger pop up menu
@@ -122,6 +123,7 @@
 //Desktop view
 @include mix.responsive-up(lg) {
     .container {
+        @include mix.flex;
         width: 95vw;
         //navigation links
         &__nav-link {

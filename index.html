@@ -34,24 +34,158 @@
                 <!--data fetched from context.json-->
                 <div class="container__nav-box-btn">
                     <button
-                        class="button button--primary"
+                        class="button button--primary container__btn-primary"
                         type="button"
                     ></button>
                     <button
-                        class="button button--secondary"
+                        class="button button--secondary container__btn-secondary"
                         type="button"
                     ></button>
                 </div>
             </div>
             <div class="container__btn">
                 <!--data fetched from context.json-->
-                <button class="button button--primary" type="button"></button>
-                <button class="button button--secondary" type="button"></button>
+                <button
+                    class="button button--primary container__btn-primary"
+                    type="button"
+                ></button>
+                <button
+                    class="button button--secondary container__btn-secondary"
+                    type="button"
+                ></button>
             </div>
             <div class="orangeHue">
                 <img src="/assets/images/Ellipse 23.webp" alt="Coloured hue" />
             </div>
         </header>
+        <main>
+            <!--Hero Section layout start-->
+            <section class="hero">
+                <!--Image section styling-->
+                <div class="hero__img">
+                    <img
+                        src="/assets/images/globe.webp"
+                        alt="Globe"
+                        class="hero__globe"
+                    />
+                    <div class="hero__collection">
+                        <div class="hero__vertical">
+                            <img
+                                src="/assets/images/ocean.webp"
+                                alt="Ocean"
+                                class="hero__vertical__ocean"
+                            />
+                            <img
+                                src="/assets/images/mountain.webp"
+                                alt="Mountain"
+                                class="hero__vertical__mountain"
+                            />
+                            <div class="hero__plane icon">
+                                <img
+                                    src="/assets/images/plane.webp"
+                                    alt="Plane"
+                                />
+                            </div>
+                        </div>
+                        <div class="hero__contact icon">
+                            <i class="icon-user-plus"></i>
+                        </div>
+                        <img
+                            src="/assets/images/city.webp"
+                            alt="City"
+                            class="hero__city"
+                        />
+                        <div class="chip hero__loc">
+                            <i class="icon-location"></i>
+                            <p>Top Places</p>
+                        </div>
+                    </div>
+                </div>
+                <!--Content section styling-->
+                <article class="hero__content">
+                    <div class="chip hero__content-sub-heading">
+                        <!--data fetched from context.json-->
+                        <i class="icon-briefcase"></i>
+                    </div>
+                    <div class="hero__content-heading">
+                        <!--data fetched from context.json-->
+                    </div>
+                    <div class="hero__content-subtitle">
+                        <!--data fetched from context.json-->
+                    </div>
+                    <!--Button styling-->
+                    <div class="hero__btn">
+                        <button
+                            class="button button--secondary hero__btn--primary"
+                        >
+                            Get Started
+                        </button>
+                        <button
+                            class="button button--primary hero__btn--secondary"
+                        >
+                            <div class="icon hero__btn__play">
+                                <i class="icon-play3"></i>
+                            </div>
+                            <p>Watch demo</p>
+                        </button>
+                    </div>
+                </article>
+                <!--special image that becomes visible on tablet and higher view-->
+                <div class="hero__triangles">
+                    <img src="/assets/images/triangles.webp" alt="" />
+                </div>
+            </section>
+            <!--Hero Section layout end-->
+
+            <aside class="sponsors">
+                <div>
+                    <img
+                        src="/assets/images/tripadvisor.webp"
+                        alt="Tripadvisor"
+                    />
+                </div>
+                <div>
+                    <img src="/assets/images/expedia.webp" alt="Expedia" />
+                </div>
+                <div>
+                    <img src="/assets/images/booking.webp" alt="Booking" />
+                </div>
+                <div>
+                    <img src="/assets/images/airbnb.webp" alt="AirBnB" />
+                </div>
+                <div>
+                    <img src="/assets/images/orbitz.webp" alt="Orbitz" />
+                </div>
+            </aside>
+
+            <!--Service Section layout start-->
+
+            <section class="service">
+                <div class="service__img">
+                    <img src="/assets/images/travel-point.webp" alt="" />
+                </div>
+                <article class="service__content">
+                    <div class="service__content-sub-heading">
+                        <!--data fetched from context.json-->
+                    </div>
+                    <div class="service__content-heading">
+                        <!--data fetched from context.json-->
+                    </div>
+                    <div class="service__content-subtitle">
+                        <!--data fetched from context.json-->
+                    </div>
+                    <div class="service__card-layout"></div>
+                </article>
+                <div class="service__ticket">
+                    <img src="/assets/images/ticket.webp" alt="" />
+                </div>
+                <div class="service__yellow-hue">
+                    <img src="/assets/images/Ellipse 24.webp" alt="" />
+                </div>
+            </section>
+
+            <!--Service Section layout end-->
+        </main>
         <script type="module" src="./src/script/index.js"></script>
     </body>
 </html>
