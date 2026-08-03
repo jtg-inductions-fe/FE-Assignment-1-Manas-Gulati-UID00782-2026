@@ -1,4 +1,6 @@
-import '../styles/main.scss';
+import Splide from '@splidejs/splide'; //provides all the slider functionality
+import '@splidejs/splide/css'; //allow styling of splide in scss
+import '../styles/main.scss'; //your styles will get overridden by default splide style if it comes before splide css
 
 //get data from context.json
 let data;
@@ -118,3 +120,15 @@ Object.values(cardData).forEach((card) => {
 });
 
 //Service Section ends
+
+//Testimonial section starts
+
+//Customizing Splide for testimonial section
+const splide = new Splide('#testimonial', {
+    type: 'loop',
+    pagination: true,
+});
+
+splide.mount();
+
+//Testimonial section starts
