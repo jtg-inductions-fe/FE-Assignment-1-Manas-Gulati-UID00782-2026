@@ -1,0 +1,6 @@
+@use '../abstract/mixin' as mix;
+
+.chip {
+    @include mix.flex;
+    border-radius: 70%;
+}

@@ -1,0 +1,15 @@
+@use '../abstract/mixin' as mix;
+@use '../themes/light' as th;
+.icon {
+    width: 2.05rem;
+    height: 2.05rem;
+    @include mix.flex($gap: 0.25rem, $align-items: flex-start);
+    padding: 0.5rem;
+    border-radius: 3.2rem;
+    &__primary {
+        background-color: th.$brand-primary;
+    }
+    &__secondary {
+        background-color: th.$bg-secondary;
+    }
+}
