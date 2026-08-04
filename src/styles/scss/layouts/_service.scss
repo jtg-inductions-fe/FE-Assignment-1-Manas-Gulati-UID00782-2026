@@ -8,63 +8,95 @@
 
 //defining layout for parent Service container
 .service {
-    width: 100vw;
     @include mix.flex($direction: column);
+    width: 100vw;
     padding: 4rem 0;
     gap: 2rem;
     position: relative;
+    @include mix.responsive-up(lg) {
+        @include mix.flex;
+        width: 95vw;
+    }
     &__content {
         @include mix.flex($direction: column);
         gap: 1.5rem;
         padding: 0 f.px-to-rem(32);
+        @include mix.responsive-up(lg) {
+            width: 60%;
+            align-items: flex-start;
+        }
     }
     &__content-sub-heading {
         @include mix.use-typo(typo.$sub-heading-1);
+        text-transform: uppercase;
+        text-align: center;
         color: c.$pink-100;
     }
     &__content-heading {
         @include mix.use-typo(typo.$main-heading-2);
+        text-align: center;
         color: c.$black-800;
+        @include mix.responsive-up(lg) {
+            text-align: left;
+        }
     }
     &__content-subtitle {
         @include mix.use-typo(typo.$subtitle-1);
+        text-align: center;
         color: color.change(c.$black-800, $alpha: 0.5);
+        @include mix.responsive-up(lg) {
+            text-align: left;
+        }
     }
     &__card-layout {
         @include mix.flex($direction: column);
         width: 90%;
-    }
-    &__card-block > h4 {
-        @include mix.use-typo(typo.$main-heading-1);
-        color: c.$orange-100;
-    }
-    &__card-desc {
-        @include mix.use-typo(typo.$subtitle-1);
-        font-size: f.px-to-rem(18);
-    }
-    &__ticket {
-        display: none;
-    }
-    &__background {
-        display: none;
-    }
-}
-
-//Tablet view
-@include mix.responsive-up(md) {
-    .service {
-        &__card-layout {
+        @include mix.responsive-up(md) {
             @include mix.flex;
             flex-wrap: wrap;
             justify-content: center;
             width: 100%;
         }
-        &__card-block {
+    }
+    &__card-block {
+        @include mix.responsive-up(md) {
             padding: 1rem;
             flex-grow: 1;
             flex-basis: 40%;
         }
-        &__background {
+        @include mix.responsive-up(lg) {
+            flex-basis: 40%;
+        }
+    }
+    &__card-block > h4 {
+        @include mix.use-typo(typo.$main-heading-1);
+        text-align: center;
+        color: c.$orange-100;
+        @include mix.responsive-up(lg) {
+            font-size: f.px-to-rem(30);
+        }
+    }
+    &__card-desc {
+        @include mix.use-typo(typo.$subtitle-1);
+        text-align: center;
+        font-size: f.px-to-rem(18);
+        @include mix.responsive-up(lg) {
+            font-size: f.px-to-rem(15);
+        }
+    }
+    &__ticket {
+        display: none;
+        @include mix.responsive-up(lg) {
+            width: f.px-to-rem(90);
+            display: inline-block;
+            position: absolute;
+            top: 43%;
+            right: -1%;
+        }
+    }
+    &__background {
+        display: none;
+        @include mix.responsive-up(md) {
             position: absolute;
             z-index: -1;
             pointer-events: none;
@@ -76,44 +108,6 @@
             display: inline-block;
             top: -30%;
             right: 0;
-        }
-    }
-}
-
-//Desktop view
-@include mix.responsive-up(lg) {
-    .service {
-        @include mix.flex;
-        width: 95vw;
-        &__content {
-            width: 60%;
-            align-items: flex-start;
-        }
-        &__content-heading {
-            text-align: left;
-        }
-        &__content-subtitle {
-            text-align: left;
-        }
-        &__card-block {
-            flex-basis: 40%;
-        }
-        &__card-block > h4 {
-            font-size: f.px-to-rem(30);
-        }
-        &__card-desc {
-            font-size: f.px-to-rem(15);
-        }
-        &__ticket {
-            width: f.px-to-rem(90);
-            display: inline-block;
-            position: absolute;
-            top: 43%;
-            right: -1%;
-        }
-        &__yellow-hue {
-            top: -100%;
-            right: -4%;
         }
     }
 }

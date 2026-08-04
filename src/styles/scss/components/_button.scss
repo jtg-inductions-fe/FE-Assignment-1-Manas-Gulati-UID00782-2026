@@ -7,6 +7,7 @@
 .button {
     @include mix.flex($gap: 0.5rem, $space: center);
     @include mix.use-typo(typo.$nav-link-2);
+    text-transform: capitalize;
     border-radius: f.px-to-rem(100);
     padding: 0.5rem 1rem;
     max-width: f.px-to-rem(115);
