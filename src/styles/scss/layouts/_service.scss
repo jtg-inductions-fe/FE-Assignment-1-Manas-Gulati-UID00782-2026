@@ -45,7 +45,7 @@
     &__ticket {
         display: none;
     }
-    &__yellow-hue {
+    &__background {
         display: none;
     }
 }
@@ -64,10 +64,17 @@
             flex-grow: 1;
             flex-basis: 40%;
         }
-        &__yellow-hue {
-            display: inline-block;
+        &__background {
             position: absolute;
-            top: -70%;
+            z-index: -1;
+            pointer-events: none;
+            width: f.px-to-rem(172);
+            height: f.px-to-rem(448);
+            background-color: th.$brand-tertiary;
+            opacity: 50%;
+            filter: blur(180px);
+            display: inline-block;
+            top: -30%;
             right: 0;
         }
     }

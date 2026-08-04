@@ -7,10 +7,14 @@
 @use '../base/typography' as typo;
 
 //defining styling for parent header container
-.container {
-    width: 90vw;
+.header {
+    width: 100vw;
     margin: 0 auto;
-    padding: 2rem 1rem;
+    padding: 2rem 2rem 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background-color: color.change(c.$white-100, $alpha: 0.9);
     @include mix.flex($direction: row-reverse);
     //dimension of logo remain same throughout screen
     &__logo {
@@ -92,11 +96,24 @@
     &__btn {
         display: none;
     }
+    //adding header hue
+    &__background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        pointer-events: none;
+        width: f.px-to-rem(272);
+        height: f.px-to-rem(348); //become 500 px in tablet
+        background-color: th.$brand-secondary;
+        opacity: 50%;
+        filter: blur(180px);
+    }
 }
 
 //Tablet view
 @include mix.responsive-up(md) {
-    .container {
+    .header {
         flex-direction: row;
         //button inside header container
         &__btn {
@@ -117,14 +134,17 @@
         &__nav-box-btn {
             display: none;
         }
+        &__background {
+            width: f.px-to-rem(400);
+            height: f.px-to-rem(400);
+        }
     }
 }
 
 //Desktop view
 @include mix.responsive-up(lg) {
-    .container {
+    .header {
         @include mix.flex;
-        width: 95vw;
         //navigation links
         &__nav-link {
             max-width: f.px-to-rem(428);
@@ -139,13 +159,4 @@
             display: none;
         }
     }
-}
-
-//adding orange hue
-.orangeHue {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    pointer-events: none;
 }

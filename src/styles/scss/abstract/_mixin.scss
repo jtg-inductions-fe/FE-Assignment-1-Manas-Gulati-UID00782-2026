@@ -1,5 +1,5 @@
 @use './breakpoint' as bp;
-@use './color' as cl;
+@use './color' as c;
 @use 'sass:map';
 @use 'sass:color';
 
@@ -50,7 +50,7 @@
     $x: 0,
     $y: 62px,
     $blur: 17px,
-    $color: color.change(cl.$black-800, $alpha: 0.1),
+    $color: color.change(c.$black-800, $alpha: 0.1),
     $rad: 0
 ) {
     box-shadow: $x $y $blur $rad $color;

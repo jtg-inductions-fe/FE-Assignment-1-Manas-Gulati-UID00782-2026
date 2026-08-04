@@ -8,10 +8,10 @@
 @return{Number}- Equivalent rem value
 */
 
-@function px-to-rem($pixel, $base: 16) {
+@function px-to-rem($pixel) {
     $strippedValue: math.div(
         $pixel,
         $pixel * 0 + 1
     ); //this cuts out px in division, giving only numeric value
-    @return math.div($strippedValue, $base) * 1rem;
+    @return math.div($strippedValue, 16) * 1rem;
 }

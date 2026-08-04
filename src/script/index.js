@@ -10,12 +10,12 @@ try {
 }
 
 const navLinks = data.header.nav;
-const navBox = document.querySelector('.container__nav-box');
-const navLink = document.querySelector('.container__nav-link');
+const navBox = document.querySelector('.header__nav-box');
+const navLink = document.querySelector('.header__nav-link');
 const buttonLinksPrimary = data.header.buttons[0];
 const buttonLinksSecondary = data.header.buttons[1];
-const btnPrimary = document.querySelectorAll('.container__btn-primary');
-const btnSecondary = document.querySelectorAll('.container__btn-secondary');
+const btnPrimary = document.querySelectorAll('.header__btn-primary');
+const btnSecondary = document.querySelectorAll('.header__btn-secondary');
 
 /** fetch required data and append it to necessary container
  *
@@ -45,11 +45,11 @@ btnSecondary.forEach((btnBox) => {
 });
 
 //making navBox and Button appear upon clicking on menu
-const menu = document.querySelector('.container__hamburger');
-const btnBox = document.querySelector('.container__nav-box-btn');
+const menu = document.querySelector('.header__hamburger');
+const btnBox = document.querySelector('.header__nav-box-btn');
 menu.addEventListener('click', () => {
-    navBox.classList.toggle('container__nav-box--active');
-    btnBox.classList.toggle('container__nav-box-btn--active');
+    navBox.classList.toggle('header__nav-box--active');
+    btnBox.classList.toggle('header__nav-box-btn--active');
     let expand = menu.getAttribute('aria-expanded');
     let ans;
     let ariaLabel;
