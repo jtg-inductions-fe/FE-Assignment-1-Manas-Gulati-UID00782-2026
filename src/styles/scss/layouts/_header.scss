@@ -97,18 +97,18 @@
         display: none;
     }
     //adding header hue
-    &__background {
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: -1;
-        pointer-events: none;
-        width: f.px-to-rem(272);
-        height: f.px-to-rem(348); //become 500 px in tablet
-        background-color: th.$brand-secondary;
-        opacity: 50%;
-        filter: blur(180px);
-    }
+}
+.header-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3; //header has z index of 2 and we want background to come
+    pointer-events: none;
+    width: f.px-to-rem(272);
+    height: f.px-to-rem(348); //become 500 px in tablet
+    background-color: th.$brand-secondary;
+    opacity: 50%;
+    filter: blur(180px);
 }
 
 //Tablet view
@@ -134,10 +134,10 @@
         &__nav-box-btn {
             display: none;
         }
-        &__background {
-            width: f.px-to-rem(400);
-            height: f.px-to-rem(400);
-        }
+    }
+    .header-background {
+        width: f.px-to-rem(400);
+        height: f.px-to-rem(400);
     }
 }
 

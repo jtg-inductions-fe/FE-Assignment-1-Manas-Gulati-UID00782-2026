@@ -23,7 +23,7 @@
         left: 0;
         z-index: -1;
     }
-    //container containing 3 images
+    //handling images of hero section
     &__collection {
         width: 80%;
         margin: 2.5em auto;
@@ -35,7 +35,7 @@
         width: 41%;
         border-radius: f.px-to-rem(17);
     }
-    //container handling vertical alignment of 2 images
+    //handling vertical alignment of 2 images
     &__vertical {
         @include mix.flex($direction: column);
         position: relative;
@@ -83,7 +83,7 @@
         right: 20%;
     }
     //setting chip alignment
-    &__loc {
+    &__location {
         position: absolute;
         right: -5%;
         top: 60%;
@@ -177,13 +177,10 @@
             width: f.px-to-rem(20);
             align-items: center;
             justify-content: center;
-            & > i {
-                color: c.$white-100;
-                font-size: f.px-to-rem(12);
-            }
+            color: c.$white-100;
+            font-size: f.px-to-rem(12);
         }
     }
-
     //image
     &__triangles {
         display: none;
@@ -217,7 +214,7 @@
         &__contact {
             font-size: 1.2rem;
         }
-        &__loc {
+        &__location {
             font-size: f.px-to-rem(12);
             padding: 1rem 1.5rem;
         }
@@ -290,8 +287,8 @@
         &__content-subtitle {
             text-align: left;
         }
-        //changing icon styling to suit higher screen size
-        &__loc {
+        //changing location icon styling to suit higher screen size
+        &__location {
             padding: 1rem 2rem;
             font-size: f.px-to-rem(14);
             gap: 0.5rem;

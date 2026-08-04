@@ -6,16 +6,17 @@
 
 .button {
     @include mix.flex($gap: 0.5rem, $space: center);
+    @include mix.use-typo(typo.$nav-link-2);
     border-radius: f.px-to-rem(100);
     padding: 0.5rem 1rem;
     max-width: f.px-to-rem(115);
-    @include mix.use-typo(typo.$nav-link-2);
     &--primary {
         background-color: th.$bg-primary;
-        color: c.$black-900;
+        color: th.$text-primary;
     }
+
     &--secondary {
         background-color: th.$bg-secondary;
-        color: c.$white-200;
+        color: th.$text-inverse;
     }
 }
