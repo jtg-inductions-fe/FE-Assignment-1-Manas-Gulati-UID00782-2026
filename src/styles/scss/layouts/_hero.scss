@@ -74,6 +74,7 @@
             color.change(c.$black-800, $alpha: 0.25)
         );
         width: 21%;
+        max-width: f.px-to-rem(48);
         background-color: th.$brand-primary;
         position: absolute;
         top: 45%;

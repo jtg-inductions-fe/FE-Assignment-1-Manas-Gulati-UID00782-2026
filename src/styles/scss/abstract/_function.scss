@@ -9,6 +9,7 @@
 */
 
 @function px-to-rem($pixel) {
+    //to do: use 10 instead of 16 and change to 6.25%
     $strippedValue: math.div(
         $pixel,
         $pixel * 0 + 1

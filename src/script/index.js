@@ -21,7 +21,8 @@ export function append(arr, element, container) {
     arr.forEach((link) => {
         let a = document.createElement(element);
         a.setAttribute('tabindex', '1');
-        a.textContent = link;
+        a.setAttribute('href', link[1]);
+        a.textContent = link[0];
         container.prepend(a);
     });
 }

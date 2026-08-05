@@ -1,0 +1,118 @@
+@use '../abstract/function' as f;
+@use '../abstract/mixin' as mix;
+@use '../abstract/color' as c;
+@use '../base/typography' as typo;
+@use '../themes/light' as th;
+@use 'sass:color';
+
+.footer {
+    @include mix.flex($direction: column, $align-item: stretch, $gap: 3rem);
+    width: 100%;
+    margin-top: 9rem;
+    padding: 0 2rem;
+    position: relative;
+    @include mix.responsive-up(md) {
+        margin-bottom: 2rem;
+    }
+    @include mix.responsive-up(lg) {
+        @include mix.flex(
+            $align-item: flex-start,
+            $space: space-around,
+            $gap: 1.5rem
+        );
+    }
+
+    &__desc {
+        @include mix.flex(
+            $direction: column,
+            $align-item: flex-start,
+            $gap: 2rem
+        );
+        @include mix.responsive-up(lg) {
+            max-width: f.px-to-rem(600);
+        }
+    }
+
+    &__logo-container {
+        @include mix.flex($space: flex-start, $gap: 1.5rem);
+    }
+
+    &__logo-container > img {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    &__logo-title {
+        color: c.$black-900;
+        font-size: f.px-to-rem(24px);
+    }
+
+    &__subtitle {
+        color: color.change(c.$black-800, $alpha: 0.75);
+        text-align: left;
+    }
+
+    &__socials {
+        @include mix.flex($space: flex-start, $gap: 2rem);
+    }
+
+    &__socials > a {
+        color: c.$white-100;
+    }
+
+    &__accordion {
+        @include mix.flex($direction: column, $align-item: stretch, $gap: 2rem);
+        @include mix.responsive-up(md) {
+            @include mix.grid(3, 3rem);
+        }
+    }
+
+    &__accordion-trigger {
+        @include mix.flex;
+        width: 100%;
+        padding: 1.25rem 0;
+        background-color: th.$bg-primary;
+        color: th.$text-primary;
+        cursor: pointer;
+        @include mix.responsive-up(md) {
+            cursor: default;
+            pointer-events: none;
+            padding: 0;
+        }
+    }
+
+    &__accordion-heading {
+        font-size: f.px-to-rem(20px);
+    }
+
+    &__accordion-icon {
+        transition: transform 250ms ease;
+        @include mix.responsive-up(md) {
+            display: none;
+        }
+        &--visible {
+            transform: rotate(180deg);
+        }
+    }
+
+    &__accordion-list {
+        height: 0;
+        visibility: hidden;
+        opacity: 0;
+        color: color.change(c.$black-800, $alpha: 0.75);
+        transition: all 200ms ease;
+        @include mix.responsive-up(md) {
+            visibility: visible;
+            opacity: 1;
+            height: 100%;
+        }
+        &--open {
+            visibility: visible;
+            opacity: 1;
+            height: 100%;
+        }
+    }
+    &__accordion-list > li {
+        margin-top: 1rem;
+    }
+}

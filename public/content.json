@@ -1,6 +1,11 @@
 {
     "header": {
-        "nav": ["contact", "special deals", "discover", "home"],
+        "nav": [
+            ["contact", "#footer"],
+            ["special deals", "spin"],
+            ["discover", "#service"],
+            ["home", "/"]
+        ],
         "buttons": ["log in", "sign up"]
     },
     "hero": {

@@ -72,6 +72,12 @@
             top: 50%;
         }
         &--prev {
+            @include mix.shadow(
+                0,
+                10px,
+                17px,
+                color.change(c.$black-800, $alpha: 0.35)
+            );
             left: 1rem;
             background-color: th.$bg-primary;
             border: 1px solid color.change(c.$black-800, $alpha: 0.2);
@@ -80,6 +86,10 @@
             }
             @include mix.responsive-up(lg) {
                 left: 1rem;
+            }
+            &:hover {
+                background-color: th.$bg-secondary;
+                color: th.$text-inverse;
             }
         }
         &--next {
@@ -90,13 +100,17 @@
                 color.change(c.$black-800, $alpha: 0.35)
             );
             right: 1rem;
-            background-color: th.$bg-secondary;
-            color: c.$white-100;
+            background-color: th.$bg-primary;
+            border: 1px solid color.change(c.$black-800, $alpha: 0.2);
             @include mix.responsive-up(md) {
                 right: 0;
             }
             @include mix.responsive-up(lg) {
                 right: 1rem;
+            }
+            &:hover {
+                background-color: th.$bg-secondary;
+                color: th.$text-inverse;
             }
         }
     }
@@ -123,6 +137,7 @@
     &__customer {
         font-size: f.px-to-rem(28);
         color: th.$brand-secondary;
+        text-align: center;
         @include mix.responsive-up(md) {
             font-size: f.px-to-rem(24);
         }
