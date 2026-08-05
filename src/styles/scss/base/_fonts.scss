@@ -2,7 +2,7 @@ $font-path: '/assets/fonts';
 
 @font-face {
     font-family: 'Circular Std';
-    src: url('#{$font-path}/circular-std-medium-500.ttf') format('truetype');
+    src: url('#{$font-path}/CircularStd-Medium.woff') format('woff');
     font-weight: 500;
     font-style: normal;
     font-display: swap;
@@ -10,7 +10,7 @@ $font-path: '/assets/fonts';
 
 @font-face {
     font-family: 'Circular Std';
-    src: url('#{$font-path}/CircularStd-Bold.ttf') format('truetype');
+    src: url('#{$font-path}/CircularStd-Bold.woff') format('woff');
     font-weight: 700;
     font-style: normal;
     font-display: swap;
