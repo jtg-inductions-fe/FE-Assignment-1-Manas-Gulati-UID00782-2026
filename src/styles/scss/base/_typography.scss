@@ -1,9 +1,9 @@
-@use '../abstract/color' as *;
 @use 'sass:color';
+@use './fonts' as *;
 
 //font family
-$font-family-primary: 'Circular Std';
-$font-family-secondary: Inter;
+$font-family-primary: 'Circular Std', serif;
+$font-family-secondary: 'Inter';
 
 //font size
 $font-size-xs: 0.875rem;
