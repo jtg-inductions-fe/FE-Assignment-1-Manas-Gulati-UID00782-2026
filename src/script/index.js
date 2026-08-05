@@ -21,7 +21,7 @@ export function append(arr, element, container) {
     arr.forEach((link) => {
         let a = document.createElement(element);
         a.setAttribute('tabindex', '1');
-        a.innerHTML = link;
+        a.textContent = link;
         container.prepend(a);
     });
 }
@@ -30,7 +30,7 @@ export function append(arr, element, container) {
 export function addText(element, container, text) {
     let para = document.createElement(element);
     document.querySelector(container).prepend(para);
-    para.innerHTML = text;
+    para.textContent = text;
 }
 
 //Customizing Splide for testimonial section

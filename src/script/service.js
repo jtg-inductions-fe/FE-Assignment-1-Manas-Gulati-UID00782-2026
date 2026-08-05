@@ -16,10 +16,12 @@ addText('p', '.service__content-subtitle', serviceSubtitle);
 
 //setting card data
 const cardData = data.card;
+const template = document.querySelector('#card-layout-template');
+const container = document.querySelector('.service__card-layout');
+
 Object.values(cardData).forEach((card) => {
-    let cardContainer = document.createElement('div');
-    cardContainer.classList.add('card');
-    cardContainer.classList.add('service__card-block');
-    cardContainer.innerHTML = `<h4 class="main-heading-1"> ${card.number} </h4><p class="service__card-desc subtitle-1">${card.heading}</p>`;
-    document.querySelector('.service__card-layout').appendChild(cardContainer);
+    const clone = template.content.cloneNode(true);
+    clone.querySelector('.main-heading-1').textContent = card.number;
+    clone.querySelector('.service_card-desc').textContent = card.heading;
+    container.appendChild(clone);
 });

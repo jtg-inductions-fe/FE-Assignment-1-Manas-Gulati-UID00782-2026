@@ -18,9 +18,9 @@
             <a href="#" class="header__logo">
                 <img src="/assets/images/logo.webp" alt="Brand Logo" />
             </a>
-            <div class="header__nav-link nav-link-2"></div>
+            <nav class="header__nav-link nav-link-2"></nav>
             <!--data fetched from context.json-->
-            <div class="header__nav-box nav-link-2">
+            <nav class="header__nav-box nav-link-2">
                 <!--data fetched from context.json-->
                 <div class="header__nav-box-btn">
                     <button
@@ -32,7 +32,7 @@
                         type="button"
                     ></button>
                 </div>
-            </div>
+            </nav>
             <div class="header__btn">
                 <!--data fetched from context.json-->
                 <button
@@ -96,7 +96,13 @@
                         <i class="icon-briefcase"></i>
                     </div>
                     <div class="hero__content-heading main-heading-1">
-                        <!--data fetched from context.json-->
+                        <template id="hero-content-heading-template">
+                            <p>
+                                <span class="before-highlight"> </span>
+                                <span class="highlight"> </span>
+                                <span class="after-highlight"> </span>
+                            </p>
+                        </template>
                     </div>
                     <div class="hero__content-subtitle subtitle-1">
                         <!--data fetched from context.json-->
@@ -183,7 +189,14 @@
                     <div class="service__content-subtitle subtitle-1">
                         <!--data fetched from context.json-->
                     </div>
-                    <div class="service__card-layout"></div>
+                    <div class="service__card-layout">
+                        <template id="card-layout-template">
+                            <div class="card service__card-block">
+                                <h4 class="main-heading-1"></h4>
+                                <p class="service_card-desc subtitle-1"></p>
+                            </div>
+                        </template>
+                    </div>
                 </article>
                 <div class="service__ticket">
                     <img

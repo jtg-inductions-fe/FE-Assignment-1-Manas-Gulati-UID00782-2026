@@ -14,10 +14,10 @@ append(navLinks, 'a', navBox);
 
 //adding button text
 btnPrimary.forEach((btnBox) => {
-    btnBox.innerHTML = buttonLinksPrimary;
+    btnBox.textContent = buttonLinksPrimary;
 });
 btnSecondary.forEach((btnBox) => {
-    btnBox.innerHTML = buttonLinksSecondary;
+    btnBox.textContent = buttonLinksSecondary;
 });
 
 //making navBox and Button appear upon clicking on menu
