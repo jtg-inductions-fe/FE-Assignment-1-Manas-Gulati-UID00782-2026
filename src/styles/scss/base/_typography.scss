@@ -20,54 +20,53 @@ $font-bold: 900;
 //line height
 $line-height-open: 120%;
 $line-height-full: 160%;
-$line-height-relax: 2.5rem; //166.667%
+$line-height-relax: 167%;
 
 //Main Headings
-$main-heading-1: (
-    font-family: $font-family-primary,
-    font-size: $font-size-xl,
-    font-weight: $font-semibold,
-    line-height: $line-height-open,
-);
-$main-heading-2: (
-    font-family: $font-family-primary,
-    font-size: $font-size-lg,
-    font-weight: $font-semibold,
-    line-height: $line-height-open,
-);
+.main-heading-1 {
+    font-family: $font-family-primary;
+    font-size: $font-size-xl;
+    font-weight: $font-semibold;
+    line-height: $line-height-open;
+}
+.main-heading-2 {
+    font-family: $font-family-primary;
+    font-size: $font-size-lg;
+    font-weight: $font-semibold;
+    line-height: $line-height-open;
+}
 
 //Sub Headings
-$sub-heading-1: (
-    font-family: $font-family-primary,
-    font-size: $font-size-sm,
-    font-weight: $font-semibold,
-    line-height: $line-height-open,
-);
-$sub-heading-2: (
-    font-family: $font-family-primary,
-    font-size: $font-size-xs,
-    font-weight: $font-semibold,
-    line-height: $line-height-open,
-);
+.sub-heading-1 {
+    font-family: $font-family-primary;
+    font-size: $font-size-sm;
+    font-weight: $font-semibold;
+    line-height: $line-height-open;
+}
+.sub-heading-2 {
+    font-family: $font-family-primary;
+    font-size: $font-size-xs;
+    font-weight: $font-semibold;
+    line-height: $line-height-open;
+}
 
 //helper text
-$subtitle-1: (
-    font-family: $font-family-secondary,
-    font-size: $font-size-sm,
-    font-weight: $font-medium,
-    line-height: $line-height-full,
-);
-
+.subtitle-1 {
+    font-family: $font-family-secondary;
+    font-size: $font-size-sm;
+    font-weight: $font-medium;
+    line-height: $line-height-full;
+}
 //navigation links
-$nav-link-1: (
-    font-family: $font-family-primary,
-    font-size: $font-size-md,
-    font-weight: $font-semibold,
-    line-height: $line-height-open,
-);
-$nav-link-2: (
-    font-family: $font-family-primary,
-    font-size: $font-size-xs,
-    font-weight: $font-semibold,
-    line-height: $line-height-open,
-);
+.nav-link-1 {
+    font-family: $font-family-primary;
+    font-size: $font-size-md;
+    font-weight: $font-semibold;
+    line-height: $line-height-open;
+}
+.nav-link-2 {
+    font-family: $font-family-primary;
+    font-size: $font-size-xs;
+    font-weight: $font-semibold;
+    line-height: $line-height-open;
+}

@@ -28,17 +28,17 @@
             <a href="#" class="header__logo">
                 <img src="/assets/images/logo.webp" alt="Brand Logo" />
             </a>
-            <div class="header__nav-link"></div>
+            <div class="header__nav-link .nav-link-2"></div>
             <!--data fetched from context.json-->
-            <div class="header__nav-box">
+            <div class="header__nav-box nav-link-2">
                 <!--data fetched from context.json-->
                 <div class="header__nav-box-btn">
                     <button
-                        class="button button--primary header__btn-primary"
+                        class="button button--primary header__btn-primary nav-link-2"
                         type="button"
                     ></button>
                     <button
-                        class="button button--secondary header__btn-secondary"
+                        class="button button--secondary header__btn-secondary nav-link-2"
                         type="button"
                     ></button>
                 </div>
@@ -46,11 +46,11 @@
             <div class="header__btn">
                 <!--data fetched from context.json-->
                 <button
-                    class="button button--primary header__btn-primary"
+                    class="button button--primary header__btn-primary nav-link-2"
                     type="button"
                 ></button>
                 <button
-                    class="button button--secondary header__btn-secondary"
+                    class="button button--secondary header__btn-secondary nav-link-2"
                     type="button"
                 ></button>
             </div>
@@ -101,25 +101,25 @@
                 </div>
                 <!--Content section styling-->
                 <article class="hero__content">
-                    <div class="chip hero__content-sub-heading">
+                    <div class="chip hero__content-sub-heading sub-heading-2">
                         <!--data fetched from context.json-->
                         <i class="icon-briefcase"></i>
                     </div>
-                    <div class="hero__content-heading">
+                    <div class="hero__content-heading main-heading-1">
                         <!--data fetched from context.json-->
                     </div>
-                    <div class="hero__content-subtitle">
+                    <div class="hero__content-subtitle subtitle-1">
                         <!--data fetched from context.json-->
                     </div>
                     <!--Button styling-->
                     <div class="hero__btn">
                         <button
-                            class="button button--secondary hero__btn--primary"
+                            class="button button--secondary hero__btn--primary nav-link-2"
                         >
                             Get Started
                         </button>
                         <button
-                            class="button button--primary hero__btn--secondary"
+                            class="button button--primary hero__btn--secondary nav-link-2"
                         >
                             <div class="icon hero__btn__play">
                                 <i class="icon-play3"></i>
@@ -140,19 +140,36 @@
                     <img
                         src="/assets/images/tripadvisor.webp"
                         alt="Tripadvisor"
+                        loading="lazy"
                     />
                 </div>
                 <div>
-                    <img src="/assets/images/expedia.webp" alt="Expedia" />
+                    <img
+                        src="/assets/images/expedia.webp"
+                        alt="Expedia"
+                        loading="lazy"
+                    />
                 </div>
                 <div>
-                    <img src="/assets/images/booking.webp" alt="Booking" />
+                    <img
+                        src="/assets/images/booking.webp"
+                        alt="Booking"
+                        loading="lazy"
+                    />
                 </div>
                 <div>
-                    <img src="/assets/images/airbnb.webp" alt="AirBnB" />
+                    <img
+                        src="/assets/images/airbnb.webp"
+                        alt="AirBnB"
+                        loading="lazy"
+                    />
                 </div>
                 <div>
-                    <img src="/assets/images/orbitz.webp" alt="Orbitz" />
+                    <img
+                        src="/assets/images/orbitz.webp"
+                        alt="Orbitz"
+                        loading="lazy"
+                    />
                 </div>
             </aside>
 
@@ -160,22 +177,30 @@
 
             <section class="service">
                 <div class="service__img">
-                    <img src="/assets/images/travel-point.webp" alt="" />
+                    <img
+                        src="/assets/images/travel-point.webp"
+                        alt=""
+                        loading="lazy"
+                    />
                 </div>
                 <article class="service__content">
-                    <div class="service__content-sub-heading">
+                    <div class="service__content-sub-heading sub-heading-1">
                         <!--data fetched from context.json-->
                     </div>
-                    <div class="service__content-heading">
+                    <div class="service__content-heading main-heading-2">
                         <!--data fetched from context.json-->
                     </div>
-                    <div class="service__content-subtitle">
+                    <div class="service__content-subtitle subtitle-1">
                         <!--data fetched from context.json-->
                     </div>
                     <div class="service__card-layout"></div>
                 </article>
                 <div class="service__ticket">
-                    <img src="/assets/images/ticket.webp" alt="" />
+                    <img
+                        src="/assets/images/ticket.webp"
+                        alt=""
+                        loading="lazy"
+                    />
                 </div>
                 <div class="service__background"></div>
             </section>
@@ -186,8 +211,12 @@
 
             <section class="testimonial">
                 <!-- styling testimonial texts -->
-                <div class="testimonial__sub-heading">Testimonials</div>
-                <div class="testimonial__heading">Trust our clients</div>
+                <div class="testimonial__sub-heading sub-heading-1">
+                    Testimonials
+                </div>
+                <div class="testimonial__heading main-heading-2">
+                    Trust our clients
+                </div>
                 <!-- setting carousel layout -->
                 <div class="splide" id="testimonial">
                     <!-- styling carousel arrows -->
@@ -213,7 +242,7 @@
                                         alt="profile photo"
                                     />
                                 </div>
-                                <div class="splide__customer">
+                                <div class="splide__customer sub-heading-1">
                                     <p>
                                         Mark Smith
                                         <span class="splide__occupation"
@@ -229,7 +258,7 @@
                                         />
                                     </div>
                                 </div>
-                                <p class="splide__review">
+                                <p class="splide__review subtitle-1">
                                     Contrary to popular belief, Lorem Ipsum is
                                     not simply random text. It has roots in a
                                     piece of classical Latin literature from 45
@@ -347,5 +376,8 @@
             <!--Testimonial Section layout end-->
         </main>
         <script type="module" src="./src/script/index.js"></script>
+        <script type="module" src="./src/script/header.js"></script>
+        <script type="module" src="./src/script/hero.js"></script>
+        <script type="module" src="./src/script/service.js"></script>
     </body>
 </html>

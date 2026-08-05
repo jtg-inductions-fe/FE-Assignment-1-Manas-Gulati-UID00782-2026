@@ -5,6 +5,7 @@
 @use '../abstract/color' as c;
 @use 'sass:color';
 @use '../base/typography' as typo;
+@use '../abstract/variables' as var;
 
 //defining styling for parent hero container
 .hero {
@@ -46,7 +47,7 @@
     }
     &__city {
         width: 41%;
-        border-radius: f.px-to-rem(17);
+        border-radius: var.$border-radius-sm;
     }
     //handling vertical alignment of 2 images
     &__vertical {
@@ -56,12 +57,12 @@
         &__mountain {
             width: 100%;
             aspect-ratio: 1/1.1;
-            border-radius: f.px-to-rem(17);
+            border-radius: var.$border-radius-sm;
         }
         &__ocean {
             width: 100%;
             aspect-ratio: 1/1.1;
-            border-radius: f.px-to-rem(17);
+            border-radius: var.$border-radius-sm;
         }
     }
     //setting plane icon alignment
@@ -110,7 +111,7 @@
         right: -5%;
         top: 60%;
         background-color: th.$bg-primary;
-        border-radius: f.px-to-rem(51);
+        border-radius: var.$border-radius-xl;
         padding: 0.5rem 1rem;
         gap: f.px-to-rem(4);
         justify-content: center;
@@ -149,7 +150,6 @@
     //subHeading Floater
     &__content-sub-heading {
         @include mix.flex($gap: 1rem, $space: center);
-        @include mix.use-typo(typo.$sub-heading-2);
         @include mix.shadow(
             0,
             5px,
@@ -157,7 +157,7 @@
             color.change(c.$black-800, $alpha: 0.15)
         );
         width: f.px-to-rem(240);
-        border-radius: f.px-to-rem(100);
+        border-radius: var.$border-radius-full;
         padding: 1rem 2rem;
         text-transform: uppercase;
         text-align: center;
@@ -172,7 +172,6 @@
     }
     //Setting Heading Styles
     &__content-heading {
-        @include mix.use-typo(typo.$main-heading-1);
         width: 80%;
         text-align: center;
         color: c.$black-900;
@@ -186,7 +185,6 @@
     }
     //Setting subtitles style
     &__content-subtitle {
-        @include mix.use-typo(typo.$subtitle-1);
         width: 85%;
         text-align: center;
         color: color.change(c.$black-800, $alpha: 0.5);

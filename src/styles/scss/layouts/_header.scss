@@ -5,6 +5,7 @@
 @use '../abstract/color' as c;
 @use 'sass:color';
 @use '../base/typography' as typo;
+@use '../abstract/variables' as var;
 
 //defining styling for parent header container
 .header {
@@ -29,7 +30,6 @@
     }
     //remain hidden until screen size switches to desktop view
     &__nav-link {
-        @include mix.use-typo(typo.$nav-link-2);
         display: none;
         text-transform: capitalize;
         color: color.change(c.$black-800, $alpha: 0.5);
@@ -43,7 +43,7 @@
         width: f.px-to-rem(40);
         height: f.px-to-rem(40);
         font-size: 1.9rem;
-        border-radius: 30%;
+        border-radius: var.$border-radius-xs;
         color: c.$white-100;
         background-color: th.$bg-secondary;
         transition: all 150ms ease;
@@ -63,7 +63,6 @@
     //hamburger pop-up menu
     &__nav-box {
         @include mix.flex(column, space-between, 1rem, stretch);
-        @include mix.use-typo(typo.$nav-link-2);
         @include mix.shadow(
             0px,
             16px,
@@ -80,7 +79,7 @@
         color: color.change(c.$black-800, $alpha: 0.5);
         background-color: color.change(c.$white-100, $alpha: 0.98);
         border: 1px solid color.change(c.$black-800, $alpha: 0.1);
-        border-radius: f.px-to-rem(16);
+        border-radius: var.$border-radius-sm;
         opacity: 0;
         visibility: hidden;
         pointer-events: none;

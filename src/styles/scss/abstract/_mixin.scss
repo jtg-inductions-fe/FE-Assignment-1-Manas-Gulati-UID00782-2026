@@ -56,17 +56,6 @@
     box-shadow: $x $y $blur $rad $color;
 }
 
-/// apply typography properties associated to semantic names
-///
-/// @param {typography-name} $typography-type [null] - apply font properties defined in _typography.scss to element's text
-///
-/// @output apply font properties defined in _typography.scss
-@mixin use-typo($typography-type) {
-    @each $key, $value in $typography-type {
-        #{$key}: $value;
-    }
-}
-
 /// creating grid layout
 ///
 /// @param {number} $col [null] - decide number of columns in grid

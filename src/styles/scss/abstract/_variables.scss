@@ -1,0 +1,8 @@
+@use './function' as f;
+
+$border-radius-xs: f.px-to-rem(8);
+$border-radius-sm: f.px-to-rem(16);
+$border-radius-md: f.px-to-rem(28);
+$border-radius-lg: f.px-to-rem(32);
+$border-radius-xl: f.px-to-rem(48);
+$border-radius-full: f.px-to-rem(1000);

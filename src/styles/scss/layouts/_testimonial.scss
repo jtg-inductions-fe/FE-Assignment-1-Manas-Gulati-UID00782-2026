@@ -14,13 +14,11 @@
     padding: 2rem 0;
     //styling for testimonial subheading
     &__sub-heading {
-        @include mix.use-typo(typo.$sub-heading-1);
         color: c.$pink-100;
         font-size: f.px-to-rem(19);
     }
     //styling for testimonial heading
     &__heading {
-        @include mix.use-typo(typo.$main-heading-2);
         color: c.$black-800;
         font-size: f.px-to-rem(40);
     }
@@ -73,7 +71,6 @@
     }
     //setting carousel text styles
     &__customer {
-        @include mix.use-typo(typo.$sub-heading-1);
         font-size: f.px-to-rem(28);
         color: th.$brand-secondary;
     }
@@ -82,7 +79,6 @@
         color: color.change(c.$black-800, $alpha: 0.75);
     }
     &__review {
-        @include mix.use-typo(typo.$subtitle-1);
         color: color.change(c.$black-800, $alpha: 0.75);
         width: 90%;
     }

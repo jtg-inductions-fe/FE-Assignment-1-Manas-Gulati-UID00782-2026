@@ -1,9 +1,10 @@
 @use '../abstract/mixin' as mix;
 @use '../themes/light' as th;
+@use '../abstract/variables' as var;
 .icon {
     @include mix.flex($gap: 0.25rem, $align-item: flex-start);
     padding: 0.5rem;
-    border-radius: 3.2rem;
+    border-radius: var.$border-radius-xl;
     &__primary {
         background-color: th.$brand-primary;
     }
