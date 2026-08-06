@@ -27,7 +27,12 @@ export function append(arr, element, container) {
     });
 }
 
-//function to add text to required container
+/** fetch required data and append it to necessary container
+ *
+ * @param {HTMLElement} element
+ * @param {Container} container
+ * @param {String} text
+ */
 export function addText(element, container, text) {
     let para = document.createElement(element);
     document.querySelector(container).prepend(para);
