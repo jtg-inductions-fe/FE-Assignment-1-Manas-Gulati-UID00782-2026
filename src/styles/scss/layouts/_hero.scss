@@ -11,7 +11,7 @@
 .hero {
     @include mix.flex($direction: column);
 
-    width: 95vw;
+    width: 95%;
     position: relative;
     margin: 1em auto;
     @include mix.responsive-up(md) {
@@ -21,7 +21,7 @@
         //changing hero section layout on desktop view
         @include mix.flex($direction: row-reverse);
         padding: 2rem;
-        width: 90vw;
+        width: 90%;
     }
 
     //image section
@@ -297,7 +297,7 @@
 .sponsors {
     @include mix.flex;
 
-    width: 95vw;
+    width: 95%;
     flex-wrap: wrap;
     gap: 1rem;
     row-gap: 2rem;

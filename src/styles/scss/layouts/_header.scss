@@ -7,11 +7,18 @@
 @use '../base/typography' as typo;
 @use '../abstract/variables' as var;
 
+//defining styling for the whole wrapper class
+.wrapper {
+    max-width: f.px-to-rem(2440);
+    margin: 0 auto;
+    position: relative;
+}
+
 //defining styling for parent header container
 .header {
     @include mix.flex($direction: row-reverse);
 
-    width: 100vw;
+    width: 100%;
     margin: 0 auto;
     padding: 2rem 2rem 1rem 2rem;
     position: sticky;
