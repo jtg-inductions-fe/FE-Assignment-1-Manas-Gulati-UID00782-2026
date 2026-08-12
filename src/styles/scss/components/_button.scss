@@ -7,6 +7,7 @@
 
 .button {
     @include mix.flex($gap: var.$gap-xs, $space: center);
+
     text-transform: capitalize;
     border-radius: var.$border-radius-full;
     padding: var.$padding-xs var.$padding-sm;

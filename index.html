@@ -16,7 +16,7 @@
                 >
                     <i class="icon-menu"></i>
                 </button>
-                <a href="/" class="header__logo">
+                <a href="#" class="header__logo">
                     <img src="/assets/images/logo.webp" alt="Brand Logo" />
                 </a>
                 <nav class="header__nav-link nav-link-2"></nav>
@@ -383,13 +383,13 @@
 
                 <!--Rewards Section layout start-->
 
-                <section class="modal">
-                    <button class="modal__close button">X</button>
+                <dialog class="modal" aria-label="Spin Wheel Closed">
+                    <button class="modal__close button" type="button">X</button>
 
                     <div class="modal__sub-heading sub-heading-1">
                         <img
                             src="/assets/images/gift.webp"
-                            alt="gift image"
+                            alt="gift image icon"
                             class="modal__gift-img"
                         />
                         special deals
@@ -402,7 +402,7 @@
                         <div class="modal__spin-pointer">
                             <img
                                 src="/assets/images/pointer.webp"
-                                alt="pointer"
+                                alt="spin pointer"
                             />
                         </div>
                         <div class="modal__spin-wheel">
@@ -418,11 +418,13 @@
                             <div class="modal__spin-quadrant-4">
                                 <p class="modal__quadrant-4-text"></p>
                             </div>
-                            <button class="modal__spin-btn">spin</button>
+                            <button class="modal__spin-btn" type="button">
+                                spin
+                            </button>
                         </div>
                     </div>
                     <div class="modal__win modal__win--active sub-heading-2">
-                        <template id="modal__template-reward-won">
+                        <template class="modal__template-reward-won">
                             <p class="modal__you-won-text">You won!</p>
                             <div class="modal__reward-won deal">
                                 <div class="modal__reward-won-text">
@@ -438,7 +440,10 @@
                                         class="modal__reward-won-promo sub-heading-2"
                                     ></div>
                                     <div class="modal__reward-won-copy">
-                                        <button class="modal__icon-copy-btn">
+                                        <button
+                                            class="modal__icon-copy-btn"
+                                            type="button"
+                                        >
                                             <i class="icon-copy"></i>
                                             <div
                                                 class="modal__code-copied subtitle-1"
@@ -452,7 +457,7 @@
                         </template>
                     </div>
                     <div class="modal__deals">
-                        <template id="modal__template-reward-won">
+                        <template class="modal__template-reward-won">
                             <p>You won!</p>
                             <div class="modal__reward-won deal">
                                 <div class="modal__reward-won-text">
@@ -468,7 +473,10 @@
                                         class="modal__reward-won-promo sub-heading-2"
                                     ></div>
                                     <div class="modal__reward-won-copy">
-                                        <button class="modal__icon-copy-btn">
+                                        <button
+                                            class="modal__icon-copy-btn"
+                                            type="button"
+                                        >
                                             <i class="icon-copy"></i>
                                             <div
                                                 class="modal__code-copied subtitle-1"
@@ -481,11 +489,14 @@
                             </div>
                         </template>
                     </div>
-                    <button class="button modal__deal-switch subtitle-1">
+                    <button
+                        class="button modal__deal-switch subtitle-1"
+                        type="button"
+                    >
                         View All Unlocked Deals
                         <div class="modal__deal-count subtitle-1">0</div>
                     </button>
-                </section>
+                </dialog>
 
                 <!--Rewards Section layout end-->
             </main>
@@ -550,7 +561,7 @@
                             class="footer__accordion-trigger"
                             type="button"
                             aria-expanded="false"
-                            aria-label="Company list close"
+                            aria-label="Company list open"
                         >
                             <span
                                 class="footer__accordion-heading main-heading-1"
@@ -578,7 +589,7 @@
                             class="footer__accordion-trigger"
                             type="button"
                             aria-expanded="false"
-                            aria-label="Contact list close"
+                            aria-label="Contact list open"
                         >
                             <span
                                 class="footer__accordion-heading main-heading-1"
@@ -607,7 +618,7 @@
                             class="footer__accordion-trigger"
                             type="button"
                             aria-expanded="false"
-                            aria-label="Meet Us list close"
+                            aria-label="Meet Us list open"
                         >
                             <span
                                 class="footer__accordion-heading main-heading-1"

@@ -4,23 +4,23 @@ import '../styles/main.scss'; //your styles will get overridden by default splid
 
 /** fetch data from backend url
  *
- * @param {String} url
- * @param {Variable} data
+ * @param {string} url
+ *
  */
 export async function getData(url) {
-    try {
-        const response = await fetch(url);
-        return await response.json();
-    } catch {
-        alert('Error while fetching data from backend');
+    const response = await fetch(url);
+    if (!response.ok) {
+        throw new Error(`Unable to fetch Data from backend`);
     }
+    return await response.json();
 }
 
 /** fetch required data and append it to necessary container
  *
- * @param {Array} arr
+ * @param {Array<string>} arr
  * @param {HTMLElement} element
- * @param {Container} container
+ * @param {HTMLElement} container
+ *
  */
 export function append(arr, element, container) {
     arr.forEach((link) => {
@@ -28,6 +28,9 @@ export function append(arr, element, container) {
         a.setAttribute('tabindex', '1');
         a.setAttribute('href', link[1]);
         a.setAttribute('class', link[0].replaceAll(' ', '-'));
+        if (link[0] == 'special deals') {
+            a.setAttribute('aria-haspopup', 'Spin wheel');
+        }
         a.textContent = link[0];
         container.prepend(a);
     });
@@ -36,8 +39,9 @@ export function append(arr, element, container) {
 /** fetch required data and append it to necessary container
  *
  * @param {HTMLElement} element
- * @param {Container} container
- * @param {String} text
+ * @param {HTMLElement} container
+ * @param {string} text
+ *
  */
 export function addText(element, container, text) {
     let para = document.createElement(element);
@@ -68,7 +72,7 @@ export async function copyText(text) {
  *
  * @param {HTMLElement} clone
  * @param {Object} info
- * @param {Date} expiry
+ * @param {number} expiry
  *
  */
 export function setTemplate(clone, info, expiry) {

@@ -20,6 +20,7 @@
     @include mix.responsive-up(lg) {
         //changing hero section layout on desktop view
         @include mix.flex($direction: row-reverse);
+
         width: 90vw;
         padding: var.$padding-lg;
     }
@@ -151,6 +152,7 @@
             width: 45%;
         }
     }
+
     //subHeading Floater
     &__content-sub-heading {
         @include mix.flex($space: center);

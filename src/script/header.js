@@ -2,7 +2,12 @@ import { getData, append } from './index.js';
 
 //fetching data
 let url = './content.json';
-let data = await getData(url);
+let data;
+try {
+    data = await getData(url);
+} catch (e) {
+    alert(e.message);
+}
 
 //selecting necessary elements
 const navLinks = data.header.nav;

@@ -14,12 +14,12 @@ export default [
         languageOptions: {
             globals: {
                 ...globals.browser,
-                myCustomGlobal: 'readonly',
+                myCustomGlobal: 'readonly', //why use this?
             },
         },
         rules: {
             indent: ['error', 4],
-            'no-unused-vars': 'warn',
+            'no-unused-vars': 'warn', //why use warn if max_warnings=0?
             camelcase: ['warn'],
             'no-console': ['warn'],
         },

@@ -17,6 +17,7 @@
     @include mix.responsive-up(md) {
         padding: 0 var.$padding-sm;
     }
+
     //styling for testimonial subheading
     &__sub-heading {
         color: c.$pink-100;
@@ -128,6 +129,7 @@
             gap: var.$gap-xl;
         }
     }
+
     //styling profile photo
     &__profile {
         width: 30%;

@@ -127,6 +127,7 @@
         @include mix.responsive-up(md) {
             visibility: visible;
             opacity: 1;
+            max-height: none;
         }
         &--open {
             visibility: visible;

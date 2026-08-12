@@ -5,6 +5,7 @@
 
 .card {
     @include mix.flex($direction: column);
+
     padding: var.$padding-lg;
     border-radius: var.$border-radius-lg;
     align-self: stretch;

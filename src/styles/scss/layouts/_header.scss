@@ -92,6 +92,7 @@
         transition: all 180ms ease;
         @include mix.responsive-up(md) {
             @include mix.flex($gap: var.$gap-md);
+
             flex-wrap: wrap;
             width: 90%;
             top: f.px-to-rem(75);
@@ -115,6 +116,7 @@
         display: none; //button remain hidden until hamburger icon is clicked
         &--active {
             @include mix.flex;
+
             flex-wrap: wrap;
         }
         @include mix.responsive-up(md) {

@@ -4,15 +4,22 @@ const totalQuadrants = 4;
 //fetching data
 const url =
     'https://gist.githubusercontent.com/ameer-wajid-ali/1f29ebee4295cede36f8d74b45e576df/raw/122966c9a123861249f173911d8d93a76dc06d7a/';
-const data = await getData(url);
+let data;
+try {
+    data = await getData(url);
+} catch (e) {
+    alert(e.message);
+}
 let userData = JSON.parse(localStorage.getItem('localUserData'));
 let availableRewards = {};
 let selectedRewards = {};
 
 //create a copy of all deals with promocode acting as primary key for this object
-Object.values(data).forEach((reward) => {
-    availableRewards[reward.promoCode] = reward;
-});
+if (data) {
+    Object.values(data).forEach((reward) => {
+        availableRewards[reward.promoCode] = reward;
+    });
+}
 
 //if no user data present in local storage, we assume a new user is detected
 if (userData === null) {
@@ -40,7 +47,7 @@ const winnings = document.querySelector('.modal__win');
 const spin = document.querySelector('.modal__spin');
 const spinWheel = document.querySelector('.modal__spin-wheel');
 const spinBtn = document.querySelector('.modal__spin-btn');
-const template = document.querySelector('#modal__template-reward-won');
+const template = document.querySelector('.modal__template-reward-won');
 const dealCount = document.querySelector('.modal__deal-count');
 
 //function declarations
@@ -115,7 +122,10 @@ function addToDeals(expiryTime, reward) {
  *
  */
 function promoCopy(container, e) {
-    if (e.target.className == 'icon-copy') {
+    if (
+        e.target.className == 'icon-copy' ||
+        e.target.className == 'modal__icon-copy-btn'
+    ) {
         let promoParent = e.target.closest('.modal__reward-won-code');
         copyText(
             promoParent.querySelector('.modal__reward-won-promo').textContent,
@@ -133,18 +143,29 @@ header.addEventListener('click', (e) => {
         e.preventDefault(); //stops reload of page: prevent a tags default behavior
         //make scroll disable
         backdrop.classList.add('backdrop--active');
-        body.classList.add('no-scroll');
+        body.classList.add('body--no-scroll');
         //make modal visible
+        modal.showModal();
         modal.classList.add('modal--active');
+        modal.setAttribute('aria-label', 'Spin wheel close');
     }
 });
 
 //close modal when close button is clicked
 closeModal.addEventListener('click', () => {
     backdrop.classList.remove('backdrop--active');
-    body.classList.remove('no-scroll');
+    body.classList.remove('body--no-scroll');
+    modal.close();
     modal.classList.remove('modal--active');
+    modal.setAttribute('aria-label', 'Spin wheel open');
 });
+
+modal.addEventListener('close', () => {
+    body.classList.remove('body--no-scroll');
+    modal.classList.remove('modal--active');
+    backdrop.classList.remove('backdrop--active');
+});
+//this is necessary because close modal auto trigger esc key close modal functionality
 
 //switch to deal section
 dealSwitch.addEventListener('click', () => {
@@ -161,7 +182,9 @@ let totalDeals = Object.keys(userData).length;
 dealCount.textContent = totalDeals;
 
 //adding data to deals section
-Object.values(userData).forEach((deal) => {
+let userDataArray = Object.values(userData);
+userDataArray.sort((a, b) => a.expiryAt - b.expiryAt);
+userDataArray.forEach((deal) => {
     addToDeals(userData[deal.promoCode].expiryAt, deal);
 });
 
@@ -229,7 +252,12 @@ spinBtn.addEventListener('click', () => {
     dealCount.textContent = parseInt(dealCount.textContent) + 1; //update deal count instantaneously
 
     //adding data to deals block instantaneously
-    addToDeals(userData[winReward.promoCode].expiryAt, winReward);
+
+    userDataArray = Object.values(userData);
+    userDataArray.sort((a, b) => a.expiryAt - b.expiryAt);
+    userDataArray.forEach((deal) => {
+        addToDeals(userData[deal.promoCode].expiryAt, deal);
+    });
 
     //readd non won deals back to total available pool of deals
     Object.values(selectedRewards).forEach((reward) => {

@@ -27,13 +27,21 @@
 }
 
 //setting no scroll behavior
-.no-scroll {
+.body--no-scroll {
     overflow: hidden;
+}
+
+dialog.modal {
+    inset-block-start: auto;
+    @include mix.responsive-up(md) {
+        inset-block-start: 50%;
+    }
 }
 
 //styling central modal
 .modal {
     @include mix.flex($direction: column, $space: center, $gap: var.$gap-xs);
+
     background-color: c.$white-100;
     border-radius: var.$border-radius-sm;
     position: fixed;
@@ -50,6 +58,7 @@
     border-bottom-right-radius: 0;
     width: 90%;
     max-width: f.px-to-rem(360);
+    max-height: 0;
     @include mix.responsive-up(md) {
         top: 50%;
         left: 50%;
@@ -58,10 +67,12 @@
         padding-bottom: var.$padding-xl;
         padding-top: var.$padding-lg;
         bottom: auto;
+        max-height: none;
     }
     &--active {
         visibility: visible;
         opacity: 1;
+        max-height: f.px-to-rem(1000);
     }
 
     //setting close button position
@@ -82,6 +93,7 @@
             $space: center,
             $align-item: baseline
         );
+
         font-size: f.px-to-rem(14);
         color: th.$brand-primary;
         text-transform: uppercase;
@@ -109,6 +121,7 @@
     //setting deals section
     &__deals {
         @include mix.flex($direction: column);
+
         width: 85%;
         margin: 1rem auto;
         max-height: 15rem;
@@ -122,6 +135,7 @@
     //styling deal switch button
     &__deal-switch {
         @include mix.flex($gap: var.$gap-sm, $space: center);
+
         max-width: none;
         padding: var.$padding-xs var.$padding-xl;
         margin-top: 0.5rem;
@@ -143,11 +157,12 @@
 
     //setting spin wheel layout section
     &__spin {
+        @include mix.flex;
         margin: 1rem 0;
         position: relative;
         display: none;
         &--active {
-            display: inline-block;
+            display: flex;
         }
     }
 
@@ -161,6 +176,7 @@
             color.change(c.$black-800, $alpha: 0.2),
             8px
         );
+
         grid-template-rows: repeat(2, 1fr);
         position: relative;
         width: f.px-to-rem(240);
@@ -176,23 +192,27 @@
     }
     &__spin-quadrant-1 {
         @include mix.flex($space: center);
+
         background-color: c.$yellow-400;
         grid-area: 1/2/2/3;
     }
     &__spin-quadrant-2 {
         @include mix.flex($space: center);
+
         background-color: c.$purple-400;
         color: th.$text-inverse;
         grid-area: 2/2/3/3;
     }
     &__spin-quadrant-3 {
         @include mix.flex($space: center);
+
         background-color: c.$pink-400;
         color: th.$text-inverse;
         grid-area: 2/1/3/2;
     }
     &__spin-quadrant-4 {
         @include mix.flex($space: center);
+
         background-color: c.$aqua-400;
         color: th.$text-inverse;
         grid-area: 1/1/2/2;
@@ -203,25 +223,25 @@
         transform: rotate(45deg);
         padding-top: var.$padding-sm;
         max-width: 70%;
-        word-wrap: break-word; //to manage text align and overflow issues
+        overflow-wrap: break-word; //to manage text align and overflow issues
     }
     &__quadrant-2-text {
         transform: rotate(135deg);
         padding-top: var.$padding-sm;
         max-width: 70%;
-        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
     &__quadrant-3-text {
         transform: rotate(-135deg);
         padding-top: var.$padding-sm;
         max-width: 70%;
-        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
     &__quadrant-4-text {
         transform: rotate(-45deg);
         padding-top: var.$padding-sm;
         max-width: 70%;
-        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
 
     //styling spin button
@@ -253,6 +273,7 @@
     //setting won reward section
     &__win {
         @include mix.flex($direction: column, $gap: var.$gap-xs);
+
         width: f.px-to-rem(300);
         font-family: typo.$font-family-secondary;
         display: none;
@@ -289,6 +310,7 @@
             17px,
             color.change(c.$black-800, $alpha: 0.15)
         );
+
         padding: var.$padding-xs;
         background-color: c.$white-200;
         border-radius: var.$border-radius-lg;

@@ -15,10 +15,10 @@ accordionButton.forEach((button) => {
         const heading = button.querySelector('.footer__accordion-heading');
         if (expand == 'true') {
             button.setAttribute('aria-expanded', false);
-            ariaLabel = `${heading.textContent} list close`;
+            ariaLabel = `${heading.textContent} list open`;
         } else {
             button.setAttribute('aria-expanded', true);
-            ariaLabel = `${heading.textContent} list open`;
+            ariaLabel = `${heading.textContent} list close`;
         }
         button.setAttribute('aria-label', ariaLabel);
     });
