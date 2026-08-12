@@ -5,7 +5,6 @@
     margin: 0;
     padding: 0;
     border: 0;
-    font-size: 100%;
     font: inherit;
     vertical-align: baseline; //not necessary for us coz of absence of table, but considered a good practice
     text-rendering: optimizeLegibility; //optimizespeed isn't necessary here coz of static site generation

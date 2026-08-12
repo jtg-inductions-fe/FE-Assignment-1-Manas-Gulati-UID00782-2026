@@ -1,8 +1,25 @@
 @use './function' as f;
 
+//border radius
 $border-radius-xs: f.px-to-rem(8);
 $border-radius-sm: f.px-to-rem(16);
 $border-radius-md: f.px-to-rem(28);
 $border-radius-lg: f.px-to-rem(32);
 $border-radius-xl: f.px-to-rem(48);
 $border-radius-full: f.px-to-rem(1000);
+
+//padding
+$padding-xs: 0.5rem;
+$padding-sm: 1rem;
+$padding-md: 1.5rem;
+$padding-lg: 2rem;
+$padding-xl: 2.5rem;
+
+//gap
+$gap-xxs: 0.25rem;
+$gap-xs: 0.5rem;
+$gap-sm: 1rem;
+$gap-md: 1.5rem;
+$gap-lg: 2rem;
+$gap-xl: 2.5rem;
+$gap-xxl: 3rem;

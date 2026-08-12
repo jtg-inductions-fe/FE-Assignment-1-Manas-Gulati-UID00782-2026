@@ -20,7 +20,7 @@ reviews:
         - path: '**/*.html'
           instructions: |
               CRITICAL: Absolutely forbid the use of <table>, <tr>, <td>, or any table elements for structural layouts. If found, flag it as a major violation and instruct the user to use CSS Grid or Flexbox instead.
-              Ensure semantic HTML5 elements (nav, section, footer, main) are used correctly.
+              Ensure semantic HTML5 elements (header, nav, section, footer, main, article, aside) are used correctly.
               Ensure every <img> tag contains a meaningful, non-empty 'alt' attribute for accessibility.
               Check that interactive elements use proper tags (like <button> or <a>) to maintain keyboard accessibility.
               DO NOT provide any code diffs, code snippets, or committable suggestions. Provide plain text feedback only.
@@ -63,10 +63,7 @@ reviews:
         - '!node_modules/**'
         - '!dist/**'
         - '!build/**'
-        - '!.next/**'
         - '!package-lock.json'
-        - '!yarn.lock'
-        - '!pnpm-lock.yaml'
         - '!**/vendor/**'
         - '!**/*.md'
 

@@ -6,16 +6,15 @@
 @use '../abstract/variables' as var;
 
 .button {
-    @include mix.flex($gap: 0.5rem, $space: center);
+    @include mix.flex($gap: var.$gap-xs, $space: center);
     text-transform: capitalize;
     border-radius: var.$border-radius-full;
-    padding: 0.5rem 1rem;
+    padding: var.$padding-xs var.$padding-sm;
     max-width: f.px-to-rem(115);
     &--primary {
         background-color: th.$bg-primary;
         color: th.$text-primary;
     }
-
     &--secondary {
         background-color: th.$bg-secondary;
         color: th.$text-inverse;

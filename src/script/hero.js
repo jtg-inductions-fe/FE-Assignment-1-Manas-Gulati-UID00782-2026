@@ -1,4 +1,8 @@
-import { data, addText } from './index.js';
+import { getData, addText } from './index.js';
+
+//fetching data
+let url = './content.json';
+let data = await getData(url);
 
 //accessing required data
 const heroSubHeading = data.hero.subHeading;

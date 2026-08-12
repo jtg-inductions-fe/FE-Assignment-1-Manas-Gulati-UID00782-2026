@@ -2,6 +2,7 @@
 @use './color' as c;
 @use 'sass:map';
 @use 'sass:color';
+@use './variables' as var;
 
 /// create flex with default values which are commonly used throughout project
 ///
@@ -14,7 +15,7 @@
 @mixin flex(
     $direction: row,
     $space: space-between,
-    $gap: 1rem,
+    $gap: var.$gap-sm,
     $align-item: center
 ) {
     display: flex;
@@ -62,7 +63,7 @@
 /// @param {length} $gap [1rem] - decide gap between items
 ///
 /// @output sets grid layout
-@mixin grid($col, $gap: 1rem) {
+@mixin grid($col, $gap: var.$gap-sm) {
     display: grid;
     grid-template-columns: repeat($col, 1fr);
     gap: $gap;

@@ -5,6 +5,7 @@
 @use '../abstract/color' as c;
 @use 'sass:color';
 @use '../base/typography' as typo;
+@use '../abstract/variables' as var;
 
 //defining styling for parent testimonial container
 .testimonial {
@@ -12,16 +13,16 @@
 
     width: 100%;
     position: relative;
-    padding: 2rem 0;
+    padding: var.$padding-lg 0;
     @include mix.responsive-up(md) {
-        padding: 0 1rem;
+        padding: 0 var.$padding-sm;
     }
     //styling for testimonial subheading
     &__sub-heading {
         color: c.$pink-100;
         font-size: f.px-to-rem(19);
         @include mix.responsive-up(lg) {
-            font-size: f.px-to-rem(25);
+            font-size: typo.$font-size-md;
         }
     }
     //styling for testimonial heading
@@ -32,6 +33,7 @@
             font-size: f.px-to-rem(50);
         }
     }
+
     &__background {
         display: none;
         @include mix.responsive-up(md) {
@@ -115,22 +117,22 @@
             }
         }
     }
+
     //styling whole splide container
     &__slide {
         @include mix.flex($direction: column, $gap: 4rem);
         @include mix.responsive-up(md) {
-            gap: 2.5rem;
+            gap: var.$gap-xl;
         }
         @include mix.responsive-up(lg) {
-            gap: 2.5rem;
+            gap: var.$gap-xl;
         }
     }
     //styling profile photo
     &__profile {
         width: 30%;
-        background-color: aquamarine;
         aspect-ratio: 1/1;
-        border-radius: 50%;
+        border-radius: var.$border-radius-full;
         max-width: f.px-to-rem(128);
         overflow: hidden;
     }
@@ -140,25 +142,26 @@
         color: th.$brand-secondary;
         text-align: center;
         @include mix.responsive-up(md) {
-            font-size: f.px-to-rem(24);
+            font-size: typo.$font-size-md;
         }
         @include mix.responsive-up(lg) {
             font-size: f.px-to-rem(29);
         }
     }
     &__occupation {
-        font-size: f.px-to-rem(23);
+        font-size: typo.$font-size-md;
         color: color.change(c.$black-800, $alpha: 0.75);
         @include mix.responsive-up(md) {
             font-size: f.px-to-rem(19);
         }
         @include mix.responsive-up(lg) {
-            font-size: f.px-to-rem(24);
+            font-size: typo.$font-size-md;
         }
     }
     &__review {
         color: color.change(c.$black-800, $alpha: 0.75);
         width: 90%;
+        text-align: center;
         @include mix.responsive-up(md) {
             width: 60%;
         }
@@ -169,7 +172,7 @@
     }
     //setting review and stars of customer
     &__star {
-        @include mix.flex($space: center, $gap: 1.5rem);
+        @include mix.flex($space: center, $gap: var.$gap-md);
     }
     &__star-container {
         width: 10vw;
@@ -184,7 +187,7 @@
         &__page {
             width: f.px-to-rem(24);
             height: f.px-to-rem(24);
-            border-radius: 50%;
+            border-radius: var.$border-radius-full;
             margin-left: 1.2rem;
             background-color: color.change(c.$black-800, $alpha: 0.15);
             &.is-active {

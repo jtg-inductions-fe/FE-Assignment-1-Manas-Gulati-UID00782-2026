@@ -84,7 +84,7 @@
                                 alt="City"
                                 class="hero__city"
                             />
-                            <div class="chip hero__location">
+                            <div class="chip hero__location sub-heading-1">
                                 <i class="icon-location"></i>
                                 <p>Top Places</p>
                             </div>
@@ -380,7 +380,117 @@
                 </section>
 
                 <!--Testimonial Section layout end-->
+
+                <!--Rewards Section layout start-->
+
+                <section class="modal">
+                    <button class="modal__close button">X</button>
+
+                    <div class="modal__sub-heading sub-heading-1">
+                        <img
+                            src="/assets/images/gift.webp"
+                            alt="gift image"
+                            class="modal__gift-img"
+                        />
+                        special deals
+                    </div>
+                    <div class="modal__heading main-heading-2">spin & win</div>
+                    <div class="modal__subtitle subtitle-1">
+                        Tap the center of the wheel to spin
+                    </div>
+                    <div class="modal__spin modal__spin--active">
+                        <div class="modal__spin-pointer">
+                            <img
+                                src="/assets/images/pointer.webp"
+                                alt="pointer"
+                            />
+                        </div>
+                        <div class="modal__spin-wheel">
+                            <div class="modal__spin-quadrant-1">
+                                <p class="modal__quadrant-1-text"></p>
+                            </div>
+                            <div class="modal__spin-quadrant-2">
+                                <p class="modal__quadrant-2-text"></p>
+                            </div>
+                            <div class="modal__spin-quadrant-3">
+                                <p class="modal__quadrant-3-text"></p>
+                            </div>
+                            <div class="modal__spin-quadrant-4">
+                                <p class="modal__quadrant-4-text"></p>
+                            </div>
+                            <button class="modal__spin-btn">spin</button>
+                        </div>
+                    </div>
+                    <div class="modal__win modal__win--active sub-heading-2">
+                        <template id="modal__template-reward-won">
+                            <p class="modal__you-won-text">You won!</p>
+                            <div class="modal__reward-won deal">
+                                <div class="modal__reward-won-text">
+                                    <p
+                                        class="modal__reward-won-label sub-heading-2"
+                                    ></p>
+                                    <p
+                                        class="modal__reward-won-expiry subtitle-1"
+                                    ></p>
+                                </div>
+                                <div class="modal__reward-won-code">
+                                    <div
+                                        class="modal__reward-won-promo sub-heading-2"
+                                    ></div>
+                                    <div class="modal__reward-won-copy">
+                                        <button class="modal__icon-copy-btn">
+                                            <i class="icon-copy"></i>
+                                            <div
+                                                class="modal__code-copied subtitle-1"
+                                            >
+                                                Promocode Copied!
+                                            </div>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                    <div class="modal__deals">
+                        <template id="modal__template-reward-won">
+                            <p>You won!</p>
+                            <div class="modal__reward-won deal">
+                                <div class="modal__reward-won-text">
+                                    <p
+                                        class="modal__reward-won-label sub-heading-2"
+                                    ></p>
+                                    <p
+                                        class="modal__reward-won-expiry subtitle-1"
+                                    ></p>
+                                </div>
+                                <div class="modal__reward-won-code">
+                                    <div
+                                        class="modal__reward-won-promo sub-heading-2"
+                                    ></div>
+                                    <div class="modal__reward-won-copy">
+                                        <button class="modal__icon-copy-btn">
+                                            <i class="icon-copy"></i>
+                                            <div
+                                                class="modal__code-copied subtitle-1"
+                                            >
+                                                Promocode Copied!
+                                            </div>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                    <button class="button modal__deal-switch subtitle-1">
+                        View All Unlocked Deals
+                        <div class="modal__deal-count subtitle-1">0</div>
+                    </button>
+                </section>
+
+                <!--Rewards Section layout end-->
             </main>
+            <!-- backdrop for rewards section-->
+            <div class="backdrop"></div>
             <footer class="footer" id="footer">
                 <section class="footer__desc">
                     <div class="footer__logo-container">
@@ -409,21 +519,21 @@
                     >
                         <a
                             href="#"
-                            class="icon icon__secondary"
+                            class="icon icon--secondary"
                             aria-label="Facebook"
                         >
                             <i class="icon-facebook" aria-hidden="true"></i>
                         </a>
                         <a
                             href="#"
-                            class="icon icon__secondary"
+                            class="icon icon--secondary"
                             aria-label="Twitter"
                         >
                             <i class="icon-twitter" aria-hidden="true"></i>
                         </a>
                         <a
                             href="#"
-                            class="icon icon__secondary"
+                            class="icon icon--secondary"
                             aria-label="Instagram"
                         >
                             <i class="icon-instagram" aria-hidden="true"></i>
@@ -536,5 +646,6 @@
         <script type="module" src="./src/script/hero.js"></script>
         <script type="module" src="./src/script/service.js"></script>
         <script type="module" src="./src/script/footer.js"></script>
+        <script type="module" src="./src/script/reward.js"></script>
     </body>
 </html>

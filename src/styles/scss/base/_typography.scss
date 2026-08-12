@@ -2,8 +2,9 @@
 @use './fonts' as *;
 
 //font family
-$font-family-primary: 'Circular Std', serif;
+$font-family-primary: 'Circular Std';
 $font-family-secondary: 'Inter';
+$font-family-tertiary: 'Roboto Mono';
 
 //font size
 $font-size-xs: 0.875rem;
@@ -57,6 +58,7 @@ $line-height-relax: 167%;
     font-weight: $font-medium;
     line-height: $line-height-full;
 }
+
 //navigation links
 .nav-link-1 {
     font-family: $font-family-primary;
