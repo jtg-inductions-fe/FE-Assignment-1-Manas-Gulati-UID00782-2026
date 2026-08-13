@@ -21,7 +21,7 @@
         //changing hero section layout on desktop view
         @include mix.flex($direction: row-reverse);
 
-        width: 90vw;
+        width: 90%;
         padding: var.$padding-lg;
     }
 

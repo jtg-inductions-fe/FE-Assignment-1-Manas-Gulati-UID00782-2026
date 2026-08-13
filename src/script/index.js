@@ -82,3 +82,12 @@ export function setTemplate(clone, info, expiry) {
     clone.querySelector('.modal__reward-won-promo').textContent =
         info.promoCode;
 }
+
+//fetching data
+let url = './content.json';
+export let data;
+try {
+    data = await getData(url);
+} catch (e) {
+    alert(e.message);
+}

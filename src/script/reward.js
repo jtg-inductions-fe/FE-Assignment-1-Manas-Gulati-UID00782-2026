@@ -49,6 +49,9 @@ const spinWheel = document.querySelector('.modal__spin-wheel');
 const spinBtn = document.querySelector('.modal__spin-btn');
 const template = document.querySelector('.modal__template-reward-won');
 const dealCount = document.querySelector('.modal__deal-count');
+const dealSwitchContent = document.querySelector('.modal__deal-switch-content');
+const spinLoader = document.querySelector('.modal__spin-loader');
+const spinPointer = document.querySelector('.modal__spin-pointer');
 
 //function declarations
 /** select random number of deals from available pool of rewards
@@ -148,6 +151,12 @@ header.addEventListener('click', (e) => {
         modal.showModal();
         modal.classList.add('modal--active');
         modal.setAttribute('aria-label', 'Spin wheel close');
+        if (!data) {
+            spinLoader.classList.add('modal__spin-loader--active');
+            spinWheel.textContent = '';
+            spinPointer.style.filter = 'grayscale(1)';
+            spinWheel.classList.add('modal__spin-wheel--disabled');
+        }
     }
 });
 
@@ -172,6 +181,12 @@ dealSwitch.addEventListener('click', () => {
     deals.classList.toggle('modal__deals--active');
     winnings.classList.toggle('modal__win--active');
     spin.classList.toggle('modal__spin--active');
+    dealCount.classList.toggle('modal__deal-count--hide');
+    if (dealCount.classList.contains('modal__deal-count--hide')) {
+        dealSwitchContent.textContent = 'Go Back';
+    } else {
+        dealSwitchContent.textContent = 'View All Unlocked Deals';
+    }
 });
 
 //function call to select random deals for first time after refresh

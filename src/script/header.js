@@ -1,13 +1,4 @@
-import { getData, append } from './index.js';
-
-//fetching data
-let url = './content.json';
-let data;
-try {
-    data = await getData(url);
-} catch (e) {
-    alert(e.message);
-}
+import { data, append } from './index.js';
 
 //selecting necessary elements
 const navLinks = data.header.nav;

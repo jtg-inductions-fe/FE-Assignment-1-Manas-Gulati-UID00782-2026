@@ -9,17 +9,17 @@ $border-radius-xl: f.px-to-rem(48);
 $border-radius-full: f.px-to-rem(1000);
 
 //padding
-$padding-xs: 0.5rem;
-$padding-sm: 1rem;
-$padding-md: 1.5rem;
-$padding-lg: 2rem;
-$padding-xl: 2.5rem;
+$padding-xs: f.px-to-rem(8);
+$padding-sm: f.px-to-rem(16);
+$padding-md: f.px-to-rem(24);
+$padding-lg: f.px-to-rem(32);
+$padding-xl: f.px-to-rem(40);
 
 //gap
-$gap-xxs: 0.25rem;
-$gap-xs: 0.5rem;
-$gap-sm: 1rem;
-$gap-md: 1.5rem;
-$gap-lg: 2rem;
-$gap-xl: 2.5rem;
-$gap-xxl: 3rem;
+$gap-xxs: f.px-to-rem(4);
+$gap-xs: f.px-to-rem(8);
+$gap-sm: f.px-to-rem(16);
+$gap-md: f.px-to-rem(24);
+$gap-lg: f.px-to-rem(32);
+$gap-xl: f.px-to-rem(40);
+$gap-xxl: f.px-to-rem(48);
