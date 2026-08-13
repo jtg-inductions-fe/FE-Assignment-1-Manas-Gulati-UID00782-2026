@@ -9,16 +9,18 @@
 //defining layout for parent Service container
 .service {
     @include mix.flex($direction: column);
-    width: 100vw;
+
+    width: 100%;
     padding: 4rem 0;
     gap: 2rem;
     position: relative;
     @include mix.responsive-up(lg) {
         @include mix.flex;
-        width: 95vw;
+        width: 95%;
     }
     &__content {
         @include mix.flex($direction: column);
+
         gap: 1.5rem;
         padding: 0 f.px-to-rem(32);
         @include mix.responsive-up(lg) {
@@ -47,6 +49,7 @@
     }
     &__card-layout {
         @include mix.flex($direction: column);
+
         width: 90%;
         @include mix.responsive-up(md) {
             @include mix.flex;
@@ -56,6 +59,7 @@
         }
     }
     &__card-block {
+        text-align: center;
         @include mix.responsive-up(md) {
             padding: 1rem;
             flex-grow: 1;

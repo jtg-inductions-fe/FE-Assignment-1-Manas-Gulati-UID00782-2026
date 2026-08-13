@@ -21,12 +21,18 @@ export function append(arr, element, container) {
     arr.forEach((link) => {
         let a = document.createElement(element);
         a.setAttribute('tabindex', '1');
-        a.textContent = link;
+        a.setAttribute('href', link[1]);
+        a.textContent = link[0];
         container.prepend(a);
     });
 }
 
-//function to add text to required container
+/** fetch required data and append it to necessary container
+ *
+ * @param {HTMLElement} element
+ * @param {Container} container
+ * @param {String} text
+ */
 export function addText(element, container, text) {
     let para = document.createElement(element);
     document.querySelector(container).prepend(para);
