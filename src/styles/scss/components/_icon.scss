@@ -2,13 +2,11 @@
 @use '../themes/light' as th;
 @use '../abstract/variables' as var;
 .icon {
-    @include mix.flex($gap: 0.25rem, $align-item: flex-start);
-    padding: 0.5rem;
+    @include mix.flex($gap: var.$gap-xxs, $align-item: flex-start);
+
+    padding: var.$padding-xs;
     border-radius: var.$border-radius-xl;
-    &__primary {
-        background-color: th.$brand-primary;
-    }
-    &__secondary {
+    &--secondary {
         background-color: th.$bg-secondary;
     }
 }

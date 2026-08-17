@@ -20,7 +20,7 @@
 
     width: 100%;
     margin: 0 auto;
-    padding: 2rem 2rem 1rem 2rem;
+    padding: var.$padding-lg var.$padding-lg var.$padding-sm;
     position: sticky;
     top: 0;
     z-index: 2;
@@ -31,11 +31,13 @@
     @include mix.responsive-up(lg) {
         @include mix.flex;
     }
+
     //dimension of logo remain same throughout screen
     &__logo {
         width: f.px-to-rem(40);
         height: f.px-to-rem(40);
     }
+
     //remain hidden until screen size switches to desktop view
     &__nav-link {
         display: none;
@@ -46,31 +48,24 @@
             max-width: f.px-to-rem(428);
         }
     }
+
     //remain visible until screen size switches to desktop view
     &__hamburger {
         width: f.px-to-rem(40);
         height: f.px-to-rem(40);
-        font-size: 1.9rem;
+        font-size: typo.$font-size-lg;
         border-radius: var.$border-radius-xs;
-        color: c.$white-100;
+        color: th.$text-inverse;
         background-color: th.$bg-secondary;
         transition: all 150ms ease;
         @include mix.responsive-up(lg) {
             display: none;
         }
-        &:hover {
-            @include mix.shadow(
-                0px,
-                6px,
-                16px,
-                color.change(c.$purple-200, $alpha: 0.25)
-            );
-            background-color: color.adjust(th.$bg-secondary, $lightness: -6%);
-        }
     }
+
     //hamburger pop-up menu
     &__nav-box {
-        @include mix.flex(column, space-between, 1rem, stretch);
+        @include mix.flex(column, space-between, var.$gap-sm, stretch);
 
         @include mix.shadow(
             0px,
@@ -84,7 +79,7 @@
         width: 7rem;
         right: 4rem;
         top: f.px-to-rem(60);
-        padding: 0.75rem;
+        padding: var.$padding-xs;
         color: color.change(c.$black-800, $alpha: 0.5);
         background-color: color.change(c.$white-100, $alpha: 0.98);
         border: 1px solid color.change(c.$black-800, $alpha: 0.1);
@@ -96,42 +91,45 @@
         transform-origin: top right;
         transition: all 180ms ease;
         @include mix.responsive-up(md) {
+            @include mix.flex($gap: var.$gap-md);
+
+            flex-wrap: wrap;
             width: 90%;
             top: f.px-to-rem(75);
             left: 7%;
-            padding-right: 0.75rem;
-            @include mix.flex($gap: 1.5rem);
-            flex-wrap: wrap;
         }
         @include mix.responsive-up(lg) {
             display: none;
         }
+
         //hamburger menu pop up on click of button
         &--active {
             opacity: 1;
             visibility: visible;
             pointer-events: auto;
             transform: translateY(0) scale(1);
-            z-index: 1;
         }
     }
+
     //button inside hamburger pop up menu
     &__nav-box-btn {
         display: none; //button remain hidden until hamburger icon is clicked
         &--active {
-            @include mix.flex($gap: 1rem);
+            @include mix.flex;
+
             flex-wrap: wrap;
         }
         @include mix.responsive-up(md) {
             display: none;
         }
     }
+
     // button inside header container
     //become visible when view enters tablet or higher view
     &__btn {
         display: none;
         @include mix.responsive-up(md) {
-            @include mix.flex($gap: f.px-to-rem(8));
+            @include mix.flex($gap: var.$gap-xs);
             max-width: f.px-to-rem(220);
             flex-wrap: wrap;
         }

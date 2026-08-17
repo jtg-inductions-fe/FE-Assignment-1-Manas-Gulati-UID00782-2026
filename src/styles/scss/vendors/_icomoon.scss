@@ -1,5 +1,5 @@
 @font-face {
-    font-family: icomoon; //necessary for internet explorer compatibility version 8 and older
+    font-family: icomoon;
     src: url('/assets/fonts/icomoon.woff') format('woff');
     font-weight: normal;
     font-style: normal;
@@ -22,6 +22,9 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-copy:before {
+    content: '\e900';
+}
 .icon-location:before {
     content: '\e947';
 }

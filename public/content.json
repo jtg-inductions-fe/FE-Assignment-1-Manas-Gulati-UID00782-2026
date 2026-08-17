@@ -2,9 +2,9 @@
     "header": {
         "nav": [
             ["contact", "#footer"],
-            ["special deals", "spin"],
+            ["special deals", "spin-wheel"],
             ["discover", "#service"],
-            ["home", "/"]
+            ["home", "#"]
         ],
         "buttons": ["log in", "sign up"]
     },

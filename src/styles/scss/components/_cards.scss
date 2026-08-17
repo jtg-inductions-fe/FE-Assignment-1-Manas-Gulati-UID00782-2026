@@ -5,8 +5,9 @@
 
 .card {
     @include mix.flex($direction: column);
-    padding: 2rem;
-    align-self: stretch;
+
+    padding: var.$padding-lg;
     border-radius: var.$border-radius-lg;
+    align-self: stretch;
     border: 1px solid color.change($black-800, $alpha: 0.1);
 }

@@ -1,0 +1,23 @@
+@use '../abstract/color' as *;
+@use '../abstract/mixin' as mix;
+@use '../abstract/variables' as var;
+@use '../themes/light' as th;
+@use 'sass:color';
+
+.deal {
+    @include mix.flex;
+
+    position: relative;
+    width: 100%;
+    border-radius: var.$border-radius-sm;
+    border: 1px solid color.change(th.$brand-primary, $alpha: 0.2);
+    padding: var.$padding-sm;
+    background-image: linear-gradient(
+        90deg,
+        rgba(244, 67, 108, 0.05) 0%,
+        rgba(124, 58, 237, 0.05) 100%
+    );
+    &--expired {
+        filter: grayscale(1);
+    }
+}

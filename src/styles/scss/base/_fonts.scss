@@ -17,6 +17,14 @@ $font-path: '/assets/fonts';
 }
 
 @font-face {
+    font-family: 'Roboto Mono';
+    src: url('#{$font-path}/roboto-mono-latin-700-normal.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
     font-family: 'Inter';
     src: url('#{$font-path}/Inter-Regular.woff2') format('woff2');
     font-weight: 400;
