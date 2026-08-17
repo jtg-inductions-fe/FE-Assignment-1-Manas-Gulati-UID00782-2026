@@ -1,0 +1,17 @@
+@use 'sass:math';
+
+//function to convert px to rem
+/*
+@name px-to-rem
+@param{Number}$pixel- Pixel value to convert
+@param{Number}$base- Base value for root pixel(16px)
+@return{Number}- Equivalent rem value
+*/
+
+@function px-to-rem($pixel) {
+    $strippedValue: math.div(
+        $pixel,
+        $pixel * 0 + 1
+    ); //this cuts out px in division, giving only numeric value
+    @return math.div($strippedValue, 16) * 1rem;
+}

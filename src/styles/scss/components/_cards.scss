@@ -1,0 +1,13 @@
+@use '../abstract/color' as *;
+@use '../abstract/mixin' as mix;
+@use 'sass:color';
+@use '../abstract/variables' as var;
+
+.card {
+    @include mix.flex($direction: column);
+
+    padding: var.$padding-lg;
+    border-radius: var.$border-radius-lg;
+    align-self: stretch;
+    border: 1px solid color.change($black-800, $alpha: 0.1);
+}

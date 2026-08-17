@@ -4,10 +4,664 @@
         <title>Title</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="src/styles/main.scss" />
     </head>
     <body>
-        <div>Hello World</div>
+        <div class="wrapper">
+            <header class="header">
+                <button
+                    class="header__hamburger"
+                    aria-label="Menu Closed"
+                    type="button"
+                    aria-expanded="false"
+                >
+                    <i class="icon-menu"></i>
+                </button>
+                <a href="#" class="header__logo">
+                    <img src="/assets/images/logo.webp" alt="Brand Logo" />
+                </a>
+                <nav class="header__nav-link nav-link-2"></nav>
+                <!--data fetched from context.json-->
+                <nav class="header__nav-box nav-link-2">
+                    <!--data fetched from context.json-->
+                    <div class="header__nav-box-btn">
+                        <button
+                            class="button button--primary header__btn-primary nav-link-2"
+                            type="button"
+                        ></button>
+                        <button
+                            class="button button--secondary header__btn-secondary nav-link-2"
+                            type="button"
+                        ></button>
+                    </div>
+                </nav>
+                <div class="header__btn">
+                    <!--data fetched from context.json-->
+                    <button
+                        class="button button--primary header__btn-primary nav-link-2"
+                        type="button"
+                    ></button>
+                    <button
+                        class="button button--secondary header__btn-secondary nav-link-2"
+                        type="button"
+                    ></button>
+                </div>
+            </header>
+            <div class="body-background"></div>
+            <main>
+                <!--Hero Section layout start-->
+                <section class="hero">
+                    <!--Image section styling-->
+                    <div class="hero__img">
+                        <img
+                            src="/assets/images/globe.webp"
+                            alt="Globe"
+                            class="hero__globe"
+                        />
+                        <div class="hero__collection">
+                            <div class="hero__vertical">
+                                <img
+                                    src="/assets/images/ocean.webp"
+                                    alt="Ocean"
+                                    class="hero__vertical__ocean"
+                                />
+                                <img
+                                    src="/assets/images/mountain.webp"
+                                    alt="Mountain"
+                                    class="hero__vertical__mountain"
+                                />
+                                <div class="hero__plane icon">
+                                    <img
+                                        src="/assets/images/plane.webp"
+                                        alt="Plane"
+                                    />
+                                </div>
+                            </div>
+                            <div class="hero__contact icon">
+                                <i class="icon-user-plus"></i>
+                            </div>
+                            <img
+                                src="/assets/images/city.webp"
+                                alt="City"
+                                class="hero__city"
+                            />
+                            <div class="chip hero__location sub-heading-1">
+                                <i class="icon-location"></i>
+                                <p>Top Places</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Content section styling-->
+                    <article class="hero__content">
+                        <div
+                            class="chip hero__content-sub-heading sub-heading-2"
+                        >
+                            <!--data fetched from context.json-->
+                            <i class="icon-briefcase"></i>
+                        </div>
+                        <div class="hero__content-heading main-heading-1">
+                            <template id="hero-content-heading-template">
+                                <p>
+                                    <span class="before-highlight"> </span>
+                                    <span class="highlight"> </span>
+                                    <span class="after-highlight"> </span>
+                                </p>
+                            </template>
+                        </div>
+                        <div class="hero__content-subtitle subtitle-1">
+                            <!--data fetched from context.json-->
+                        </div>
+                        <!--Button styling-->
+                        <div class="hero__btn">
+                            <button
+                                class="button button--secondary hero__btn--primary nav-link-2"
+                            >
+                                Get Started
+                            </button>
+                            <button
+                                class="button button--primary hero__btn--secondary nav-link-2"
+                            >
+                                <div class="icon hero__btn__play">
+                                    <i class="icon-play3"></i>
+                                </div>
+                                <p>Watch demo</p>
+                            </button>
+                        </div>
+                    </article>
+                    <!--special image that becomes visible on tablet and higher view-->
+                    <div class="hero__triangles">
+                        <img src="/assets/images/triangles.webp" alt="" />
+                    </div>
+                </section>
+                <!--Hero Section layout end-->
+
+                <aside class="sponsors">
+                    <div>
+                        <img
+                            src="/assets/images/tripadvisor.webp"
+                            alt="Tripadvisor"
+                            loading="lazy"
+                        />
+                    </div>
+                    <div>
+                        <img
+                            src="/assets/images/expedia.webp"
+                            alt="Expedia"
+                            loading="lazy"
+                        />
+                    </div>
+                    <div>
+                        <img
+                            src="/assets/images/booking.webp"
+                            alt="Booking"
+                            loading="lazy"
+                        />
+                    </div>
+                    <div>
+                        <img
+                            src="/assets/images/airbnb.webp"
+                            alt="AirBnB"
+                            loading="lazy"
+                        />
+                    </div>
+                    <div>
+                        <img
+                            src="/assets/images/orbitz.webp"
+                            alt="Orbitz"
+                            loading="lazy"
+                        />
+                    </div>
+                </aside>
+
+                <!--Service Section layout start-->
+
+                <section class="service" id="service">
+                    <div class="service__img">
+                        <img
+                            src="/assets/images/travel-point.webp"
+                            alt=""
+                            loading="lazy"
+                        />
+                    </div>
+                    <article class="service__content">
+                        <div class="service__content-sub-heading sub-heading-1">
+                            <!--data fetched from context.json-->
+                        </div>
+                        <div class="service__content-heading main-heading-2">
+                            <!--data fetched from context.json-->
+                        </div>
+                        <div class="service__content-subtitle subtitle-1">
+                            <!--data fetched from context.json-->
+                        </div>
+                        <div class="service__card-layout">
+                            <template id="card-layout-template">
+                                <div class="card service__card-block">
+                                    <h4 class="main-heading-1"></h4>
+                                    <p class="service_card-desc subtitle-1"></p>
+                                </div>
+                            </template>
+                        </div>
+                    </article>
+                    <div class="service__ticket">
+                        <img
+                            src="/assets/images/ticket.webp"
+                            alt=""
+                            loading="lazy"
+                        />
+                    </div>
+                    <div class="service__background"></div>
+                </section>
+
+                <!--Service Section layout end-->
+
+                <!--Testimonial Section layout start-->
+
+                <section class="testimonial">
+                    <!-- styling testimonial texts -->
+                    <div class="testimonial__sub-heading sub-heading-1">
+                        Testimonials
+                    </div>
+                    <div class="testimonial__heading main-heading-2">
+                        Trust our clients
+                    </div>
+                    <!-- setting carousel layout -->
+                    <div class="splide" id="testimonial">
+                        <!-- styling carousel arrows -->
+                        <div class="splide__arrows">
+                            <button
+                                class="splide__arrow splide__arrow--prev"
+                                type="button"
+                            >
+                                <i class="icon-arrow-left2"></i>
+                            </button>
+
+                            <button class="splide__arrow splide__arrow--next">
+                                <i class="icon-arrow-right2"></i>
+                            </button>
+                        </div>
+                        <!-- setting carousel texts -->
+                        <div class="splide__track">
+                            <div class="splide__list">
+                                <div class="splide__slide">
+                                    <div class="splide__profile">
+                                        <img
+                                            src="/assets/images/user.webp"
+                                            alt="profile photo"
+                                        />
+                                    </div>
+                                    <div class="splide__customer sub-heading-1">
+                                        <p>
+                                            Mark Smith
+                                            <span class="splide__occupation"
+                                                >/ Travel Enthusiast</span
+                                            >
+                                        </p>
+                                    </div>
+                                    <div class="splide__star">
+                                        <div class="splide__star-container">
+                                            <img
+                                                src="/assets/images/star.webp"
+                                                alt="star"
+                                            />
+                                        </div>
+                                    </div>
+                                    <p class="splide__review subtitle-1">
+                                        Contrary to popular belief, Lorem Ipsum
+                                        is not simply random text. It has roots
+                                        in a piece of classical Latin literature
+                                        from 45 BC.
+                                    </p>
+                                </div>
+                                <div class="splide__slide">
+                                    <div class="splide__profile">
+                                        <img
+                                            src="/assets/images/user.webp"
+                                            alt="Profile photo"
+                                        />
+                                    </div>
+                                    <div class="splide__customer sub-heading-1">
+                                        <p>
+                                            Mark Smith
+                                            <span class="splide__occupation"
+                                                >/ Travel Enthusiast</span
+                                            >
+                                        </p>
+                                    </div>
+                                    <div class="splide__star">
+                                        <div class="splide__star-container">
+                                            <img
+                                                src="/assets/images/star.webp"
+                                                alt="star"
+                                            />
+                                        </div>
+                                        <div class="splide__star-container">
+                                            <img
+                                                src="/assets/images/star.webp"
+                                                alt="star"
+                                            />
+                                        </div>
+                                        <div class="splide__star-container">
+                                            <img
+                                                src="/assets/images/star.webp"
+                                                alt="star"
+                                            />
+                                        </div>
+                                        <div class="splide__star-container">
+                                            <img
+                                                src="/assets/images/star.webp"
+                                                alt="star"
+                                            />
+                                        </div>
+                                        <div class="splide__star-container">
+                                            <img
+                                                src="/assets/images/star.webp"
+                                                alt="star"
+                                            />
+                                        </div>
+                                    </div>
+                                    <p class="splide__review subtitle-1">
+                                        Contrary to popular belief, Lorem Ipsum
+                                        is not simply random text. It has roots
+                                        in a piece of classical Latin literature
+                                        from 45 BC.
+                                    </p>
+                                </div>
+                                <div class="splide__slide">
+                                    <div class="splide__profile">
+                                        <img
+                                            src="/assets/images/user.webp"
+                                            alt="Profile photo"
+                                        />
+                                    </div>
+                                    <div class="splide__customer sub-heading-1">
+                                        <p>
+                                            Mark Smith
+                                            <span class="splide__occupation"
+                                                >/ Travel Enthusiast</span
+                                            >
+                                        </p>
+                                    </div>
+                                    <div class="splide__star">
+                                        <div class="splide__star-container">
+                                            <img
+                                                src="/assets/images/star.webp"
+                                                alt="star"
+                                            />
+                                        </div>
+                                        <div class="splide__star-container">
+                                            <img
+                                                src="/assets/images/star.webp"
+                                                alt="star"
+                                            />
+                                        </div>
+                                        <div class="splide__star-container">
+                                            <img
+                                                src="/assets/images/star.webp"
+                                                alt="star"
+                                            />
+                                        </div>
+                                    </div>
+                                    <p class="splide__review subtitle-1">
+                                        Contrary to popular belief, Lorem Ipsum
+                                        is not simply random text. It has roots
+                                        in a piece of classical Latin literature
+                                        from 45 BC.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- setting carousel background image -->
+                    </div>
+                    <div class="testimonial__background">
+                        <img
+                            src="/assets/images/carousel.webp"
+                            alt="carousel background"
+                        />
+                    </div>
+                </section>
+
+                <!--Testimonial Section layout end-->
+
+                <!--Rewards Section layout start-->
+
+                <dialog class="modal" aria-label="Spin Wheel Closed">
+                    <button class="modal__close button" type="button">X</button>
+
+                    <div class="modal__sub-heading sub-heading-1">
+                        <img
+                            src="/assets/images/gift.webp"
+                            alt="gift image icon"
+                            class="modal__gift-img"
+                        />
+                        special deals
+                    </div>
+                    <div class="modal__heading main-heading-2">
+                        spin &amp; win
+                    </div>
+                    <div class="modal__subtitle subtitle-1">
+                        Tap the center of the wheel to spin
+                    </div>
+                    <div class="modal__spin modal__spin--active">
+                        <p class="modal__spin-loader subtitle-1">Loading...</p>
+                        <div class="modal__spin-pointer">
+                            <img
+                                src="/assets/images/pointer.webp"
+                                alt="spin pointer"
+                            />
+                        </div>
+                        <div class="modal__spin-wheel">
+                            <div class="modal__spin-quadrant-1">
+                                <p class="modal__quadrant-1-text"></p>
+                            </div>
+                            <div class="modal__spin-quadrant-2">
+                                <p class="modal__quadrant-2-text"></p>
+                            </div>
+                            <div class="modal__spin-quadrant-3">
+                                <p class="modal__quadrant-3-text"></p>
+                            </div>
+                            <div class="modal__spin-quadrant-4">
+                                <p class="modal__quadrant-4-text"></p>
+                            </div>
+                            <button class="modal__spin-btn" type="button">
+                                spin
+                            </button>
+                        </div>
+                    </div>
+                    <div class="modal__win modal__win--active sub-heading-2">
+                        <template class="modal__template-reward-won">
+                            <p class="modal__you-won-text">You won!</p>
+                            <div class="modal__reward-won deal">
+                                <div class="modal__reward-won-text">
+                                    <p
+                                        class="modal__reward-won-label sub-heading-2"
+                                    ></p>
+                                    <p
+                                        class="modal__reward-won-expiry subtitle-1"
+                                    ></p>
+                                </div>
+                                <div class="modal__reward-won-code">
+                                    <div
+                                        class="modal__reward-won-promo sub-heading-2"
+                                    ></div>
+                                    <div class="modal__reward-won-copy">
+                                        <button
+                                            class="modal__icon-copy-btn"
+                                            type="button"
+                                        >
+                                            <i class="icon-copy"></i>
+                                            <div
+                                                class="modal__code-copied subtitle-1"
+                                            >
+                                                Promocode Copied!
+                                            </div>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                    <div class="modal__deals">
+                        <template class="modal__template-reward-won">
+                            <p>You won!</p>
+                            <div class="modal__reward-won deal">
+                                <div class="modal__reward-won-text">
+                                    <p
+                                        class="modal__reward-won-label sub-heading-2"
+                                    ></p>
+                                    <p
+                                        class="modal__reward-won-expiry subtitle-1"
+                                    ></p>
+                                </div>
+                                <div class="modal__reward-won-code">
+                                    <div
+                                        class="modal__reward-won-promo sub-heading-2"
+                                    ></div>
+                                    <div class="modal__reward-won-copy">
+                                        <button
+                                            class="modal__icon-copy-btn"
+                                            type="button"
+                                        >
+                                            <i class="icon-copy"></i>
+                                            <div
+                                                class="modal__code-copied subtitle-1"
+                                            >
+                                                Promocode Copied!
+                                            </div>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                    <button
+                        class="button modal__deal-switch subtitle-1"
+                        type="button"
+                    >
+                        <p class="modal__deal-switch-content">
+                            View All Unlocked Deals
+                        </p>
+                        <div class="modal__deal-count subtitle-1">0</div>
+                    </button>
+                </dialog>
+
+                <!--Rewards Section layout end-->
+            </main>
+            <!-- backdrop for rewards section-->
+            <div class="backdrop"></div>
+            <footer class="footer" id="footer">
+                <section class="footer__desc">
+                    <div class="footer__logo-container">
+                        <img
+                            src="/assets/images/logo.webp"
+                            alt="Travlog logo"
+                        />
+                        <h2
+                            class="footer__logo-title main-heading-1"
+                            id="footer-brand-title"
+                        >
+                            Travlog
+                        </h2>
+                    </div>
+
+                    <p class="footer__subtitle subtitle-1">
+                        Contrary to popular belief, Lorem Ipsum is not simply
+                        random text. It has roots in a piece of classical Latin
+                        literature from 45 BC.
+                    </p>
+                    <!-- href links not configured for now because of lack of information
+                    left # so it can easily be configured once enough information is available -->
+                    <div
+                        class="footer__socials"
+                        aria-label="Social media links"
+                    >
+                        <a
+                            href="#"
+                            class="icon icon--secondary"
+                            aria-label="Facebook"
+                        >
+                            <i class="icon-facebook" aria-hidden="true"></i>
+                        </a>
+                        <a
+                            href="#"
+                            class="icon icon--secondary"
+                            aria-label="Twitter"
+                        >
+                            <i class="icon-twitter" aria-hidden="true"></i>
+                        </a>
+                        <a
+                            href="#"
+                            class="icon icon--secondary"
+                            aria-label="Instagram"
+                        >
+                            <i class="icon-instagram" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </section>
+
+                <section
+                    class="footer__accordion"
+                    aria-label="Footer navigation"
+                >
+                    <div class="footer__details">
+                        <button
+                            class="footer__accordion-trigger"
+                            type="button"
+                            aria-expanded="false"
+                            aria-label="Company list open"
+                        >
+                            <span
+                                class="footer__accordion-heading main-heading-1"
+                                >Company</span
+                            >
+                            <i
+                                class="icon-circle-down footer__accordion-icon"
+                                aria-hidden="true"
+                            ></i>
+                        </button>
+                        <ul
+                            class="footer__accordion-list nav-link-2"
+                            id="footer-company-list"
+                        >
+                            <!-- href links not configured for now because of lack of information
+                        left # so it can easily be configured once enough information is available -->
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Career</a></li>
+                            <li><a href="#">Mobile</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer__details">
+                        <button
+                            class="footer__accordion-trigger"
+                            type="button"
+                            aria-expanded="false"
+                            aria-label="Contact list open"
+                        >
+                            <span
+                                class="footer__accordion-heading main-heading-1"
+                                >Contact</span
+                            >
+                            <i
+                                class="icon-circle-down footer__accordion-icon"
+                                aria-hidden="true"
+                            ></i>
+                        </button>
+                        <ul
+                            class="footer__accordion-list nav-link-2"
+                            id="footer-contact-list"
+                        >
+                            <!-- href links not configured for now because of lack of information
+                        left # so it can easily be configured once enough information is available -->
+                            <li><a href="#">Why Travlog?</a></li>
+                            <li><a href="#">Partner with us</a></li>
+                            <li><a href="#">FAQ's</a></li>
+                            <li><a href="#">Blog</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer__details">
+                        <button
+                            class="footer__accordion-trigger"
+                            type="button"
+                            aria-expanded="false"
+                            aria-label="Meet Us list open"
+                        >
+                            <span
+                                class="footer__accordion-heading main-heading-1"
+                                >Meet Us</span
+                            >
+                            <i
+                                class="icon-circle-down footer__accordion-icon"
+                                aria-hidden="true"
+                            ></i>
+                        </button>
+                        <ul
+                            class="footer__accordion-list nav-link-2"
+                            id="footer-meet-list"
+                        >
+                            <!-- href links not configured for now because of lack of information
+                        left # so it can easily be configured once enough information is available -->
+                            <li>
+                                <a href="tel:+0092123456789"
+                                    >+00 92 1234 56789</a
+                                >
+                            </li>
+                            <li>
+                                <a href="mailto:info@travlog.com"
+                                    >info@travlog.com</a
+                                >
+                            </li>
+                            <li><a href="#">205 R Street, New York</a></li>
+                            <li><a href="#">BD23200</a></li>
+                        </ul>
+                    </div>
+                </section>
+            </footer>
+        </div>
         <script type="module" src="./src/script/index.js"></script>
+        <script type="module" src="./src/script/header.js"></script>
+        <script type="module" src="./src/script/hero.js"></script>
+        <script type="module" src="./src/script/service.js"></script>
+        <script type="module" src="./src/script/footer.js"></script>
+        <script type="module" src="./src/script/reward.js"></script>
     </body>
 </html>

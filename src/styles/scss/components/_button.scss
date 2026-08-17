@@ -1,0 +1,23 @@
+@use '../base/typography' as typo;
+@use '../abstract/mixin' as mix;
+@use '../abstract/color' as c;
+@use '../themes/light' as th;
+@use '../abstract/function' as f;
+@use '../abstract/variables' as var;
+
+.button {
+    @include mix.flex($gap: var.$gap-xs, $space: center);
+
+    text-transform: capitalize;
+    border-radius: var.$border-radius-full;
+    padding: var.$padding-xs var.$padding-sm;
+    max-width: f.px-to-rem(115);
+    &--primary {
+        background-color: th.$bg-primary;
+        color: th.$text-primary;
+    }
+    &--secondary {
+        background-color: th.$bg-secondary;
+        color: th.$text-inverse;
+    }
+}

@@ -1,7 +1,13 @@
 {
     "name": "static-html-base-template",
-    "description": "",
-    "keywords": [],
+    "description": "Manas Assignment 1",
+    "keywords": [
+        "npm",
+        "vite",
+        "html",
+        "scss",
+        "javascript"
+    ],
     "version": "0.0.0",
     "private": true,
     "type": "module",
@@ -9,9 +15,9 @@
         "dev": "vite",
         "build": "vite build",
         "preview": "vite preview",
-        "lint": "npx eslint .",
-        "prettier": "npx prettier --write ./",
-        "lint:fix": "yarn eslint . --fix",
+        "lint": "eslint . --cache --cache-location node_modules/.cache/.eslintcache",
+        "prettier": "prettier --write .",
+        "lint:fix": "eslint . --fix --cache --cache-location node_modules/.cache/.eslintcache",
         "prepare": "husky",
         "pre-commit": "lint-staged"
     },
@@ -39,5 +45,8 @@
             "eslint --max-warnings=0"
         ],
         "*.{html,scss,json}": "prettier --check"
+    },
+    "dependencies": {
+        "@splidejs/splide": "^4.1.4"
     }
 }

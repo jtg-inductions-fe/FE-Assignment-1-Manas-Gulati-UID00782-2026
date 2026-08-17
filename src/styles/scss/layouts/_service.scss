@@ -1,0 +1,133 @@
+//import all necessary files with appropriate namespace
+@use '../abstract/function' as f;
+@use '../themes/light' as th;
+@use '../abstract/mixin' as mix;
+@use '../abstract/color' as c;
+@use 'sass:color';
+@use '../base/typography' as typo;
+@use '../abstract/variables' as var;
+
+//defining layout for parent Service container
+.service {
+    @include mix.flex($direction: column);
+
+    width: 100%;
+    padding: 4rem 0;
+    gap: var.$gap-lg;
+    position: relative;
+    @include mix.responsive-up(lg) {
+        @include mix.flex;
+
+        width: 95%;
+    }
+
+    //styling service content area
+    &__content {
+        @include mix.flex($direction: column, $gap: var.$gap-md);
+
+        padding: 0 var.$padding-lg;
+        @include mix.responsive-up(lg) {
+            width: 60%;
+            align-items: flex-start;
+        }
+    }
+
+    //styling service sub heading
+    &__content-sub-heading {
+        text-transform: uppercase;
+        text-align: center;
+        color: th.$brand-primary;
+    }
+
+    //styling service heading
+    &__content-heading {
+        text-align: center;
+        color: c.$black-800;
+        @include mix.responsive-up(lg) {
+            text-align: left;
+        }
+    }
+
+    //styling service helper text
+    &__content-subtitle {
+        text-align: center;
+        color: color.change(c.$black-800, $alpha: 0.5);
+        @include mix.responsive-up(lg) {
+            text-align: left;
+        }
+    }
+
+    //setting card layout
+    &__card-layout {
+        @include mix.flex($direction: column);
+
+        width: 90%;
+        @include mix.responsive-up(md) {
+            @include mix.flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+        }
+    }
+
+    //styling individual cards
+    &__card-block {
+        text-align: center;
+        @include mix.responsive-up(md) {
+            padding: var.$padding-sm;
+            flex-grow: 1;
+            flex-basis: 40%;
+        }
+        @include mix.responsive-up(lg) {
+            flex-basis: 40%;
+        }
+    }
+
+    //styling card heading
+    &__card-block > h4 {
+        text-align: center;
+        color: th.$brand-secondary;
+        @include mix.responsive-up(lg) {
+            font-size: typo.$font-size-lg;
+        }
+    }
+
+    //styling card desc
+    &__card-desc {
+        text-align: center;
+        font-size: f.px-to-rem(18);
+        @include mix.responsive-up(lg) {
+            font-size: f.px-to-rem(15);
+        }
+    }
+
+    //setting service image
+    &__ticket {
+        display: none;
+        @include mix.responsive-up(lg) {
+            width: f.px-to-rem(90);
+            display: inline-block;
+            position: absolute;
+            top: 43%;
+            right: -1%;
+        }
+    }
+
+    //adding background to service section
+    &__background {
+        display: none;
+        @include mix.responsive-up(md) {
+            position: absolute;
+            z-index: -1;
+            pointer-events: none;
+            width: f.px-to-rem(172);
+            height: f.px-to-rem(448);
+            background-color: th.$brand-tertiary;
+            opacity: 50%;
+            filter: blur(180px);
+            display: inline-block;
+            top: -30%;
+            right: 0;
+        }
+    }
+}

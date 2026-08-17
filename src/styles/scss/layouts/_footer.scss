@@ -1,0 +1,142 @@
+//import all necessary files with appropriate namespace
+@use '../abstract/function' as f;
+@use '../abstract/mixin' as mix;
+@use '../abstract/color' as c;
+@use '../base/typography' as typo;
+@use '../themes/light' as th;
+@use 'sass:color';
+@use '../abstract/variables' as var;
+
+//defining styling for parent footer container
+.footer {
+    @include mix.flex(
+        $direction: column,
+        $align-item: stretch,
+        $gap: var.$gap-xxl
+    );
+
+    width: 100%;
+    margin-top: 9rem;
+    padding: 0 var.$padding-lg;
+    position: relative;
+    @include mix.responsive-up(md) {
+        margin-bottom: 2rem;
+    }
+    @include mix.responsive-up(lg) {
+        @include mix.flex(
+            $align-item: flex-start,
+            $space: space-around,
+            $gap: var.$gap-md
+        );
+    }
+
+    //styling left portion of footer
+    &__desc {
+        @include mix.flex(
+            $direction: column,
+            $align-item: flex-start,
+            $gap: var.$gap-lg
+        );
+        @include mix.responsive-up(lg) {
+            max-width: f.px-to-rem(600);
+        }
+    }
+
+    //setting logo container styling of footer
+    &__logo-container {
+        @include mix.flex($space: flex-start, $gap: var.$gap-md);
+    }
+
+    //setting footer logo dimensions
+    &__logo-container > img {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    //styling footer logo heading
+    &__logo-title {
+        font-size: typo.$font-size-md;
+    }
+
+    //setting help text is left section of footer
+    &__subtitle {
+        color: color.change(c.$black-800, $alpha: 0.75);
+        text-align: left;
+    }
+
+    //setting social links of footer
+    &__socials {
+        @include mix.flex($space: flex-start, $gap: var.$gap-lg);
+    }
+    &__socials > a {
+        color: th.$bg-primary;
+    }
+
+    //setting accordion styling of footer
+    &__accordion {
+        @include mix.flex(
+            $direction: column,
+            $align-item: stretch,
+            $gap: var.$gap-lg
+        );
+
+        @include mix.responsive-up(md) {
+            @include mix.grid(3, var.$gap-xxl);
+        }
+    }
+
+    //setting accordion button styling
+    &__accordion-trigger {
+        @include mix.flex;
+
+        width: 100%;
+        padding: var.$padding-md 0;
+        background-color: th.$bg-primary;
+        color: th.$text-primary;
+        cursor: pointer;
+        @include mix.responsive-up(md) {
+            cursor: default;
+            pointer-events: none;
+            padding: 0;
+        }
+    }
+
+    //styling accordion heading
+    &__accordion-heading {
+        font-size: f.px-to-rem(20px);
+    }
+
+    //setting accordion dropdown icon
+    &__accordion-icon {
+        transition: transform 250ms ease;
+        @include mix.responsive-up(md) {
+            display: none;
+        }
+        &--rotate {
+            transform: rotate(180deg);
+        }
+    }
+
+    //setting accordion list
+    &__accordion-list {
+        max-height: 0;
+        visibility: hidden;
+        opacity: 0;
+        color: color.change(c.$black-800, $alpha: 0.75);
+        transition: all 200ms ease;
+        @include mix.responsive-up(md) {
+            visibility: visible;
+            opacity: 1;
+            max-height: none;
+        }
+        &--open {
+            visibility: visible;
+            opacity: 1;
+            max-height: 1000px; //max-height is used to smooth the collapse animation
+        }
+    }
+
+    &__accordion-list > li {
+        margin-top: 1rem;
+    }
+}

@@ -1,0 +1,319 @@
+//import all necessary files with appropriate namespace
+@use '../abstract/function' as f;
+@use '../themes/light' as th;
+@use '../abstract/mixin' as mix;
+@use '../abstract/color' as c;
+@use 'sass:color';
+@use '../base/typography' as typo;
+@use '../abstract/variables' as var;
+
+//defining styling for parent hero container
+.hero {
+    @include mix.flex($direction: column);
+
+    width: 95%;
+    position: relative;
+    margin: 1rem auto;
+    @include mix.responsive-up(md) {
+        padding: var.$padding-md 0;
+    }
+    @include mix.responsive-up(lg) {
+        //changing hero section layout on desktop view
+        @include mix.flex($direction: row-reverse);
+
+        width: 90%;
+        padding: var.$padding-lg;
+    }
+
+    //image section
+    &__img {
+        position: relative;
+        width: 95%;
+        @include mix.responsive-up(md) {
+            width: 75%;
+        }
+    }
+    &__globe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+    //handling images of hero section
+    &__collection {
+        @include mix.flex;
+
+        width: 80%;
+        margin: 2.5rem auto;
+        position: relative;
+        justify-content: center;
+    }
+    &__city {
+        width: 41%;
+        border-radius: var.$border-radius-sm;
+    }
+    //handling vertical alignment of 2 images
+    &__vertical {
+        @include mix.flex($direction: column);
+
+        position: relative;
+        width: 41%;
+        &__mountain {
+            width: 100%;
+            aspect-ratio: 1/1.1;
+            border-radius: var.$border-radius-sm;
+        }
+        &__ocean {
+            width: 100%;
+            aspect-ratio: 1/1.1;
+            border-radius: var.$border-radius-sm;
+        }
+    }
+    //setting plane icon alignment
+    &__plane {
+        @include mix.shadow(
+            0,
+            12px,
+            14px,
+            color.change(c.$black-800, $alpha: 0.25)
+        );
+        width: 21%;
+        max-width: f.px-to-rem(48);
+        background-color: th.$brand-primary;
+        position: absolute;
+        top: 45%;
+        left: 0;
+        transform: translate(-50%, -50%);
+    }
+    //setting contact icon alignment
+    &__contact {
+        @include mix.shadow(
+            0,
+            12px,
+            14px,
+            color.change(c.$black-800, $alpha: 0.25)
+        );
+        position: absolute;
+        background-color: th.$brand-secondary;
+        justify-content: center;
+        align-items: center;
+        color: c.$white-100;
+        bottom: 0;
+        right: 20%;
+        @include mix.responsive-up(md) {
+            font-size: typo.$font-size-sm;
+        }
+    }
+    //setting chip alignment
+    &__location {
+        @include mix.shadow(
+            0,
+            12px,
+            14px,
+            color.change(c.$black-800, $alpha: 0.25)
+        );
+        position: absolute;
+        right: -5%;
+        top: 60%;
+        background-color: th.$bg-primary;
+        border-radius: var.$border-radius-xl;
+        padding: var.$padding-xs var.$padding-sm;
+        gap: var.$gap-xs;
+        justify-content: center;
+        align-items: center;
+        font-size: f.px-to-rem(7);
+        color: c.$black-800;
+        @include mix.responsive-up(md) {
+            font-size: f.px-to-rem(12);
+            padding: var.$padding-sm var.$padding-md;
+        }
+        @include mix.responsive-up(lg) {
+            padding: var.$padding-sm var.$padding-lg;
+            font-size: typo.$font-size-xs;
+            gap: var.$gap-xs;
+        }
+        & > i {
+            color: th.$brand-tertiary;
+        }
+    }
+
+    //text section
+    &__content {
+        @include mix.flex($direction: column, $gap: var.$gap-lg);
+
+        width: 95%;
+        @include mix.responsive-up(md) {
+            padding: 0 var.$padding-xs;
+        }
+        @include mix.responsive-up(lg) {
+            padding: 0;
+            align-items: flex-start;
+            padding-left: var.$padding-md;
+            width: 45%;
+        }
+    }
+
+    //subHeading Floater
+    &__content-sub-heading {
+        @include mix.flex($space: center);
+
+        @include mix.shadow(
+            0,
+            5px,
+            17px,
+            color.change(c.$black-800, $alpha: 0.15)
+        );
+        width: f.px-to-rem(240);
+        border-radius: var.$border-radius-full;
+        padding: 1rem 2rem;
+        padding: var.$padding-sm var.$padding-lg;
+        text-transform: uppercase;
+        text-align: center;
+        font-size: f.px-to-rem(12);
+        color: th.$brand-primary;
+        border: 1px solid color.change(c.$black-800, $alpha: 0.05);
+        @include mix.responsive-up(lg) {
+            width: f.px-to-rem(200);
+            padding: var.$padding-xs var.$padding-sm;
+            gap: var.$gap-xs;
+        }
+    }
+    //Setting Heading Styles
+    &__content-heading {
+        width: 80%;
+        text-align: center;
+        @include mix.responsive-up(md) {
+            width: 85%;
+            font-size: f.px-to-rem(56);
+        }
+        @include mix.responsive-up(lg) {
+            text-align: left;
+        }
+    }
+    //Setting subtitles style
+    &__content-subtitle {
+        width: 85%;
+        text-align: center;
+        color: color.change(c.$black-800, $alpha: 0.5);
+        @include mix.responsive-up(md) {
+            width: 70%;
+        }
+        @include mix.responsive-up(lg) {
+            text-align: left;
+        }
+    }
+
+    //button section
+    &__btn {
+        @include mix.flex($direction: column, $gap: var.$gap-lg);
+
+        width: 95%;
+        @include mix.responsive-up(md) {
+            @include mix.flex;
+            width: 85%;
+            justify-content: center;
+        }
+        @include mix.responsive-up(lg) {
+            justify-content: flex-start;
+        }
+        &--primary {
+            @include mix.shadow(
+                0,
+                20px,
+                17px,
+                color.change(c.$black-800, $alpha: 0.25)
+            );
+            width: 100%;
+            max-width: none;
+            padding: var.$padding-md 0;
+            @include mix.responsive-up(md) {
+                width: 35%;
+                padding: var.$padding-sm 0;
+            }
+            @include mix.responsive-up(lg) {
+                @include mix.shadow(
+                    0,
+                    14px,
+                    19px,
+                    color.change(c.$black-800, $alpha: 0.2)
+                );
+                width: 45%;
+                padding: var.$padding-xs var.$padding-sm;
+            }
+        }
+        &--secondary {
+            @include mix.shadow(
+                0,
+                5px,
+                17px,
+                color.change(c.$black-800, $alpha: 0.15)
+            );
+            width: 100%;
+            max-width: none;
+            padding: var.$padding-md 0;
+            align-items: baseline;
+            border: 1px solid color.change(c.$black-800, $alpha: 0.09);
+            @include mix.responsive-up(md) {
+                font-size: 0.85rem;
+                width: 40%;
+                padding: var.$padding-sm;
+                gap: var.$gap-xxs;
+            }
+            @include mix.responsive-up(lg) {
+                font-size: 0.85rem;
+                width: 60%;
+                padding: var.$padding-xs var.$padding-sm;
+                gap: var.$gap-xxs;
+            }
+        }
+        //Icon inside secondary button
+        &__play {
+            background-color: th.$bg-secondary;
+            height: f.px-to-rem(20);
+            width: f.px-to-rem(20);
+            align-items: center;
+            justify-content: center;
+            color: c.$white-100;
+            font-size: f.px-to-rem(12);
+        }
+    }
+    //image
+    &__triangles {
+        display: none;
+        z-index: -1;
+        @include mix.responsive-up(md) {
+            display: inline-block;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+        @include mix.responsive-up(lg) {
+            bottom: -10%;
+            left: -2%;
+        }
+    }
+}
+//defining logo design
+.sponsors {
+    @include mix.flex;
+
+    width: 95%;
+    flex-wrap: wrap;
+    row-gap: var.$gap-lg;
+    justify-content: center;
+    margin: 4rem auto;
+
+    @include mix.responsive-up(lg) {
+        justify-content: space-evenly;
+    }
+    & > div {
+        max-width: f.px-to-rem(130);
+        @include mix.responsive-up(md) {
+            max-width: f.px-to-rem(210);
+        }
+    }
+}
+//to highlight text
+.highlight {
+    color: th.$brand-primary;
+}

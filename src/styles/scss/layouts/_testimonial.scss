@@ -1,0 +1,202 @@
+//import all necessary files with appropriate namespace
+@use '../abstract/function' as f;
+@use '../themes/light' as th;
+@use '../abstract/mixin' as mix;
+@use '../abstract/color' as c;
+@use 'sass:color';
+@use '../base/typography' as typo;
+@use '../abstract/variables' as var;
+
+//defining styling for parent testimonial container
+.testimonial {
+    @include mix.flex($direction: column);
+
+    width: 100%;
+    position: relative;
+    padding: var.$padding-lg 0;
+    @include mix.responsive-up(md) {
+        padding: 0 var.$padding-sm;
+    }
+
+    //styling for testimonial subheading
+    &__sub-heading {
+        color: c.$pink-100;
+        font-size: f.px-to-rem(19);
+        @include mix.responsive-up(lg) {
+            font-size: typo.$font-size-md;
+        }
+    }
+    //styling for testimonial heading
+    &__heading {
+        color: c.$black-800;
+        font-size: f.px-to-rem(40);
+        @include mix.responsive-up(lg) {
+            font-size: f.px-to-rem(50);
+        }
+    }
+
+    &__background {
+        display: none;
+        @include mix.responsive-up(md) {
+            display: inline-block;
+            position: absolute;
+            z-index: -1;
+            width: 100%;
+            top: 5%;
+        }
+        @include mix.responsive-up(lg) {
+            top: 0;
+        }
+    }
+}
+
+//customizing carousel section of testimonial
+.splide {
+    margin-top: 2rem;
+    width: 95%;
+    @include mix.responsive-up(md) {
+        width: 100%;
+    }
+
+    //styling buttons of carousel
+    &__arrow {
+        position: absolute;
+        top: 14%;
+        width: f.px-to-rem(64);
+        height: f.px-to-rem(64);
+        opacity: 1;
+        @include mix.responsive-up(md) {
+            width: f.px-to-rem(80);
+            height: f.px-to-rem(80);
+            top: 30%;
+        }
+        @include mix.responsive-up(lg) {
+            width: f.px-to-rem(100);
+            height: f.px-to-rem(100);
+            top: 50%;
+        }
+        &--prev {
+            @include mix.shadow(
+                0,
+                10px,
+                17px,
+                color.change(c.$black-800, $alpha: 0.35)
+            );
+            left: 1rem;
+            background-color: th.$bg-primary;
+            border: 1px solid color.change(c.$black-800, $alpha: 0.2);
+            @include mix.responsive-up(md) {
+                left: 0;
+            }
+            @include mix.responsive-up(lg) {
+                left: 1rem;
+            }
+            &:hover {
+                background-color: th.$bg-secondary;
+                color: th.$text-inverse;
+            }
+        }
+        &--next {
+            @include mix.shadow(
+                0,
+                10px,
+                17px,
+                color.change(c.$black-800, $alpha: 0.35)
+            );
+            right: 1rem;
+            background-color: th.$bg-primary;
+            border: 1px solid color.change(c.$black-800, $alpha: 0.2);
+            @include mix.responsive-up(md) {
+                right: 0;
+            }
+            @include mix.responsive-up(lg) {
+                right: 1rem;
+            }
+            &:hover {
+                background-color: th.$bg-secondary;
+                color: th.$text-inverse;
+            }
+        }
+    }
+
+    //styling whole splide container
+    &__slide {
+        @include mix.flex($direction: column, $gap: 4rem);
+        @include mix.responsive-up(md) {
+            gap: var.$gap-xl;
+        }
+        @include mix.responsive-up(lg) {
+            gap: var.$gap-xl;
+        }
+    }
+
+    //styling profile photo
+    &__profile {
+        width: 30%;
+        aspect-ratio: 1/1;
+        border-radius: var.$border-radius-full;
+        max-width: f.px-to-rem(128);
+        overflow: hidden;
+    }
+    //setting carousel text styles
+    &__customer {
+        font-size: f.px-to-rem(28);
+        color: th.$brand-secondary;
+        text-align: center;
+        @include mix.responsive-up(md) {
+            font-size: typo.$font-size-md;
+        }
+        @include mix.responsive-up(lg) {
+            font-size: f.px-to-rem(29);
+        }
+    }
+    &__occupation {
+        font-size: typo.$font-size-md;
+        color: color.change(c.$black-800, $alpha: 0.75);
+        @include mix.responsive-up(md) {
+            font-size: f.px-to-rem(19);
+        }
+        @include mix.responsive-up(lg) {
+            font-size: typo.$font-size-md;
+        }
+    }
+    &__review {
+        color: color.change(c.$black-800, $alpha: 0.75);
+        width: 90%;
+        text-align: center;
+        @include mix.responsive-up(md) {
+            width: 60%;
+        }
+        @include mix.responsive-up(lg) {
+            font-size: f.px-to-rem(20);
+            width: 60%;
+        }
+    }
+    //setting review and stars of customer
+    &__star {
+        @include mix.flex($space: center, $gap: var.$gap-md);
+    }
+    &__star-container {
+        width: 10vw;
+        max-width: f.px-to-rem(42);
+        @include mix.responsive-up(md) {
+            width: 4vw;
+        }
+    }
+    //setting style of three dots at bottom
+    &__pagination {
+        bottom: -4rem;
+        &__page {
+            width: f.px-to-rem(24);
+            height: f.px-to-rem(24);
+            border-radius: var.$border-radius-full;
+            margin-left: 1.2rem;
+            background-color: color.change(c.$black-800, $alpha: 0.15);
+            &.is-active {
+                transform: none;
+                background-color: th.$brand-primary;
+                opacity: 1;
+            }
+        }
+    }
+}

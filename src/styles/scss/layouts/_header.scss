@@ -1,0 +1,155 @@
+//import all necessary files with appropriate namespace
+@use '../abstract/function' as f;
+@use '../themes/light' as th;
+@use '../abstract/mixin' as mix;
+@use '../abstract/color' as c;
+@use 'sass:color';
+@use '../base/typography' as typo;
+@use '../abstract/variables' as var;
+
+//defining styling for the whole wrapper class
+.wrapper {
+    max-width: f.px-to-rem(2440);
+    margin: 0 auto;
+    position: relative;
+}
+
+//defining styling for parent header container
+.header {
+    @include mix.flex($direction: row-reverse);
+
+    width: 100%;
+    margin: 0 auto;
+    padding: var.$padding-lg var.$padding-lg var.$padding-sm;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background-color: color.change(c.$white-100, $alpha: 0.9);
+    @include mix.responsive-up(md) {
+        flex-direction: row;
+    }
+    @include mix.responsive-up(lg) {
+        @include mix.flex;
+    }
+
+    //dimension of logo remain same throughout screen
+    &__logo {
+        width: f.px-to-rem(40);
+        height: f.px-to-rem(40);
+    }
+
+    //remain hidden until screen size switches to desktop view
+    &__nav-link {
+        display: none;
+        text-transform: capitalize;
+        color: color.change(c.$black-800, $alpha: 0.5);
+        @include mix.responsive-up(lg) {
+            @include mix.flex($gap: f.px-to-rem(64));
+            max-width: f.px-to-rem(428);
+        }
+    }
+
+    //remain visible until screen size switches to desktop view
+    &__hamburger {
+        width: f.px-to-rem(40);
+        height: f.px-to-rem(40);
+        font-size: typo.$font-size-lg;
+        border-radius: var.$border-radius-xs;
+        color: th.$text-inverse;
+        background-color: th.$bg-secondary;
+        transition: all 150ms ease;
+        @include mix.responsive-up(lg) {
+            display: none;
+        }
+    }
+
+    //hamburger pop-up menu
+    &__nav-box {
+        @include mix.flex(column, space-between, var.$gap-sm, stretch);
+
+        @include mix.shadow(
+            0px,
+            16px,
+            40px,
+            color.change(c.$black-800, $alpha: 0.16)
+        );
+        position: absolute;
+        flex-wrap: wrap;
+        text-transform: capitalize;
+        width: 7rem;
+        right: 4rem;
+        top: f.px-to-rem(60);
+        padding: var.$padding-xs;
+        color: color.change(c.$black-800, $alpha: 0.5);
+        background-color: color.change(c.$white-100, $alpha: 0.98);
+        border: 1px solid color.change(c.$black-800, $alpha: 0.1);
+        border-radius: var.$border-radius-sm;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateY(f.px-to-rem(-8)) scale(0.98);
+        transform-origin: top right;
+        transition: all 180ms ease;
+        @include mix.responsive-up(md) {
+            @include mix.flex($gap: var.$gap-md);
+
+            flex-wrap: wrap;
+            width: 90%;
+            top: f.px-to-rem(75);
+            left: 7%;
+        }
+        @include mix.responsive-up(lg) {
+            display: none;
+        }
+
+        //hamburger menu pop up on click of button
+        &--active {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            transform: translateY(0) scale(1);
+        }
+    }
+
+    //button inside hamburger pop up menu
+    &__nav-box-btn {
+        display: none; //button remain hidden until hamburger icon is clicked
+        &--active {
+            @include mix.flex;
+
+            flex-wrap: wrap;
+        }
+        @include mix.responsive-up(md) {
+            display: none;
+        }
+    }
+
+    // button inside header container
+    //become visible when view enters tablet or higher view
+    &__btn {
+        display: none;
+        @include mix.responsive-up(md) {
+            @include mix.flex($gap: var.$gap-xs);
+            max-width: f.px-to-rem(220);
+            flex-wrap: wrap;
+        }
+    }
+}
+
+//adding body background
+.body-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3; //header has z index of 2 and we want background to come
+    pointer-events: none;
+    width: f.px-to-rem(272);
+    height: f.px-to-rem(348); //become 500 px in tablet
+    background-color: th.$brand-secondary;
+    opacity: 50%;
+    filter: blur(180px);
+    @include mix.responsive-up(md) {
+        width: f.px-to-rem(400);
+        height: f.px-to-rem(400);
+    }
+}

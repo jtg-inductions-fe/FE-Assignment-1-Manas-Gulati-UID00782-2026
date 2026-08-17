@@ -1,0 +1,345 @@
+//import all necessary files with appropriate namespace
+@use '../abstract/function' as f;
+@use '../themes/light' as th;
+@use '../abstract/mixin' as mix;
+@use '../abstract/color' as c;
+@use 'sass:color';
+@use '../base/typography' as typo;
+@use '../abstract/variables' as var;
+
+//defining layout for backdrop
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: color.change(c.$black-900, $alpha: 0.5);
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    z-index: 3;
+    pointer-events: all;
+    &--active {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+//setting no scroll behavior
+.body--no-scroll {
+    overflow: hidden;
+}
+
+//styling central modal
+.modal {
+    @include mix.flex($direction: column, $space: center, $gap: var.$gap-xs);
+
+    background-color: c.$white-100;
+    inset-block-start: auto;
+    border-radius: var.$border-radius-sm;
+    position: fixed;
+    padding-bottom: var.$padding-lg;
+    padding-top: var.$padding-md;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    z-index: 4;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    width: 90%;
+    max-width: f.px-to-rem(360);
+    max-height: 0;
+    @include mix.responsive-up(md) {
+        top: 50%;
+        left: 50%;
+        inset-block-start: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: var.$border-radius-sm;
+        padding-bottom: var.$padding-xl;
+        padding-top: var.$padding-lg;
+        bottom: auto;
+        max-height: none;
+    }
+    &--active {
+        visibility: visible;
+        opacity: 1;
+        max-height: f.px-to-rem(1000);
+    }
+
+    //setting close button position
+    &__close {
+        position: absolute;
+        top: 0.5rem;
+        right: 0.5rem;
+        padding: var.$padding-xs;
+        background-color: c.$white-100;
+        font-family: typo.$font-family-primary;
+        color: c.$black-800;
+    }
+
+    //styling modal sub heading
+    &__sub-heading {
+        @include mix.flex(
+            $gap: var.$gap-xs,
+            $space: center,
+            $align-item: baseline
+        );
+
+        font-size: f.px-to-rem(14);
+        color: th.$brand-primary;
+        text-transform: uppercase;
+    }
+
+    //styling modal gift icon
+    &__gift-img {
+        width: f.px-to-rem(14);
+        height: f.px-to-rem(14);
+    }
+
+    //styling modal heading
+    &__heading {
+        font-size: typo.$font-size-md;
+        text-transform: capitalize;
+        font-family: typo.$font-family-secondary;
+    }
+
+    //styling modal helper text
+    &__subtitle {
+        color: color.change(c.$black-800, $alpha: 0.5);
+        font-size: f.px-to-rem(14);
+    }
+
+    //setting deals section
+    &__deals {
+        @include mix.flex($direction: column);
+
+        width: 85%;
+        margin: 1rem auto;
+        max-height: 15rem;
+        overflow-y: scroll;
+        display: none;
+        &--active {
+            display: flex;
+        }
+    }
+
+    //styling deal switch button
+    &__deal-switch {
+        @include mix.flex($gap: var.$gap-sm, $space: center);
+        min-width: 85%;
+        max-width: none;
+        padding: var.$padding-xs var.$padding-xl;
+        margin-top: 0.5rem;
+        background-color: th.$bg-primary;
+        border: 1px solid color.change(c.$black-800, $alpha: 0.09);
+        font-weight: typo.$font-semibold;
+        font-size: f.px-to-rem(14);
+    }
+
+    //setting no of deals count div
+    &__deal-count {
+        display: inline-block;
+        background-color: th.$bg-secondary;
+        border-radius: var.$border-radius-full;
+        padding: var.$padding-xs;
+        line-height: 0.7;
+        color: th.$text-inverse;
+        font-size: f.px-to-rem(12);
+        &--hide {
+            display: none;
+        }
+    }
+
+    //setting spin wheel layout section
+    &__spin {
+        @include mix.flex;
+        margin: 1rem 0;
+        position: relative;
+        display: none;
+        &--active {
+            display: flex;
+        }
+    }
+
+    &__spin-loader {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: none;
+        z-index: 4;
+        &--active {
+            display: inline-block;
+        }
+    }
+
+    //designing spinning wheel
+    &__spin-wheel {
+        @include mix.grid(2, $gap: var.$gap-xs);
+        @include mix.shadow(
+            0,
+            0,
+            19px,
+            color.change(c.$black-800, $alpha: 0.2),
+            8px
+        );
+
+        grid-template-rows: repeat(2, 1fr);
+        position: relative;
+        width: f.px-to-rem(240);
+        height: f.px-to-rem(240);
+        border-radius: var.$border-radius-full;
+        border: 0.25rem solid color.change(c.$white-100);
+        overflow: hidden;
+        font-size: typo.$font-size-xs;
+        font-family: typo.$font-family-secondary;
+        font-weight: typo.$font-semibold;
+        text-align: center;
+        transition: all 2.5s ease-in-out;
+        &--disabled {
+            transition: none;
+            background-color: #d6d6d6fa;
+        }
+    }
+    &__spin-quadrant-1 {
+        @include mix.flex($space: center);
+
+        background-color: c.$yellow-400;
+        grid-area: 1/2/2/3;
+    }
+    &__spin-quadrant-2 {
+        @include mix.flex($space: center);
+
+        background-color: c.$purple-400;
+        color: th.$text-inverse;
+        grid-area: 2/2/3/3;
+    }
+    &__spin-quadrant-3 {
+        @include mix.flex($space: center);
+
+        background-color: c.$pink-400;
+        color: th.$text-inverse;
+        grid-area: 2/1/3/2;
+    }
+    &__spin-quadrant-4 {
+        @include mix.flex($space: center);
+
+        background-color: c.$aqua-400;
+        color: th.$text-inverse;
+        grid-area: 1/1/2/2;
+    }
+
+    //styling each quadrant text section
+    &__quadrant-1-text {
+        transform: rotate(45deg);
+        padding-top: var.$padding-sm;
+        max-width: 70%;
+        overflow-wrap: break-word; //to manage text align and overflow issues
+    }
+    &__quadrant-2-text {
+        transform: rotate(135deg);
+        padding-top: var.$padding-sm;
+        max-width: 70%;
+        overflow-wrap: break-word;
+    }
+    &__quadrant-3-text {
+        transform: rotate(-135deg);
+        padding-top: var.$padding-sm;
+        max-width: 70%;
+        overflow-wrap: break-word;
+    }
+    &__quadrant-4-text {
+        transform: rotate(-45deg);
+        padding-top: var.$padding-sm;
+        max-width: 70%;
+        overflow-wrap: break-word;
+    }
+
+    //styling spin button
+    &__spin-btn {
+        width: f.px-to-rem(60);
+        height: f.px-to-rem(60);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: var.$border-radius-full;
+        background-color: th.$bg-primary;
+        border: 3px solid color.change(th.$brand-primary);
+        color: th.$text-secondary;
+        font-size: typo.$font-size-sm;
+        font-family: typo.$font-family-secondary;
+        font-weight: typo.$font-semibold;
+    }
+
+    //setting spin wheel pointer
+    &__spin-pointer {
+        position: absolute;
+        top: -3%;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 4;
+    }
+
+    //setting won reward section
+    &__win {
+        @include mix.flex($direction: column, $gap: var.$gap-xs);
+
+        width: f.px-to-rem(300);
+        font-family: typo.$font-family-secondary;
+        display: none;
+        &--active {
+            display: flex;
+        }
+    }
+
+    //styling reward content
+    &__reward-won-label {
+        font-family: typo.$font-family-secondary;
+    }
+    &__reward-won-expiry {
+        font-size: f.px-to-rem(12);
+        color: th.$bg-secondary;
+    }
+    &__reward-won-code {
+        @include mix.flex;
+    }
+    &__reward-won-promo {
+        border-radius: var.$border-radius-xs;
+        border: 1px solid c.$white-200;
+        padding: var.$padding-xs;
+        font-family: typo.$font-family-tertiary;
+        font-size: f.px-to-rem(11);
+        background-color: th.$bg-primary;
+    }
+
+    //setting copy confirmation text
+    &__code-copied {
+        @include mix.shadow(
+            0,
+            5px,
+            17px,
+            color.change(c.$black-800, $alpha: 0.15)
+        );
+
+        padding: var.$padding-xs;
+        background-color: c.$white-200;
+        border-radius: var.$border-radius-lg;
+        border: 1px solid color.change(c.$black-800, $alpha: 0.09);
+        visibility: hidden;
+        opacity: 0;
+        position: absolute;
+        bottom: -10%;
+        font-size: f.px-to-rem(10);
+        right: 0;
+        transition: all 0.5s ease-in;
+        &--active {
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+}

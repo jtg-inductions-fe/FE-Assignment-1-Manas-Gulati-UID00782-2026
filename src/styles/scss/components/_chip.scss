@@ -1,0 +1,7 @@
+@use '../abstract/mixin' as mix;
+@use '../abstract/variables' as var;
+
+.chip {
+    @include mix.flex;
+    border-radius: var.$border-radius-full;
+}
