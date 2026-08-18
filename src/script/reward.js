@@ -8,20 +8,7 @@ const url =
 let userData = JSON.parse(localStorage.getItem('localUserData'));
 let availableRewards = {};
 let selectedRewards = {};
-
-//if no user data present in local storage, we assume a new user is detected
-if (userData === null) {
-    //initialize blank state for new user
-    userData = {};
-} else {
-    const now = Date.now();
-    //user recognized: fetch the user's existing data and remove deals that user already has access to, to prevent duplicate deals
-    Object.values(userData).forEach((userReward) => {
-        if (userReward.expiryAt > now) {
-            delete availableRewards[userReward.promoCode];
-        }
-    });
-}
+let userDataArray = [];
 
 //selecting all necessary elements
 const header = document.querySelector('.header'); //event delegation for header link: special deals
@@ -137,6 +124,20 @@ async function getDealsData() {
         });
     }
 
+    //if no user data present in local storage, we assume a new user is detected
+    if (userData === null) {
+        //initialize blank state for new user
+        userData = {};
+    } else {
+        const now = Date.now();
+        //user recognized: fetch the user's existing data and remove deals that user already has access to, to prevent duplicate deals
+        Object.values(userData).forEach((userReward) => {
+            if (userReward.expiryAt > now) {
+                delete availableRewards[userReward.promoCode];
+            }
+        });
+    }
+
     //add backdrop to body when special deals is clicked
     header.addEventListener('click', (e) => {
         if (e.target.className === 'special-deals') {
@@ -162,6 +163,13 @@ async function getDealsData() {
     //setting deal count
     let totalDeals = Object.keys(userData).length;
     dealCount.textContent = totalDeals;
+
+    //adding data to deals section
+    userDataArray = Object.values(userData);
+    userDataArray.sort((a, b) => a.expiryAt - b.expiryAt);
+    userDataArray.forEach((deal) => {
+        addToDeals(userData[deal.promoCode].expiryAt, deal);
+    });
 }
 getDealsData();
 
@@ -192,13 +200,6 @@ dealSwitch.addEventListener('click', () => {
     } else {
         dealSwitchContent.textContent = 'View All Unlocked Deals';
     }
-});
-
-//adding data to deals section
-let userDataArray = Object.values(userData);
-userDataArray.sort((a, b) => a.expiryAt - b.expiryAt);
-userDataArray.forEach((deal) => {
-    addToDeals(userData[deal.promoCode].expiryAt, deal);
 });
 
 //add spin functionality
