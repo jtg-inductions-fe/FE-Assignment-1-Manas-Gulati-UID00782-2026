@@ -4,22 +4,10 @@ const totalQuadrants = 4;
 //fetching data
 const url =
     'https://gist.githubusercontent.com/ameer-wajid-ali/1f29ebee4295cede36f8d74b45e576df/raw/122966c9a123861249f173911d8d93a76dc06d7a/';
-let data;
-try {
-    data = await getData(url);
-} catch (e) {
-    alert(e.message);
-}
+
 let userData = JSON.parse(localStorage.getItem('localUserData'));
 let availableRewards = {};
 let selectedRewards = {};
-
-//create a copy of all deals with promocode acting as primary key for this object
-if (data) {
-    Object.values(data).forEach((reward) => {
-        availableRewards[reward.promoCode] = reward;
-    });
-}
 
 //if no user data present in local storage, we assume a new user is detected
 if (userData === null) {
@@ -140,25 +128,42 @@ function promoCopy(container, e) {
     }
 }
 
-//add backdrop to body when special deals is clicked
-header.addEventListener('click', (e) => {
-    if (e.target.className === 'special-deals') {
-        e.preventDefault(); //stops reload of page: prevent a tags default behavior
-        //make scroll disable
-        backdrop.classList.add('backdrop--active');
-        body.classList.add('body--no-scroll');
-        //make modal visible
-        modal.showModal();
-        modal.classList.add('modal--active');
-        modal.setAttribute('aria-label', 'Spin wheel close');
-        if (!data) {
-            spinLoader.classList.add('modal__spin-loader--active');
-            spinWheel.textContent = '';
-            spinPointer.style.filter = 'grayscale(1)';
-            spinWheel.classList.add('modal__spin-wheel--disabled');
-        }
+async function getDealsData() {
+    const data = await getData(url);
+    //create a copy of all deals with promocode acting as primary key for this object
+    if (data) {
+        Object.values(data).forEach((reward) => {
+            availableRewards[reward.promoCode] = reward;
+        });
     }
-});
+
+    //add backdrop to body when special deals is clicked
+    header.addEventListener('click', (e) => {
+        if (e.target.className === 'special-deals') {
+            e.preventDefault(); //stops reload of page: prevent a tags default behavior
+            //make scroll disable
+            backdrop.classList.add('backdrop--active');
+            body.classList.add('body--no-scroll');
+            //make modal visible
+            modal.showModal();
+            modal.classList.add('modal--active');
+            modal.setAttribute('aria-label', 'Spin wheel close');
+            if (!data) {
+                spinLoader.classList.add('modal__spin-loader--active');
+                spinWheel.textContent = '';
+                spinPointer.style.filter = 'grayscale(1)';
+                spinWheel.classList.add('modal__spin-wheel--disabled');
+            }
+        }
+    });
+    //function call to select random deals for first time after refresh
+    randomSelection();
+
+    //setting deal count
+    let totalDeals = Object.keys(userData).length;
+    dealCount.textContent = totalDeals;
+}
+getDealsData();
 
 //close modal when close button is clicked
 closeModal.addEventListener('click', () => {
@@ -188,13 +193,6 @@ dealSwitch.addEventListener('click', () => {
         dealSwitchContent.textContent = 'View All Unlocked Deals';
     }
 });
-
-//function call to select random deals for first time after refresh
-randomSelection();
-
-//setting deal count
-let totalDeals = Object.keys(userData).length;
-dealCount.textContent = totalDeals;
 
 //adding data to deals section
 let userDataArray = Object.values(userData);
@@ -270,6 +268,7 @@ spinBtn.addEventListener('click', () => {
 
     userDataArray = Object.values(userData);
     userDataArray.sort((a, b) => a.expiryAt - b.expiryAt);
+    deals.innerHTML = '';
     userDataArray.forEach((deal) => {
         addToDeals(userData[deal.promoCode].expiryAt, deal);
     });

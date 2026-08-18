@@ -83,11 +83,15 @@ export function setTemplate(clone, info, expiry) {
         info.promoCode;
 }
 
-//fetching data
+//main data
 let url = './content.json';
-export let data;
-try {
-    data = await getData(url);
-} catch (e) {
-    alert(e.message);
+
+export async function loadData() {
+    try {
+        let data = await getData(url);
+        return data;
+    } catch (e) {
+        alert(e.message);
+        return;
+    }
 }
