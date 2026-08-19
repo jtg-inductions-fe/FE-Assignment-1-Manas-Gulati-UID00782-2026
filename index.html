@@ -16,11 +16,6 @@
                 >
                     <i class="icon-menu"></i>
                 </button>
-                <a href="#" class="header__logo">
-                    <img src="/assets/images/logo.webp" alt="Brand Logo" />
-                </a>
-                <nav class="header__nav-link nav-link-2"></nav>
-                <!--data fetched from context.json-->
                 <nav class="header__nav-box nav-link-2">
                     <!--data fetched from context.json-->
                     <div class="header__nav-box-btn">
@@ -34,6 +29,11 @@
                         ></button>
                     </div>
                 </nav>
+                <a href="#" class="header__logo">
+                    <img src="/assets/images/logo.webp" alt="Brand Logo" />
+                </a>
+                <nav class="header__nav-link nav-link-2"></nav>
+                <!--data fetched from context.json-->
                 <div class="header__btn">
                     <!--data fetched from context.json-->
                     <button
@@ -558,27 +558,27 @@
                 </section>
 
                 <section
-                    class="footer__accordion"
+                    class="footer__accordion accordian"
                     aria-label="Footer navigation"
                 >
                     <div class="footer__details">
                         <button
-                            class="footer__accordion-trigger"
+                            class="footer__accordion-trigger accordion__trigger"
                             type="button"
                             aria-expanded="false"
                             aria-label="Company list open"
                         >
                             <span
-                                class="footer__accordion-heading main-heading-1"
+                                class="footer__accordion-heading main-heading-1 accordion__heading"
                                 >Company</span
                             >
                             <i
-                                class="icon-circle-down footer__accordion-icon"
+                                class="icon-circle-down footer__accordion-icon accordion__icon"
                                 aria-hidden="true"
                             ></i>
                         </button>
                         <ul
-                            class="footer__accordion-list nav-link-2"
+                            class="footer__accordion-list nav-link-2 accordion__list"
                             id="footer-company-list"
                         >
                             <!-- href links not configured for now because of lack of information
@@ -591,22 +591,22 @@
 
                     <div class="footer__details">
                         <button
-                            class="footer__accordion-trigger"
+                            class="footer__accordion-trigger accordion__trigger"
                             type="button"
                             aria-expanded="false"
                             aria-label="Contact list open"
                         >
                             <span
-                                class="footer__accordion-heading main-heading-1"
+                                class="footer__accordion-heading main-heading-1 accordion__heading"
                                 >Contact</span
                             >
                             <i
-                                class="icon-circle-down footer__accordion-icon"
+                                class="icon-circle-down footer__accordion-icon accordion__icon"
                                 aria-hidden="true"
                             ></i>
                         </button>
                         <ul
-                            class="footer__accordion-list nav-link-2"
+                            class="footer__accordion-list nav-link-2 accordion__list"
                             id="footer-contact-list"
                         >
                             <!-- href links not configured for now because of lack of information
@@ -620,22 +620,22 @@
 
                     <div class="footer__details">
                         <button
-                            class="footer__accordion-trigger"
+                            class="footer__accordion-trigger accordion__trigger"
                             type="button"
                             aria-expanded="false"
                             aria-label="Meet Us list open"
                         >
                             <span
-                                class="footer__accordion-heading main-heading-1"
+                                class="footer__accordion-heading main-heading-1 accordion__heading"
                                 >Meet Us</span
                             >
                             <i
-                                class="icon-circle-down footer__accordion-icon"
+                                class="icon-circle-down footer__accordion-icon accordion__icon"
                                 aria-hidden="true"
                             ></i>
                         </button>
                         <ul
-                            class="footer__accordion-list nav-link-2"
+                            class="footer__accordion-list nav-link-2 accordion__list"
                             id="footer-meet-list"
                         >
                             <!-- href links not configured for now because of lack of information
@@ -658,10 +658,5 @@
             </footer>
         </div>
         <script type="module" src="./src/script/index.js"></script>
-        <script type="module" src="./src/script/header.js"></script>
-        <script type="module" src="./src/script/hero.js"></script>
-        <script type="module" src="./src/script/service.js"></script>
-        <script type="module" src="./src/script/footer.js"></script>
-        <script type="module" src="./src/script/reward.js"></script>
     </body>
 </html>

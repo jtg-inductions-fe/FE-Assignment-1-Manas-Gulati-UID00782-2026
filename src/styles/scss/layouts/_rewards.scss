@@ -35,12 +35,11 @@
 .modal {
     @include mix.flex($direction: column, $space: center, $gap: var.$gap-xs);
 
-    background-color: c.$white-100;
+    background-color: th.$bg-primary;
     inset-block-start: auto;
     border-radius: var.$border-radius-sm;
     position: fixed;
-    padding-bottom: var.$padding-lg;
-    padding-top: var.$padding-md;
+    padding: var.$padding-md 0 var.$padding-lg;
     visibility: hidden;
     opacity: 0;
     transition: all 0.3s ease-in-out;
@@ -55,12 +54,10 @@
     max-height: 0;
     @include mix.responsive-up(md) {
         top: 50%;
-        left: 50%;
         inset-block-start: 50%;
         transform: translate(-50%, -50%);
         border-radius: var.$border-radius-sm;
-        padding-bottom: var.$padding-xl;
-        padding-top: var.$padding-lg;
+        padding: var.$padding-lg 0 var.$padding-xl;
         bottom: auto;
         max-height: none;
     }
@@ -130,6 +127,7 @@
     //styling deal switch button
     &__deal-switch {
         @include mix.flex($gap: var.$gap-sm, $space: center);
+
         min-width: 85%;
         max-width: none;
         padding: var.$padding-xs var.$padding-xl;
