@@ -1,4 +1,4 @@
-import { setTemplate, getData, copyText } from './index.js';
+import { setTemplate, getData, copyText } from './utils.js';
 const totalQuadrants = 4;
 
 //fetching data

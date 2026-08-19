@@ -1,18 +1,19 @@
 //selecting necessary elements
-const accordionButton = document.querySelectorAll('.footer__accordion-trigger');
+const accordionButton = document.querySelectorAll('.accordion__trigger');
+const viewPort = window.matchMedia('(min-width: 540px)');
 
 //append a footer list on clicking a button and changes its necessary attributes accordingly
 accordionButton.forEach((button) => {
-    const icon = button.querySelector('.footer__accordion-icon');
+    const icon = button.querySelector('.accordion__icon');
     const accordionList = button.nextElementSibling;
     button.addEventListener('click', () => {
-        icon.classList.toggle('footer__accordion-icon--rotate');
-        accordionList.classList.toggle('footer__accordion-list--open');
+        icon.classList.toggle('accordion__icon--rotate');
+        accordionList.classList.toggle('accordion__list--open');
 
         //reverse aria expanded value and set appropriate aria label
         let expand = button.getAttribute('aria-expanded');
         let ariaLabel;
-        const heading = button.querySelector('.footer__accordion-heading');
+        const heading = button.querySelector('.accordion__heading');
         if (expand == 'true') {
             button.setAttribute('aria-expanded', false);
             ariaLabel = `${heading.textContent} list open`;
@@ -23,3 +24,12 @@ accordionButton.forEach((button) => {
         button.setAttribute('aria-label', ariaLabel);
     });
 });
+
+function changeTabFocus() {
+    accordionButton.forEach((button) => {
+        button.setAttribute('tabindex', viewPort.matches ? '-1' : '0');
+    });
+}
+
+viewPort.addEventListener('change', changeTabFocus);
+changeTabFocus();

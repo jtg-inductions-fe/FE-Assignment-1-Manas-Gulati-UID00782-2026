@@ -1,0 +1,66 @@
+//import all necessary files with appropriate namespace
+@use '../abstract/function' as f;
+@use '../abstract/mixin' as mix;
+@use '../abstract/color' as c;
+@use '../base/typography' as typo;
+@use '../themes/light' as th;
+@use 'sass:color';
+@use '../abstract/variables' as var;
+
+//defining styling for parent accordion container
+.accordion {
+    //setting accordion button styling
+    &__trigger {
+        @include mix.flex;
+
+        width: 100%;
+        padding: var.$padding-md 0;
+        background-color: th.$bg-primary;
+        color: th.$text-primary;
+        cursor: pointer;
+        @include mix.responsive-up(md) {
+            cursor: default;
+            pointer-events: none;
+            padding: 0;
+        }
+    }
+
+    //styling accordion heading
+    &__heading {
+        font-size: f.px-to-rem(20px);
+    }
+
+    //setting accordion dropdown icon
+    &__icon {
+        transition: transform 250ms ease;
+        @include mix.responsive-up(md) {
+            display: none;
+        }
+        &--rotate {
+            transform: rotate(180deg);
+        }
+    }
+
+    //setting accordion list
+    &__list {
+        max-height: 0;
+        visibility: hidden;
+        opacity: 0;
+        color: color.change(c.$black-800, $alpha: 0.75);
+        transition: all 200ms ease;
+        @include mix.responsive-up(md) {
+            visibility: visible;
+            opacity: 1;
+            max-height: none;
+        }
+        &--open {
+            visibility: visible;
+            opacity: 1;
+            max-height: 1000px; //max-height is used to smooth the collapse animation
+        }
+    }
+
+    &__list > li {
+        margin-top: 1rem;
+    }
+}

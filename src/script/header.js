@@ -1,4 +1,4 @@
-import { loadData, append } from './index.js';
+import { loadData, append } from './utils.js';
 
 //selecting necessary elements
 const navBox = document.querySelector('.header__nav-box');
@@ -7,6 +7,8 @@ const btnPrimary = document.querySelectorAll('.header__btn-primary');
 const btnSecondary = document.querySelectorAll('.header__btn-secondary');
 const menu = document.querySelector('.header__hamburger');
 const btnBox = document.querySelector('.header__nav-box-btn');
+const headerLogo = document.querySelector('.header__logo');
+const viewPort = window.matchMedia('(max-width: 540px)');
 
 //fetching data
 async function header() {
@@ -40,3 +42,10 @@ menu.addEventListener('click', () => {
         menu.setAttribute('aria-label', 'Menu Opened');
     }
 });
+
+function changeTabFocus() {
+    headerLogo.setAttribute('tabindex', viewPort.matches ? '1' : '0');
+}
+
+viewPort.addEventListener('change', changeTabFocus);
+changeTabFocus();

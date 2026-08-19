@@ -1,4 +1,4 @@
-import { loadData, addText } from './index.js';
+import { loadData, addText } from './utils.js';
 
 //Adding Heading
 const template = document.querySelector('#hero-content-heading-template');

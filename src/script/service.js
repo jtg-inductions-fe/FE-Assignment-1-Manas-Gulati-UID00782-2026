@@ -1,4 +1,4 @@
-import { loadData, addText } from './index.js';
+import { loadData, addText } from './utils.js';
 
 const template = document.querySelector('#card-layout-template');
 const container = document.querySelector('.service__card-layout');
